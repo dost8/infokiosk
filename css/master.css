@@ -2,3 +2,40 @@ body{
   background: url('../images/bg.png') no-repeat center center fixed;
   background-size: cover;
 }
+
+.menu{
+  color:white;
+  position: fixed;
+  margin-left: 3%;
+  margin-top: 3%;
+  width: 5%;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.menu:hover{
+  background: rgba(255, 255, 255, 0.31)
+}
+
+.menu-button{
+  text-align: center;
+  color: white;
+  width:21%;
+}
+.menu-button:hover{
+  background: rgba(255, 255, 255, 0.31)
+}
+.menu-button img{
+  width: 80%;
+  height: 12%;
+}
+.menu-button p{
+  font-weight: bolder;
+}
+
+.view{
+  height: 83%;
+  width: 94%;
+  position: fixed;
+  top: 13%;
+  left: 3%;
+}

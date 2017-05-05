@@ -39,3 +39,13 @@ body{
   top: 13%;
   left: 3%;
 }
+
+/*Organization*/
+.org-block{
+  position: absolute;
+  background: red;
+  width: 7.1%;
+  height: 7.1%;
+  border-radius: 18px;
+  word-wrap: break-word;
+}

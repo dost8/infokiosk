@@ -40,3 +40,17 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="prompt_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Prompt Modal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row" style="text-align:center">
+          <p>Cancel Current Activity?</p>
+          <button class="btn" type="button" name="button" onclick="continueTask(false)">Yes</button>
+          <button class="btn" type="button" name="button" onclick="continueTask(true)">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,8 +9,8 @@ function toggleMenu(){
   $('#menu_modal').modal('toggle');
 }
 
-function promptUser(let interrupt = false){
-  if(interrupt){
+$('.menu-button').click(function(){
+  if( !$('#prompt').val() == "" ){
     event.preventDefault();
     $('#prompt_modal').modal('toggle');
 
@@ -19,8 +19,10 @@ function promptUser(let interrupt = false){
     }else{
       toggleMenu();
     }
+  }else{
+    toggleMenu();
   }
-}
+});
 
 function continueTask(check){
   return check;
@@ -33,5 +35,8 @@ app.config(function($routeProvider){
   $routeProvider
   .when('/laboratory',{
     templateUrl : 'laboratory/index.php'
-  });
+  })
+  .when('/organization',{
+    templateUrl : 'organization/index.php'
+  })
 })

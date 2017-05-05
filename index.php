@@ -21,7 +21,7 @@
     <div class="menu" onclick="toggleMenu()">
       <img src="images/clipart/menu.png" alt="" height="50"> Menu
     </div>
-
+    <input type="hidden" id="prompt" name="" value="">
     <div class="view" ng-view>
 
     </div>

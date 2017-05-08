@@ -54,3 +54,12 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="orgProfile_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Organization view profile">
+  <div class="modal-dialog modal-md" style="margin-top:15%;">
+    <div class="modal-content" style="background:rgb(196,196,196);min-height:20%">
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>

@@ -27,6 +27,22 @@ $('.menu-button').click(function(){
 function continueTask(check){
   return check;
 }
+// Display profile in the organization
+$(document).on('click','.org-block',function(){
+  $('#orgProfile_modal .modal-body').empty();
+  $.each( $(this).children('span'), function(){
+    var data = $(this).text().split('//');
+    var appendThis =
+    appendThis += "<div class='frame'style=''>strinsg</div>"
+    // var appendThis = "<div class='frame'><img src='images/profile"+data[2]+".png'></div>"
+    // appendThis += "<span class='name'>"+data[1]+"</span>"
+    // appendThis += "<span>"+data[0]+"</span>"
+
+    $('#orgProfile_modal .modal-body').append(appendThis)
+  });
+
+  $('#orgProfile_modal').modal('toggle');
+});
 
 // Angular controller
 var app = angular.module("myApp", ['ngRoute']);

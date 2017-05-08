@@ -43,9 +43,15 @@ body{
 /*Organization*/
 .org-block{
   position: absolute;
-  background: red;
   width: 7.1%;
   height: 7.1%;
   border-radius: 18px;
   word-wrap: break-word;
+}
+.org-block span{
+  display: none;
+}
+#orgProfile_modal .frame{
+  background: url(../images/clipart/frame.png);
+  background-size: 200px 200px;
 }

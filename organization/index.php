@@ -3,7 +3,7 @@
   <?php
     $positions = [
       #[x,y,title,job title[],name[],initials[]]
-      [49.6, 1.4, 'Regional Director',['Regional Director','a'],['EDGARDO M. ESPERANCILLA, CESO II','a'],['eme','a ']],
+      [49.6, 1.4, 'Regional Director',['Regional Director'],['EDGARDO M. ESPERANCILLA, CESO II'],['eme']],
     //  [41.4, 4,''],
     //  [57.7,4],
       // FAS

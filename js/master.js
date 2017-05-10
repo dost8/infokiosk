@@ -32,8 +32,10 @@ $(document).on('click','.org-block',function(){
   $('#orgProfile_modal .modal-body').empty();
   $.each( $(this).children('span'), function(){
     var data = $(this).text().split('//');
-    var appendThis =
-    appendThis += "<div class='frame'style=''>strinsg</div>"
+    var appendThis = "<div class='block'>"
+     appendThis += "<div class='profile_name'></div>"
+     appendThis += "<div class='frame'style=''><img src='images/profile/"+data[2]+".jpg'></div>"
+     appendThis += "</div>"
     // var appendThis = "<div class='frame'><img src='images/profile"+data[2]+".png'></div>"
     // appendThis += "<span class='name'>"+data[1]+"</span>"
     // appendThis += "<span>"+data[0]+"</span>"

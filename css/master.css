@@ -51,7 +51,28 @@ body{
 .org-block span{
   display: none;
 }
+#orgProfile_modal .block{
+  height: 27%;
+  margin-top: -10%;
+}
 #orgProfile_modal .frame{
   background: url(../images/clipart/frame.png);
   background-size: 200px 200px;
+  width: 33%;
+  height: 60%;
+  position: absolute;
+  margin-top: -30%;
+}
+#orgProfile_modal .frame img{
+  height: 63.5%;
+  width: 47.5%;
+  margin-top: 25%;
+  margin-left: 26%;
+}
+#orgProfile_modal .profile_name{
+  background: rgb(69,69,71);
+  width: 75%;
+  height: 45%;
+  margin-top: 20%;
+  margin-left:20%;
 }

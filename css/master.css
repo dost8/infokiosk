@@ -47,32 +47,31 @@ body{
   height: 7.1%;
   border-radius: 18px;
   word-wrap: break-word;
+  color: white;
 }
 .org-block span{
   display: none;
 }
 #orgProfile_modal .block{
-  height: 27%;
-  margin-top: -10%;
+  height: 38%;
+  width: 135%;
+  margin-left: -18%;  margin-top: -11%;
+  background: url('../images/frame.png') no-repeat;
+  background-size: cover;
 }
-#orgProfile_modal .frame{
-  background: url(../images/clipart/frame.png);
-  background-size: 200px 200px;
-  width: 33%;
-  height: 60%;
-  position: absolute;
-  margin-top: -30%;
+
+#orgProfile_modal img{
+  height: 43%; width: 13%;
+  margin-top: 13.6%;  margin-left: 19.6%;
 }
-#orgProfile_modal .frame img{
-  height: 63.5%;
-  width: 47.5%;
-  margin-top: 25%;
-  margin-left: 26%;
+
+#orgProfile_modal .name{
+  margin-top: -10%; margin-left: 22%;
+  color:white;
+  text-align: center;
+  font-size: 15px;
 }
-#orgProfile_modal .profile_name{
-  background: rgb(69,69,71);
-  width: 75%;
-  height: 45%;
-  margin-top: 20%;
-  margin-left:20%;
+#orgProfile_modal .name > :first-child{
+  font-size: 20px;
+  font-weight: bolder;
 }

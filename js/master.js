@@ -27,18 +27,25 @@ $('.menu-button').click(function(){
 function continueTask(check){
   return check;
 }
+
+// Opening external websites inside iframe
+function openLink(url){
+  event.preventDefault();
+  $('#iframe_modal iframe').attr('src',url);
+  $('#iframe_modal').modal('toggle');
+}
+
 // Display profile in the organization
 $(document).on('click','.org-block',function(){
   $('#orgProfile_modal .modal-body').empty();
   $.each( $(this).children('span'), function(){
     var data = $(this).text().split('//');
     var appendThis = "<div class='block'>"
-     appendThis += "<div class='profile_name'></div>"
-     appendThis += "<div class='frame'style=''><img src='images/profile/"+data[2]+".jpg'></div>"
-     appendThis += "</div>"
-    // var appendThis = "<div class='frame'><img src='images/profile"+data[2]+".png'></div>"
-    // appendThis += "<span class='name'>"+data[1]+"</span>"
-    // appendThis += "<span>"+data[0]+"</span>"
+    appendThis += "<img src='images/profile/"+data[2]+".jpg'>"
+    appendThis += "<div class='name'>"
+    appendThis += "<p>"+data[1]+"</p>"
+    appendThis += "<p>"+data[0]+"</p>"
+    appendThis += "</div></div>"
 
     $('#orgProfile_modal .modal-body').append(appendThis)
   });
@@ -56,5 +63,8 @@ app.config(function($routeProvider){
   })
   .when('/organization',{
     templateUrl : 'organization/index.php'
+  })
+  .when('/technology',{
+    templateUrl : 'technology/index.php'
   })
 })

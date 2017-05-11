@@ -56,7 +56,7 @@
     foreach ($positions as $value): ?>
       <a href="#" onclick="event.preventDefault()">
         <div class="org-block" style="margin-left:<?= $value[0] ?>%;margin-top:<?= $value[1] ?>%">
-          <p><?=$value[2]?></p>
+          <p style='margin-top:16px'><?=$value[2]?></p>
           <?php for ($i=0; $i < count($value[3]); $i++) {
             echo "<span type='hidden'>".$value[3][$i].'//'.$value[4][$i].'//'.$value[5][$i]."</span>";
           } ?>

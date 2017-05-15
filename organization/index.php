@@ -4,8 +4,8 @@
     $positions = [
       #[x,y,title,job title[],name[],initials[]]
       [49.6, 1.4, 'Regional Director',['Regional Director'],['EDGARDO M. ESPERANCILLA, CESO II'],['eme']],
-    //  [41.4, 4,''],
-    //  [57.7,4],
+      [41.4, 4,'Secretary',['Secretary'],['JEAN GAY O. RAGUB'],['jgr']],
+      //[57.7,4,'COA Audit Team'],
       // FAS
       // [27.2,6.7],
       // [19.85,8.8],
@@ -56,7 +56,7 @@
     foreach ($positions as $value): ?>
       <a href="#" onclick="event.preventDefault()">
         <div class="org-block" style="margin-left:<?= $value[0] ?>%;margin-top:<?= $value[1] ?>%">
-          <p style='margin-top:16px'><?=$value[2]?></p>
+          <p style='margin-top:5px'><?=$value[2]?></p>
           <?php for ($i=0; $i < count($value[3]); $i++) {
             echo "<span type='hidden'>".$value[3][$i].'//'.$value[4][$i].'//'.$value[5][$i]."</span>";
           } ?>

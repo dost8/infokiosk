@@ -20,7 +20,7 @@
   }
   .tech_div > p{
     font-size: 60px;
-    font-weight: bold;
+    font-weight: bold;index
     font-family: Arial;
   }
 
@@ -36,3 +36,10 @@
     <p>VSU - VICAARP Technology</p>
   </div>
 </a>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.headName span').text('Technology')
+    $('.headName img').attr('src','images/clipart/technology.png')
+  })
+</script>

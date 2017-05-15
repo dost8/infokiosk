@@ -58,9 +58,9 @@
 <div class="modal fade" id="orgProfile_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Organization view profile">
   <div class="modal-dialog modal-lg" style="margin-top:10%;width:40%">
     <div class="modal-content" style="background:rgb(196,196,196);min-height:20%">
-      <div class="modal-header">
-        <button type="button" class="close">
-          <span aria-hidden="true">&times;</span>
+      <div class="modal-header" style="border-bottom:none">
+        <button type="button" class="close" data-dismiss="modal" aria-label style="opacity:1">
+          <img src="images/clipart/close.png" alt="">
         </button>
       </div>
       <div class="modal-body">
@@ -105,11 +105,31 @@
     min-width: 100%;
     min-height: 100%;
   }
+  #iframe_modal .links{
+    height: 10%;  width: 40%;
+    position: absolute;
+    left: 33%; bottom:1%;
+  }
+  #iframe_modal .links img{
+    height: 90%;
+    margin-left: 10%;
+  }
 </style>
 <div class="modal fade" id="iframe_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Iframe for outside links">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <iframe src=""  style="overflow:auto"></iframe>
+      <iframe class="iframe" src=""  style="overflow:auto"></iframe>
     </div>
+  </div>
+  <div class="links">
+    <a href="#" onclick="backLink()">
+      <img src="images/clipart/back.png" alt="Back">
+    </a>
+    <a href="#">
+      <img src="images/clipart/home.png" alt="Home">
+    </a>
+    <a href="#">
+      <img src="images/clipart/refresh.png" alt="Refresh">
+    </a>
   </div>
 </div>

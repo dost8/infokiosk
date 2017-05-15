@@ -17,10 +17,16 @@
     <script type="text/javascript" src="js/master.js" ></script>
   </head>
   <body ng-app="myApp">
-
-    <div class="menu" onclick="toggleMenu()">
-      <img src="images/clipart/menu.png" alt="" height="50"> Menu
+    <div class="row">
+      <div class="menu" onclick="toggleMenu()">
+        <img src="images/clipart/menu.png" alt="" height="50"> Menu
+      </div>
+      <div class="headName">
+        <img src="">
+        <span></span>
+      </div>
     </div>
+
     <input type="hidden" id="prompt" name="" value="">
     <div class="view" ng-view>
 

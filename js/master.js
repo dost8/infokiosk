@@ -5,6 +5,8 @@
   // }, 3500);
 })();
 
+// Load cheerio
+
 function toggleMenu(){
   $('#menu_modal').modal('toggle');
 }
@@ -31,8 +33,18 @@ function continueTask(check){
 // Opening external websites inside iframe
 function openLink(url){
   event.preventDefault();
-  $('#iframe_modal iframe').attr('src',url);
-  $('#iframe_modal').modal('toggle');
+  // $('#iframe_modal iframe').attr('src',url);
+  // $('#iframe_modal').modal('toggle');
+}
+
+// for the iframes
+function backLink(){
+  console.log( $('.iframe') );
+  event.preventDefault()
+}
+
+$.fn.closeModal = function(){
+  alert('close this')
 }
 
 // Display profile in the organization
@@ -41,7 +53,7 @@ $(document).on('click','.org-block',function(){
   $.each( $(this).children('span'), function(){
     var data = $(this).text().split('//');
     var appendThis = "<div class='block'>"
-    appendThis += "<img src='images/profile/"+data[2]+".jpg'>"
+    //appendThis += "<img src='images/profile/"+data[2]+".jpg'>"
     appendThis += "<div class='name'>"
     appendThis += "<p>"+data[1]+"</p>"
     appendThis += "<p>"+data[0]+"</p>"

@@ -50,19 +50,26 @@ $.fn.closeModal = function(){
 // Display profile in the organization
 $(document).on('click','.org-block',function(){
   $('#orgProfile_modal .modal-body').empty();
+  var i = 1;
+  var notClick = false;
   $.each( $(this).children('span'), function(){
     var data = $(this).text().split('//');
     var appendThis = "<div class='block'>"
-    //appendThis += "<img src='images/profile/"+data[2]+".jpg'>"
     appendThis += "<div class='name'>"
     appendThis += "<p>"+data[1]+"</p>"
-    appendThis += "<p>"+data[0]+"</p>"
-    appendThis += "</div></div>"
+    appendThis += "<p>"+data[0]+"</p></div>"
+    appendThis += "<img class='frame' src='images/frame.png'>"
+    appendThis += "<img src='images/profile/"+data[1]+".jpg' class='pp'>"
+    appendThis += "</div>"
 
     $('#orgProfile_modal .modal-body').append(appendThis)
+    if(data[2] == 'true'){
+      notClick = true;
+    }
   });
-
-  $('#orgProfile_modal').modal('toggle');
+  if(!notClick){
+    $('#orgProfile_modal').modal('toggle');
+  }
 });
 
 // Angular controller
@@ -78,5 +85,8 @@ app.config(function($routeProvider){
   })
   .when('/technology',{
     templateUrl : 'technology/index.php'
+  })
+  .when('/about',{
+    templateUrl : 'about.php'
   })
 })

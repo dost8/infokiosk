@@ -8,7 +8,7 @@
   .tech_div{
     height: 30%;
     width: 70%;
-    margin-left: 20%;
+    margin-left: 15%;
     margin-top: 3%;
     background: rgba(0, 0, 0, 0.82);
     border-radius: 5px;
@@ -31,7 +31,7 @@
   </div>
 </a>
 
-<a href="http://vicaarp.vsu.edu.ph/tpdonline/" target="_blank" class="tech_link" onclick="openLink('http://vicaarp.vsu.edu.ph/tpdonline/')">
+<a href="http://vicaarp.vsu.edu.ph/tpdonline/" target="_blank" class="tech_link">
   <div class="tech_div">
     <p>VSU - VICAARP Technology</p>
   </div>

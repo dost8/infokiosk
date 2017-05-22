@@ -31,10 +31,11 @@ function continueTask(check){
 }
 
 // Opening external websites inside iframe
-function openLink(url){
-  event.preventDefault();
-  // $('#iframe_modal iframe').attr('src',url);
-  // $('#iframe_modal').modal('toggle');
+function openLink(url, parentFrame){
+  var parentFrame = $(parentFrame+' iframe').parent();
+  $(parentFrame).html('');
+  $(parentFrame).append('<iframe src="'+url+'" style="min-height:100%;min-width:100%"></iframe>')
+//  $(parentFrame+' iframe').attr('src',url)
 }
 
 // for the iframes

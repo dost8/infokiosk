@@ -69,24 +69,49 @@
   </div>
 </div>
 
+<style media="screen">
+  #dostTech_modal .modal-dialog{
+    width: 79%;
+  }
+  #dostTech_modal .modal-content{
+    margin-top: 100px;
+    height: 80%;
+    background: none;
+  }
+  #dostTech_modal .pdf-block{
+    margin-bottom: 30px;
+  }
+  #dostTech_modal .pdf-block img{
+    width: 76;
+    border: 5px solid white;
+  }
+</style>
 <div class="modal fade" id="dostTech_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Modal view for DOST Technologies">
-  <div class="modal-dialog modal-md">
+  <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label>
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+      <div class="modal-body container">
         <div class="row">
-          <div class="link_block">
-            string....
+          <div class="col-sm-2" style="height:100%;">
+            <div class="pdf-block" onclick="openLink('technology/agricultural-productivity.pdf','#dostTech_modal')">
+              <img src="technology/ap.png" alt="">
+            </div>
+            <div class="pdf-block" onclick="openLink('technology/industry-competitiveness.pdf','#dostTech_modal')">
+              <img src="technology/ic.png" alt="">
+            </div>
+            <div class="pdf-block" onclick="openLink('technology/country-development.pdf','#dostTech_modal')">
+              <img src="technology/cd.png" alt="">
+            </div>
+            <div class="pdf-block" onclick="openLink('technology/environment-and-disaster-risk-reduction.pdf','#dostTech_modal')">
+              <img src="technology/edrr.png" alt="">
+            </div>
+            <div class="pdf-block" onclick="openLink('technology/quality-healthcare.pdf','#dostTech_modal')">
+              <img src="technology/qh.png" alt="">
+            </div>
           </div>
-          <div class="link_block">
-            string 1....
-          </div>
-          <div class="link_block">
-            string 2....
+          <div class="col-lg-9" style="height:95%;">
+            <object type="application/pdf" data="technology/quality-healthcare.pdf">
+
+            </object>
           </div>
         </div>
       </div>
@@ -118,18 +143,9 @@
 <div class="modal fade" id="iframe_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Iframe for outside links">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <iframe class="iframe" src=""  style="overflow:auto"></iframe>
+      <div class="modal-body">
+
+      </div>
     </div>
-  </div>
-  <div class="links">
-    <a href="#" onclick="backLink()">
-      <img src="images/clipart/back.png" alt="Back">
-    </a>
-    <a href="#">
-      <img src="images/clipart/home.png" alt="Home">
-    </a>
-    <a href="#">
-      <img src="images/clipart/refresh.png" alt="Refresh">
-    </a>
   </div>
 </div>

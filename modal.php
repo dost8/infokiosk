@@ -108,9 +108,10 @@
               <img src="technology/qh.png" alt="">
             </div>
           </div>
-          <div class="col-lg-9" style="height:95%;">
-            <object type="application/pdf" data="technology/quality-healthcare.pdf">
-
+          <div class="col-lg-9 div-frame" style="height:95%;width:83%;">
+            <img src="technology/cover-photo.png" style="height:100%;">
+            <!-- <iframe src="technology/cover-photo.png#view=fit" style="min-height:100%;min-width:100%;"></iframe> -->
+            <!-- <object type="technology/environment-and-disaster-risk-reduction.pdf" data="https://"> -->
             </object>
           </div>
         </div>

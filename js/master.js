@@ -31,11 +31,14 @@ function continueTask(check){
 }
 
 // Opening external websites inside iframe
-function openLink(url, parentFrame){
-  var parentFrame = $(parentFrame+' iframe').parent();
-  $(parentFrame).html('');
-  $(parentFrame).append('<iframe src="'+url+'" style="min-height:100%;min-width:100%"></iframe>')
-//  $(parentFrame+' iframe').attr('src',url)
+function openLink(u, f){
+  var frame = $(f+' .div-frame').html('');
+
+  (frame).append('<iframe src="'+u+'#view=fit" style="min-height:95%;min-width:95%;"></iframe>')
+  //$(frame).append('<iframe src="viewPDF.php?file='+u+'" style="min-height:95%;min-width:95%;"></iframe>')
+
+  // $(f+' .div-frame').dialog();
+  // $(f+' iframe').attr('src',u);
 }
 
 // for the iframes

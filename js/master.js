@@ -76,6 +76,17 @@ $(document).on('click','.org-block',function(){
   }
 });
 
+// Portals
+// Display selected link to description div
+function showLink(t){
+  console.log(t)
+  // $.ajax({
+  //   url:t+'-desc.php'
+  // }).done(function(r){
+  //   $('#link-desc').html(r);
+  // })
+}
+
 // Angular controller
 var app = angular.module("myApp", ['ngRoute']);
 
@@ -92,5 +103,8 @@ app.config(function($routeProvider){
   })
   .when('/about',{
     templateUrl : 'about.php'
+  })
+  .when('/portals',{
+    templateUrl : 'portals/index.php'
   })
 })

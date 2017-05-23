@@ -73,7 +73,7 @@
 </div>
 <script type="text/javascript">
   $(document).ready(function(){
-    $('.headName span').text('Laboratory')
-    $('.headName img').attr('src','images/clipart/laboratory.png')
+    $('.headName span').text('Organization')
+    $('.headName img').attr('src','images/clipart/organization.png')
   })
 </script>

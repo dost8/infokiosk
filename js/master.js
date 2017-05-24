@@ -79,12 +79,12 @@ $(document).on('click','.org-block',function(){
 // Portals
 // Display selected link to description div
 function showLink(t){
-  console.log(t)
-  // $.ajax({
-  //   url:t+'-desc.php'
-  // }).done(function(r){
-  //   $('#link-desc').html(r);
-  // })
+  //console.log(t)
+  $.ajax({
+    url:'portals/'+t+'-desc.php'
+  }).done(function(r){
+    $('#link-desc').html(r);
+  })
 }
 
 // Angular controller

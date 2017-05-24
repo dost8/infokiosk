@@ -21,7 +21,7 @@
   <body ng-app="myApp">
     <div class="row">
       <div class="menu" onclick="toggleMenu()">
-        <img src="images/clipart/menu.png" alt="" height="50"> Menu
+        <img src="images/clipart/menu.png" alt="" height="50"> Menu </i>
       </div>
       <div class="headName">
         <img src="">

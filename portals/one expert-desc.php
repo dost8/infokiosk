@@ -1,4 +1,4 @@
-<div class="" style="background:white;height:inherit;border-radius:5px;font-family:roboto;">
+<div class="" style="background:white;height:initial;border-radius:5px;font-family:roboto;">
   <link rel="stylesheet" href="css/font-awesome.min.css">
    <a href="https://oneexpert.gov.ph/visitors/login_required" target="_blank" style="position:absolute;">
     <button class="btn btn-info" type="button" name="button"><i class="fa fa-external-link"></i> Go to Link</button>
@@ -37,5 +37,5 @@
         </ul>
       </div>
     </section>
-  </div> 
+  </div>
 </div>

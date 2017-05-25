@@ -28,7 +28,7 @@
      <?php endforeach ?>
     </div>
     <div class="col-md-1"></div>
-    <div class="col-md-6" id="link-desc" style="height:90%;">
+    <div class="col-md-6" id="link-desc" style="height:90%;overflow-y:auto;">
 
     </div>
   </div>

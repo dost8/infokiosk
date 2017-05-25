@@ -87,6 +87,21 @@ function showLink(t){
   })
 }
 
+$(document).on('click','.onelab-buttons > div',function(){
+  $('#button-name').html( $(this).data('name') )
+
+  // Set images back to default
+  var src = 'images/clipart/'
+  $('.chemical img').attr('src',src+'chemical1.png')
+  $('.micro img').attr('src',src+'micro1.png')
+  $('.calib img').attr('src',src+'calibration1.png')
+  $('.radio img').attr('src',src+'radiological1.png')
+  $('.physical img').attr('src',src+'physical1.png')
+
+  // Change image of the selected button
+  $(this).children('img').attr('src','images/clipart/'+ $(this).data('image') +'2.png')
+});
+
 // Angular controller
 var app = angular.module("myApp", ['ngRoute']);
 

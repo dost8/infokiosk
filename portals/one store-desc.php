@@ -5,7 +5,7 @@
   </a>
   <img src="images/clipart/one store.png" style="position:static;margin-left:36%;height:26.3%;">
   <h1 style="text-align:center">OneSTore.ph</h1>
-  <div class="col-lg-12 container" style="text-align:justify;margin-left:15px;width:94%;">
+  <div class="col-lg-12 container" style="text-align:justify;margin-left:15px;width:94%;padding-left:0px 0px 10px 10px">
     <section class="row row0 ">
       <div class="">
         <p>oneSTore.ph is an E-commerce Web Application that opearats nationwide and caters primarily to Philippine consumers. oneSTore helps the Department of Science and Technology's assisted MSMEs widen the scope of their target market. It can help deliver economic growth and increase business opporunities. oneSTore provides customers with an effortless shopping experience and  retailers with simple and direct access to the largest customer base in the Philippines.</p>
@@ -31,6 +31,7 @@
         background: white;
         color: black;
         height: 160px;
+        padding-top: 10px;
       }
     </style>
     <section class="row row1">

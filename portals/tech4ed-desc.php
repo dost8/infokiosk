@@ -48,10 +48,5 @@
       <p style="margin-top:-15px">This component will focus on the development of a focused advocacy effort to increase awareness appreciation and support for the Tech4ED Project.</p>
     </div>
   </section>
-    <div class="">
-      <h4 style="color:rgb(19, 31, 189);font-weight:bold">TECH4ED PLATFORM</h4>
-    </div>
-  <section>
-
-  </section>
+  <hr>
 </div>

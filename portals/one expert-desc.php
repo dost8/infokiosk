@@ -1,5 +1,5 @@
-<div class="" style="background:white;height:initial;border-radius:5px;font-family:roboto;">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<div class="" style="background:white;height:100%;border-radius:5px;font-family:roboto;">
    <a href="https://oneexpert.gov.ph/visitors/login_required" target="_blank" style="position:absolute;">
     <button class="btn btn-info" type="button" name="button"><i class="fa fa-external-link"></i> Go to Link</button>
   </a>

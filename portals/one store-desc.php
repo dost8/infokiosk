@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="css/font-awesome.min.css">
-<div style="background:black;height:inherit;border-radius:5px;font-family:roboto;color:#eee">
+<div style="background:black;height:100%;border-radius:5px;font-family:roboto;color:#eee">
   <a href="http://onestore.ph/" target="_blank" style="position:absolute;">
     <button class="btn btn-info" type="button" name="button"><i class="fa fa-external-link"></i> Go to Link</button>
   </a>

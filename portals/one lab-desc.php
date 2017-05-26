@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="css/font-awesome.min.css">
-<div style="background:rgb(243,245,246);height:inherit;border-radius:5px;font-family:roboto">
+<div style="background:rgb(243,245,246);height:100%;border-radius:5px;font-family:roboto">
   <a href="http://web.onelab.ph/" target="_blank">
     <button class="btn btn-info" type="button" name="button"><i class="fa fa-external-link"></i> Go to Link</button>
   </a>
-  <img src="images/onelab.png" alt="" style="height:26.3%">
+  <img src="images/onelab.png" alt="" style="height:23.7%">
   <section class="row row0" style="text-align:justify">
     <div style="margin-top:10px;margin-left:25px;width:90%;background:white;border:1px solid grey;border-radius:2px;padding:10px;">
       <h4>What is OneLab?</h4>

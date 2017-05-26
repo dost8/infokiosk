@@ -5,8 +5,6 @@
   // }, 3500);
 })();
 
-// Load cheerio
-
 function toggleMenu(){
   $('#menu_modal').modal('toggle');
 }

@@ -38,5 +38,7 @@
   $(document).ready(function(){
     $('.headName span').text('Portals')
     $('.headName img').attr('src','images/clipart/portals.png')
+
+    showLink('One Expert');
   })
 </script>

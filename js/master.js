@@ -3,6 +3,14 @@
   // setTimeout(function(){
   //   $('#video_intro').modal('toggle');
   // }, 3500);
+//  toggleMenu()
+
+  let width = window.screen.availWidth;
+  let height = window.screen.availHeight;
+
+  if( (width < 1500 || width > 1700) || (height < 800 || height > 1000) ){
+    alert('Please set  screen resolution to 1600x900')
+  }
 })();
 
 function toggleMenu(){
@@ -109,7 +117,7 @@ app.config(function($routeProvider){
     templateUrl : 'laboratory/index.php'
   })
   .when('/organization',{
-    templateUrl : 'organization/index.php'
+    templateUrl : 'organization.php'
   })
   .when('/technology',{
     templateUrl : 'technology/index.php'
@@ -119,5 +127,8 @@ app.config(function($routeProvider){
   })
   .when('/portals',{
     templateUrl : 'portals/index.php'
+  })
+  .when('/feedback',{
+    templateUrl : 'feedback/index.php'
   })
 })

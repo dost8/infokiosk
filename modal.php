@@ -13,7 +13,7 @@
 <!-- Modal for the Menu -->
 <div class="modal fade" id="menu_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Menu Modal">
   <div class="modal-dialog modal-lg" style="margin-top:12%;">
-    <div class="modal-content" style="background:none" >
+    <div class="modal-content" style="background:rgba(0, 21, 131, 0.19)" >
       <div class="modal-body">
         <div class="row" style="margin-left:2.5%">
           <?php $title = ['organization','technology','feedback','portals','status','laboratory','about'];

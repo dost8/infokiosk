@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/master.css">
 
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
     <!-- <script type="text/javascript" src="js/pdfObject.js" charset="utf-8"></script> -->
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/angular-route.min.js"></script>

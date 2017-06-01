@@ -82,6 +82,9 @@ $(document).on('click','.org-block',function(){
   }
 });
 
+// Working on rate
+
+
 // Portals
 // Display selected link to description div
 function showLink(t){

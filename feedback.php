@@ -49,18 +49,15 @@
 
     <?php
       $questions = ['Question 1','Question 2','Question 3','Question 4','Question 5'];
-      $smiley = ['happy','happy (1)','smile','sad','sad (1)'];
 
       $margin = 38.2;
       $margin_top = 9;
       $margin_left = 47.5;
       for($i = 0;$i < count($questions);$i++){
         echo '<p class="blur2" style="top:'.$margin.'%;left:7%;width:40%;position:absolute">'. $questions[$i] .'</p>';
-        $r = 1;
-        foreach($smiley as $face){
-          echo '<div class="blur2 rate row'.$i.'" style="width:9%;left:'.$margin_left.'%;margin-top:'.$margin_top.'%" data-smiley="'.$smiley[$i].'" data-row="'.$i.'" data-rate="'.$r.'"></div>';
+        foreach(range(1,5) as $row){
+          echo '<div class="blur2 rate col'.$i.'" style="width:9%;left:'.$margin_left.'%;margin-top:'.$margin_top.'%" data-col="'.$i.'" data-row="'.$row.'"></div>';
           $margin_top = 0.6;
-          $r++;
         }
         $margin += 11.2;
         $margin_left += 9.4;
@@ -70,15 +67,14 @@
       <button class="btn btn_next" type="button" name="button" onclick="nextFeedback()" style="z-index:2"> <i class="fa fa-chevron-right fa-5x" aria-hidden="true" ></i></button>
   </div>
 
-  <div id="feedback2" style="left:0%;opacity:0">
+  <div id="feedback2" style="left:13%;opacity:0;z-index:-2">
     <p style="font-size:50px;font-weight:bolder;color:white;letter-spacing:5">FEEDBACK</p>
     <p style="color:white;font-size:25px;margin-top:-10px">Comment/Suggestions to improve our services:</p>
-    <textarea id="comment-text" name="name" rows="8" cols="80" style="border-radius:10px;padding:30;font-size:25;height:70%" placeholder="Your comments are greatly appreciated."></textarea>
-    <button class="btn btn_next" style="font-size:25px;margin-top:15px;margin-left:89%;border-radius:10px;" onclick="submitComment()">
-      Submit
+    <textarea id="comment-text" name="name" rows="8" cols="80" style="border-radius:10px;padding:30;font-size:25;height:70%;color:black" placeholder="Your comments are greatly appreciated."></textarea>
+    <button class="btn btn-info" style="font-size:25px;margin-top:100px;margin-left:-10.5%;border-radius:10px;padding:25" onclick="submitFeedback()">
+      <span style="">SUBMIT</span>
     </button>
   </div>
-
 </div>
 
 <script type="text/javascript">
@@ -88,11 +84,14 @@
 
   })
 
-  $(document).on('click','.rate', function(){
-    let row = '.row'+$(this).data('row')
-    $(row).html('')
-    $(this).append('<img src="images/clipart/'+ $(this).data('smiley') +'.png" style="width:50px;">')
-  })
+let charRate = [0,0,0,0,0]
+let smiley =  ['happy','happy (1)','smile','sad','sad (1)'];
+$(document).on('click','.rate', function(){
+  let col = '.col'+$(this).data('col')
+  $(col).html('')
+  $(this).append('<img src="images/clipart/'+ smiley[ $(this).data('row')-1 ] +'.png" style="width:50px;">')
+  charRate[ $(this).data('col') ] = $(this).data('row');
+})
 
   function nextFeedback(){
     $('#feedback1').animate({
@@ -106,13 +105,15 @@
     })
   }
 
-
-  // function submitComment(){
-  //   let comment = $('.comment-text').val();
-  //   $.ajax({
-  //     url:'spec_func.php?type='
-  //   }).done(function({
-  //
-  //   })
-//  }
+  function submitFeedback(){
+    let comment = $('.comment-text').val();
+    $.ajax({
+      type:'GET',
+      url:'spec_func.php',
+      dataType : 'JSON',
+      data:{'data':charRate.join(''),'comment':comment,'type':'submitComment'},
+    }).done(function(r){
+      console.log(r);
+    })
+ }
 </script>

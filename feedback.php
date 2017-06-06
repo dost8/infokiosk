@@ -55,9 +55,11 @@
       $margin_left = 47.5;
       for($i = 0;$i < count($questions);$i++){
         echo '<p class="blur2" style="top:'.$margin.'%;left:7%;width:40%;position:absolute">'. $questions[$i] .'</p>';
+        $r = 1;
         foreach(range(1,5) as $row){
-          echo '<div class="blur2 rate col'.$i.'" style="width:9%;left:'.$margin_left.'%;margin-top:'.$margin_top.'%" data-col="'.$i.'" data-row="'.$row.'"></div>';
+          echo '<div class="blur2 rate row'.$r.'" style="width:9%;left:'.$margin_left.'%;margin-top:'.$margin_top.'%" data-col="'.$i.'" data-row="'.$r.'"></div>';
           $margin_top = 0.6;
+          $r++;
         }
         $margin += 11.2;
         $margin_left += 9.4;
@@ -81,15 +83,14 @@
   $(document).ready(function(){
     $('.headName span').text('Customer Feedback')
     $('.headName img').attr('src','images/clipart/feedback.png')
-
   })
 
 let charRate = [0,0,0,0,0]
 let smiley =  ['happy','happy (1)','smile','sad','sad (1)'];
 $(document).on('click','.rate', function(){
-  let col = '.col'+$(this).data('col')
-  $(col).html('')
-  $(this).append('<img src="images/clipart/'+ smiley[ $(this).data('row')-1 ] +'.png" style="width:50px;">')
+  let row = '.row'+$(this).data('row')
+  $(row).html('')
+  $(this).append('<img src="images/clipart/'+ smiley[ $(this).data('col') ] +'.png" style="width:50px;">')
   charRate[ $(this).data('col') ] = $(this).data('row');
 })
 
@@ -105,15 +106,16 @@ $(document).on('click','.rate', function(){
     })
   }
 
-  function submitFeedback(){
+function submitFeedback(){
     let comment = $('.comment-text').val();
     $.ajax({
       type:'GET',
       url:'spec_func.php',
-      dataType : 'JSON',
-      data:{'data':charRate.join(''),'comment':comment,'type':'submitComment'},
+      data:{'data':charRate.join(''),'comment':comment,'type':'submitComment'}
     }).done(function(r){
-      console.log(r);
+      $('.feedback').html(r)
     })
+
+    var Entry = firebase.database().ref('Entry').child()
  }
 </script>

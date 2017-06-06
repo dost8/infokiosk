@@ -16,6 +16,19 @@
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/angular-route.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyC0y3YbcNmqMR0Y38mtck-thuSn1AozbpY",
+        authDomain: "info-kiosk-5e36a.firebaseapp.com",
+        databaseURL: "https://info-kiosk-5e36a.firebaseio.com",
+        projectId: "info-kiosk-5e36a",
+        storageBucket: "info-kiosk-5e36a.appspot.com",
+        messagingSenderId: "973228578765"
+      };
+      firebase.initializeApp(config);
+    </script>
     <script type="text/javascript" src="js/master.js" ></script>
   </head>
   <body ng-app="myApp">

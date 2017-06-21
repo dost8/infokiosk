@@ -1,8 +1,9 @@
 <?php
-  if($_GET['type'] == 'submitComment'){
-    echo '<div style="color:white;font-family:fantasy;">
-            <p style="text-align:center;font-size:100px">Thank You</p>
-            <p style="text-align:center;font-size:40px">For the feedback</p>
-    </div>';
+  require_once 'cls.database.php';
+  $db = new Database();
+
+  if($_GET['type'] == 'submitFeedback'){
+    unset($_REQUEST['type']);
+    $db->insertSingleRow($_REQUEST, 'tbl_feedback');
   }
  ?>

@@ -70,13 +70,42 @@
 </div>
 
 <style media="screen">
-  #dostTech_modal .modal-dialog{
+  .tech_modal .modal-header{
+    background: #e7e7e7;
+    color: #5e5e5e;
+    padding: -20px;
+    border-bottom: 1px solid #cfc9c9;
+  }
+  .tech_modal .modal-header p{
+    margin:0px;
+    font-size:23px;
+  }
+  .tech_modal .modal-body{
+    padding:0px;
+  }
+  .tech_modal .main-nav, .tech_modal .arm-nav{
+    background: #e7e7e7;
+    border-right: 1px solid #cfc9c9;
+    height: 551px;
+  }
+  .tech_modal ul{
+    list-style: none;
+    color: #23527c;
+    padding-left: 0px;
+  }
+  .tech_modal li{
+    padding: 8px;
+    padding-left: 18px;
+    border-bottom: 1px solid #cfc9c9;
+    cursor: pointer;
+  }
+
+  #dostTech_modal .modal-dialog, #vsuTech_modal .modal-dialog{
     width: 79%;
   }
-  #dostTech_modal .modal-content{
+  #dostTech_modal .modal-content, #vsuTech_modal .modal-content{
     margin-top: 100px;
     height: 80%;
-    background: none;
   }
   #dostTech_modal .pdf-block{
     margin-bottom: 30px;
@@ -86,10 +115,10 @@
     border: 5px solid white;
   }
 </style>
-<div class="modal fade" id="dostTech_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Modal view for DOST Technologies">
+<div class="modal fade tech_modal" id="dostTech_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Modal view for DOST Technologies">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-body container">
+      <div class="modal-body">
         <div class="row">
           <div class="col-sm-2" style="height:100%;">
             <div class="pdf-block" onclick="openLink('technology/agricultural-productivity.pdf','#dostTech_modal')">
@@ -121,6 +150,33 @@
 </div>
 
 <style media="screen">
+</style>
+<div class="modal fade tech_modal" id="vsuTech_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Modal view for VSU Technologies">
+  <div class="modal-dialog" style="width:94%;">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <p><i class="fa fa-briefcase"></i>  Technopinoy Online Dashboard</p>
+      </div>
+      <div class="modal-body">
+          <div class="main-nav col-lg-2" style="width:175px">
+          <ul>
+            <li data-index="1,0"><i class="fa fa-folder-open"></i> Coconut</li>
+            <li data-index="1,1"><i class="fa fa-folder-open"></i> Corn</li>
+            <li data-index="1,2"><i class="fa fa-folder-open"></i> Fiber</li>
+            <li data-index="1,3"><i class="fa fa-folder-open"></i> Jackfruit</li>
+          </ul>
+        </div>
+        <div class="arm-nav col-lg-2" >
+          <ul>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style media="screen">
   #iframe_modal .modal-content{
     width: 180%;  height: 85%;
     left: -40%;
@@ -143,6 +199,16 @@
 </style>
 <div class="modal fade" id="iframe_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Iframe for outside links">
   <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="alerts" tabindex="-1" aria-hidden="true" aria-labelledBy="For messages">
+  <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-body">
 

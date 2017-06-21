@@ -31,7 +31,7 @@
   </div>
 </a>
 
-<a href="http://vicaarp.vsu.edu.ph/tpdonline/" target="_blank" class="tech_link">
+<a href="#" target="_blank" class="tech_link" onclick="event.preventDefault()" data-toggle="modal" data-target="#vsuTech_modal">
   <div class="tech_div">
     <p>VSU - VICAARP Technology</p>
   </div>
@@ -41,5 +41,57 @@
   $(document).ready(function(){
     $('.headName span').text('Technology')
     $('.headName img').attr('src','images/clipart/technology.png')
+  })
+
+var dataArr = {
+  0:{
+  },
+  1:{
+    0:{
+      0:'7 steps to grow coconut seedlings',
+      1:'8 tips to increase copra yield',
+      2:'A simple way of making charcoal from Binoungan',
+      3:'Cassava Coconut Cookies',
+      4:'Characteristics of Different ViSCA Coconut Accessions',
+      5:'Coco Fresh',
+      6:'Coco Kisses',
+      7:'Coco Vinegar',
+      8:'Everything You Always Wanted to Know About Coconut'
+    },
+    1:{
+      0:'Corn Cassava',
+      1:'Mais',
+      2:'Steps in successful Hybrid Corn Culture'
+    },
+    2:{
+      0:'Abaca Mosaic',
+      1:'Abaka',
+      2:'Ang Hustong Pag-abakahan',
+      3:'Ang Paghimo ug Abaka Nursery',
+      4:'Ang Pagkigi sa Abaca (Lanot)',
+      5:'Paghimo ug Papel Gikan sa Abaka',
+      6:'Teknologiya as Abaka (Musa Textilis Nee)'
+    },
+    3:{
+      0:'Final Jackfruit Primer Cebuano',
+      1:'Final Jackfruit Primer English',
+      2:'Jackfruit Leaflet no.1 Plant Nursery Best Practices',
+      3:'Jackfruit Leaflet no.2 Cleft G',
+      4:'Jackfruit Leaflet no.3 Coffee',
+      5:'Jackfruit Leaflet no.4 Nangka',
+      6:'Jackfruit Leaflet no.5 Marmala',
+      7:'Jackfruit Leaflet no.6 Puree',
+      8:'Jackfruit Leaflet no.7 Jam',
+      9:'Jackfruit Leaflet no.8 Wine',
+      10:'Jackfruit Leaflet no.9 Vinegar'
+    }
+  }
+}
+  $('.tech_modal li').on('click',function(){
+    let dataIndex = $(this).data('index').toString().split(',')
+    let list = dataArr[ dataIndex[0] ][ dataIndex[1] ];
+    for(let key in list){
+      
+    }
   })
 </script>

@@ -3,7 +3,7 @@
   // setTimeout(function(){
   //   $('#video_intro').modal('toggle');
   // }, 3500);
-//  toggleMenu()
+  // toggleMenu()
 
   let width = window.screen.availWidth;
   let height = window.screen.availHeight;
@@ -81,9 +81,6 @@ $(document).on('click','.org-block',function(){
     $('#orgProfile_modal').modal('toggle');
   }
 });
-
-// Working on rate
-
 
 // Portals
 // Display selected link to description div

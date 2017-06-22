@@ -38,60 +38,132 @@
 </a>
 
 <script type="text/javascript">
+
+  var dataArr = {
+    0:{
+      // index 0 are for the titles
+      0:{
+        0:'Agricultural Productivity',
+        1:'Country Development',
+        2:'Environment and Disaster Risk Reduction',
+        3:'Industry Competitiveness',
+        4:'Quality Healthcare'
+      },
+      // From here all index are values from titles above
+      1:{
+        0:'Fertilizers and Plant Growth Enhancers',
+        1:'Postharvest and Diagnostic Devices',
+        2:'Machineries and Process for Agri and Aqua'
+      },
+      2:{
+        0:'Crafts and Textiles',
+        1:'Forest Products and Processes'
+      },
+      3:{
+        0:'Environmental Monitoring and Restoration'
+      },
+      4:{
+        0:'Food Products and Processing',
+        1:'Food Innovation Center',
+        2:'Transportation and Technology Services',
+        3:'ICT-Based Learning and Empowerment'
+      },
+      5:{
+        0:'Healthcare Innovations for Filipinos'
+      }
+    },
+    1:{
+      // index 0 are for the titles
+      0:{
+        0:'Coconut',
+        1:'Corn',
+        2:'Fiber',
+        3:'Jackfruit'
+      },
+      // From here all index are values from titles above
+      1:{
+        0:'7 steps to grow coconut seedlings',
+        1:'8 tips to increase copra yield',
+        2:'A simple way of making charcoal from Binoungan',
+        3:'Cassava Coconut Cookies',
+        4:'Characteristics of Different ViSCA Coconut Accessions',
+        5:'Coco Fresh',
+        6:'Coco Kisses',
+        7:'Coco Vinegar',
+        8:'Everything You Always Wanted to Know About Coconut'
+      },
+      2:{
+        0:'Corn Cassava',
+        1:'Mais',
+        2:'Steps in successful Hybrid Corn Culture'
+      },
+      3:{
+        0:'Abaca Mosaic',
+        1:'Abaka',
+        2:'Ang Hustong Pag-abakahan',
+        3:'Ang Paghimo ug Abaka Nursery',
+        4:'Ang Pagkigi sa Abaca (Lanot)',
+        5:'Paghimo ug Papel Gikan sa Abaka',
+        6:'Teknologiya as Abaka (Musa Textilis Nee)'
+      },
+      4:{
+        0:'Final Jackfruit Primer Cebuano',
+        1:'Final Jackfruit Primer English',
+        2:'Jackfruit Leaflet no.1 Plant Nursery Best Practices',
+        3:'Jackfruit Leaflet no.2 Cleft G',
+        4:'Jackfruit Leaflet no.3 Coffee',
+        5:'Jackfruit Leaflet no.4 Nangka',
+        6:'Jackfruit Leaflet no.5 Marmala',
+        7:'Jackfruit Leaflet no.6 Puree',
+        8:'Jackfruit Leaflet no.7 Jam',
+        9:'Jackfruit Leaflet no.8 Wine',
+        10:'Jackfruit Leaflet no.9 Vinegar'
+      }
+    }
+  }
+
   $(document).ready(function(){
     $('.headName span').text('Technology')
     $('.headName img').attr('src','images/clipart/technology.png')
+
+    // For DOST Tech Main navigation
+    let dataList = dataArr[0][0];
+    for(let key in dataList){
+      $('#dostTech_modal .main-nav ul').append('<li data-index="0,'+key+'"><i class="fa fa-folder-open"></i>'+dataList[key]+'</li>')
+    }
+
+    // For VSU Tech Main navigation
+    dataList = dataArr[1][0];
+    for(let key in dataList){
+      $('#vsuTech_modal .main-nav ul').append('<li data-index="1,'+key+'"><i class="fa fa-folder-open"></i>'+dataList[key]+'</li>')
+    }
   })
 
-var dataArr = {
-  0:{
-  },
-  1:{
-    0:{
-      0:'7 steps to grow coconut seedlings',
-      1:'8 tips to increase copra yield',
-      2:'A simple way of making charcoal from Binoungan',
-      3:'Cassava Coconut Cookies',
-      4:'Characteristics of Different ViSCA Coconut Accessions',
-      5:'Coco Fresh',
-      6:'Coco Kisses',
-      7:'Coco Vinegar',
-      8:'Everything You Always Wanted to Know About Coconut'
-    },
-    1:{
-      0:'Corn Cassava',
-      1:'Mais',
-      2:'Steps in successful Hybrid Corn Culture'
-    },
-    2:{
-      0:'Abaca Mosaic',
-      1:'Abaka',
-      2:'Ang Hustong Pag-abakahan',
-      3:'Ang Paghimo ug Abaka Nursery',
-      4:'Ang Pagkigi sa Abaca (Lanot)',
-      5:'Paghimo ug Papel Gikan sa Abaka',
-      6:'Teknologiya as Abaka (Musa Textilis Nee)'
-    },
-    3:{
-      0:'Final Jackfruit Primer Cebuano',
-      1:'Final Jackfruit Primer English',
-      2:'Jackfruit Leaflet no.1 Plant Nursery Best Practices',
-      3:'Jackfruit Leaflet no.2 Cleft G',
-      4:'Jackfruit Leaflet no.3 Coffee',
-      5:'Jackfruit Leaflet no.4 Nangka',
-      6:'Jackfruit Leaflet no.5 Marmala',
-      7:'Jackfruit Leaflet no.6 Puree',
-      8:'Jackfruit Leaflet no.7 Jam',
-      9:'Jackfruit Leaflet no.8 Wine',
-      10:'Jackfruit Leaflet no.9 Vinegar'
-    }
-  }
-}
-  $('.tech_modal li').on('click',function(){
+
+  let armNavDisplay = false;
+  $(document).on('click','.tech_modal li',function(){
+    // get data attr "index" then split index for the corresponding index for JSON
     let dataIndex = $(this).data('index').toString().split(',')
-    let list = dataArr[ dataIndex[0] ][ dataIndex[1] ];
-    for(let key in list){
-      
+
+    if(dataIndex.length == 2){
+      // clear secondary navigation everytime a main navigation is clicked
+      $('.arm-nav ul').html('')
+      $('.main-nav li').css('background','none')
+      let dataList = dataArr[ dataIndex[0] ][ parseInt(dataIndex[1])+1 ];
+      for(let key in dataList){
+        let title = dataList[key]
+        $('.arm-nav ul').append('<li data-index="'+dataIndex[0]+','+dataIndex[1]+','+key+'"><i class="fa fa-file-pdf-o"></i> '+title+'</li>')
+      }
     }
+    if(dataIndex.length == 3){
+      $('.arm-nav li').css('background','none')
+
+      let modal = (dataIndex[0] === "0") ? '#dostTech_modal' : '#vsuTech_modal'
+      let parentDir = (dataIndex[0] === "0" ? 'dost_tech' : 'vsu_tech')
+      let link = parentDir+'/'+$(this).text()+'.pdf'
+      console.log(link)
+      openLink( link, modal)
+    }
+    $(this).css('background','rgb(210, 210, 210)')
   })
 </script>

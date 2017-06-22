@@ -86,7 +86,6 @@
   .tech_modal .main-nav, .tech_modal .arm-nav{
     background: #e7e7e7;
     border-right: 1px solid #cfc9c9;
-    height: 551px;
   }
   .tech_modal ul{
     list-style: none;
@@ -99,6 +98,12 @@
     border-bottom: 1px solid #cfc9c9;
     cursor: pointer;
   }
+  .tech_modal .div-frame{
+    width: 61.6%;
+    position: absolute;
+    right: -44px;
+    padding: 0px;
+  }
 
   #dostTech_modal .modal-dialog, #vsuTech_modal .modal-dialog{
     width: 79%;
@@ -106,43 +111,23 @@
   #dostTech_modal .modal-content, #vsuTech_modal .modal-content{
     margin-top: 100px;
     height: 80%;
-  }
-  #dostTech_modal .pdf-block{
-    margin-bottom: 30px;
-  }
-  #dostTech_modal .pdf-block img{
-    width: 76;
-    border: 5px solid white;
-  }
+}
 </style>
 <div class="modal fade tech_modal" id="dostTech_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Modal view for DOST Technologies">
-  <div class="modal-dialog">
+  <div class="modal-dialog" style="width:94%">
     <div class="modal-content">
+      <div class="modal-header">
+        <p><i class="fa fa-briefcase"></i> 1st DOST TECHNOLOGY TRANSFER DAY <br> Promoting Research and Outstanding Milestones in Innovation and Science for Entrepreneurship</p>
+      </div>
       <div class="modal-body">
-        <div class="row">
-          <div class="col-sm-2" style="height:100%;">
-            <div class="pdf-block" onclick="openLink('technology/agricultural-productivity.pdf','#dostTech_modal')">
-              <img src="technology/ap.png" alt="">
-            </div>
-            <div class="pdf-block" onclick="openLink('technology/industry-competitiveness.pdf','#dostTech_modal')">
-              <img src="technology/ic.png" alt="">
-            </div>
-            <div class="pdf-block" onclick="openLink('technology/country-development.pdf','#dostTech_modal')">
-              <img src="technology/cd.png" alt="">
-            </div>
-            <div class="pdf-block" onclick="openLink('technology/environment-and-disaster-risk-reduction.pdf','#dostTech_modal')">
-              <img src="technology/edrr.png" alt="">
-            </div>
-            <div class="pdf-block" onclick="openLink('technology/quality-healthcare.pdf','#dostTech_modal')">
-              <img src="technology/qh.png" alt="">
-            </div>
-          </div>
-          <div class="col-lg-9 div-frame" style="height:95%;width:83%;">
-            <img src="technology/cover-photo.png" style="height:100%;">
-            <!-- <iframe src="technology/cover-photo.png#view=fit" style="min-height:100%;min-width:100%;"></iframe> -->
-            <!-- <object type="technology/environment-and-disaster-risk-reduction.pdf" data="https://"> -->
-            </object>
-          </div>
+        <div class="main-nav col-lg-2" style="width:230px;height:519px;">
+          <ul>  </ul>
+        </div>
+        <div class="arm-nav col-lg-2" style="width:25.7%;height: 519px;">
+          <ul>  </ul>
+        </div>
+        <div class="col-lg-7 div-frame">
+
         </div>
       </div>
     </div>
@@ -158,18 +143,17 @@
         <p><i class="fa fa-briefcase"></i>  Technopinoy Online Dashboard</p>
       </div>
       <div class="modal-body">
-          <div class="main-nav col-lg-2" style="width:175px">
+        <div class="main-nav col-lg-2" style="width:175px;height: 551px;">
           <ul>
-            <li data-index="1,0"><i class="fa fa-folder-open"></i> Coconut</li>
-            <li data-index="1,1"><i class="fa fa-folder-open"></i> Corn</li>
-            <li data-index="1,2"><i class="fa fa-folder-open"></i> Fiber</li>
-            <li data-index="1,3"><i class="fa fa-folder-open"></i> Jackfruit</li>
           </ul>
         </div>
-        <div class="arm-nav col-lg-2" >
+        <div class="arm-nav col-lg-2" style="width:25.7%;height: 551px;">
           <ul>
 
           </ul>
+        </div>
+        <div class="col-lg-7 div-frame">
+
         </div>
       </div>
     </div>

@@ -149,21 +149,21 @@
       // clear secondary navigation everytime a main navigation is clicked
       $('.arm-nav ul').html('')
       $('.main-nav li').css('background','none')
-      let dataList = dataArr[ dataIndex[0] ][ parseInt(dataIndex[1])+1 ];
+      // Fetch data from dataArr by supplying the given index
+      dataIndex[1] = parseInt(dataIndex[1])+1
+      let dataList = dataArr[ dataIndex[0] ][ dataIndex[1] ];
       for(let key in dataList){
         let title = dataList[key]
         $('.arm-nav ul').append('<li data-index="'+dataIndex[0]+','+dataIndex[1]+','+key+'"><i class="fa fa-file-pdf-o"></i> '+title+'</li>')
       }
     }
     if(dataIndex.length == 3){
-      $('.arm-nav li').css('background','none')
-
-      let modal = (dataIndex[0] === "0") ? '#dostTech_modal' : '#vsuTech_modal'
-      let parentDir = (dataIndex[0] === "0" ? 'dost_tech' : 'vsu_tech')
-      let link = parentDir+'/'+$(this).text()+'.pdf'
-      console.log(link)
+      $('.arm-nav li').css('background','none');
+      let modal = (dataIndex[0] === "0") ? '#dostTech_modal' : '#vsuTech_modal';
+      let parentDir = (dataIndex[0] === "0" ? 'dost_tech' : 'vsu_tech');
+      let link = 'technology/'+parentDir+'/'+dataArr[dataIndex[0]][dataIndex[1]][dataIndex[2]]+'.pdf';
       openLink( link, modal)
     }
-    $(this).css('background','rgb(210, 210, 210)')
+    $(this).css('background','rgb(210, 210, 210)');
   })
 </script>

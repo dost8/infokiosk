@@ -126,7 +126,7 @@
         <div class="arm-nav col-lg-2" style="width:25.7%;height: 519px;">
           <ul>  </ul>
         </div>
-        <div class="col-lg-7 div-frame">
+        <div class="col-lg-7 div-frame" style="height:519px;">
 
         </div>
       </div>
@@ -152,7 +152,7 @@
 
           </ul>
         </div>
-        <div class="col-lg-7 div-frame">
+        <div class="col-lg-7 div-frame" style="height: 551px;">
 
         </div>
       </div>

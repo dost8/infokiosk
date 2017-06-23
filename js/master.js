@@ -40,11 +40,7 @@ function continueTask(check){
 function openLink(u, f){
   var frame = $(f+' .div-frame').html('');
 
-  (frame).append('<iframe src="'+u+'#view=fit" style="min-height:95%;min-width:95%;"></iframe>')
-  //$(frame).append('<iframe src="viewPDF.php?file='+u+'" style="min-height:95%;min-width:95%;"></iframe>')
-
-  // $(f+' .div-frame').dialog();
-  // $(f+' iframe').attr('src',u);
+  (frame).append('<iframe src="'+u+'#view=fitH" style="min-height:95%;min-width:95%;"></iframe>')
 }
 
 // for the iframes

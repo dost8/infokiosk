@@ -37,6 +37,7 @@
 <div class=" row feedback">
 
   <div class="" id="feedback1" style="background:url('images/clipart/chart-bg.png');background-size:contain">
+
     <p style="background:rgb(50,60,36);margin:5% 7%;padding:1%;font-size:35px;width:87%">Title Here</p>
     <p class="blur1" style="font-size:41px;;padding:28px;margin:-4.6% 7%;width:40%;">FACTORS</p>
     <p class="blur1" style="line-spacing:25px;margin:-4.6% 47.5%;width:46.6%">RATINGS</p>

@@ -41,4 +41,37 @@
 
     showLink('One Expert');
   })
+
+  $('.portals .block').on('click',function(){
+    $('.portals .block').css('background','none');
+    $(this).css('background','rgba(204, 202, 202, 0.6)')
+  });
+
+  // Display selected link to description div
+  function showLink(t){
+    //console.log(t)
+    $.ajax({
+      url:'portals/'+t+'-desc.php'
+    }).done(function(r){
+      $('#link-desc').html(r);
+    })
+  }
+
+
+  $(document).on('click','.onelab-buttons > div',function(){
+    $('#button-name').html( $(this).data('name') )
+
+    // Set images back to default
+    var src = 'images/clipart/'
+    $('.chemical img').attr('src',src+'chemical1.png')
+    $('.micro img').attr('src',src+'micro1.png')
+    $('.calib img').attr('src',src+'calibration1.png')
+    $('.radio img').attr('src',src+'radiological1.png')
+    $('.physical img').attr('src',src+'physical1.png')
+
+    // Change image of the selected button
+    $(this).children('img').attr('src','images/clipart/'+ $(this).data('image') +'2.png')
+  });
+
+
 </script>

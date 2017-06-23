@@ -1,7 +1,5 @@
 <?php
-  /**
-   *
-   */
+
   class Database
   {
     public $db;
@@ -18,17 +16,27 @@
       }
     }
 
-    function insertSingleRow(array $data, $table){
-      $colArr = [];
-      $valArr = [];
-      foreach($data as $key => $value){
-        array_push($colArr, $key);
-        array_push($valArr, $value);
+    function is_connected(){
+      $connected = @fsockopen('DOST8-server',80);
+      if($connected){
+        $is_conn = true;
+        fclose($connected);
+      }else{
+        $is_conn = false;
       }
-      $colArr = implode(',', array_map('strval', $colArr));
-      $valArr = implode(',', $valArr);
-      var_dump($colArr);
-    #  $this->db->query("INSERT INTO $table ($colArr) VALUES ($valArr) ");
+      return $is_conn;
+    }
+
+    function insertSingleRow(array $data, $table){
+      $query = "INSERT INTO ".$table." SET";
+      $dataCount = count($data);
+      $i = 1;
+      foreach($data as $key => $value){
+        $comma = ($i < $dataCount ? ',' : '');
+        $query .= ' '.$key.' = '.'"'.$value.'"'.$comma;
+        $i++;
+      }
+      $this->db->query($query);
       echo $this->db->error;
     }
   }

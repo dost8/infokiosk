@@ -1,10 +1,31 @@
 <style media="screen">
   .feedback > div{
     position: absolute;
-    height: 100%;
-    width: 98%;
+    height: 103%;
+    width: 100%;
     color:white;
     letter-spacing: 3px;
+  }
+  .feedback table{
+    border-collapse: separate;
+    border-spacing: 5px;
+    position:absolute;
+    left:60px;
+    top:54px;
+    width:91%;
+    color:white;
+  }
+  .feedback table td{
+    border:none;
+    width: 30px;
+    height:75px;
+  }
+  .feedback .questions{
+    width:40%
+  }
+  .feedback .rate{
+    min-height: 75px;     max-height: 75px;
+    min-width: 140px;     max-width: 140px;
   }
   .blur1{
     background:rgba(221, 237, 189, 0.61);
@@ -12,13 +33,11 @@
     font-size:28px;
     font-weight: bolder;
     padding:7px;
-    position: absolute;
   }
   .blur2{
     background: rgba(196, 224, 139, 0.6);
     font-size:25px;
     padding:7px;
-    position: relative;
     text-align: center;
     min-height: 10%; max-height: 10%;
   }
@@ -37,35 +56,38 @@
 <div class=" row feedback">
 
   <div class="" id="feedback1" style="background:url('images/clipart/chart-bg.png');background-size:contain">
-
-    <p style="background:rgb(50,60,36);margin:5% 7%;padding:1%;font-size:35px;width:87%">Title Here</p>
-    <p class="blur1" style="font-size:41px;;padding:28px;margin:-4.6% 7%;width:40%;">FACTORS</p>
-    <p class="blur1" style="line-spacing:25px;margin:-4.6% 47.5%;width:46.6%">RATINGS</p>
-    <p class="blur1" style="left:47.4%;top:29.4%;width:9%">E</p>
-    <p class="blur1" style="left:56.8%;top:29.5%;width:9%">VS</p>
-    <p class="blur1" style="left:66.3%;top:29.5%;width:9%;">S</p>
-    <p class="blur1" style="left:75.7%;top:29.5%;width:9%;">F</p>
-    <p class="blur1" style="left:85.2%;top:29.5%;width:9%;">P</p>
-
-    <?php
-      $questions = ['Question 1','Question 2','Question 3','Question 4','Question 5'];
-
-      $margin = 38.2;
-      $margin_top = 9;
-      $margin_left = 47.5;
-      for($i = 0;$i < count($questions);$i++){
-        echo '<p class="blur2" style="top:'.$margin.'%;left:7%;width:40%;position:absolute">'. $questions[$i] .'</p>';
-        $r = 1;
-        foreach(range(1,5) as $row){
-          echo '<div class="blur2 rate row'.$r.'" style="width:9%;left:'.$margin_left.'%;margin-top:'.$margin_top.'%" data-col="'.$i.'" data-row="'.$r.'"></div>';
-          $margin_top = 0.6;
-          $r++;
-        }
-        $margin += 11.2;
-        $margin_left += 9.4;
-        $margin_top -= 28.32;
-      }
-      ?>
+      <table class="">
+        <tr>
+          <td colspan="6" style="background:rgb(50,60,36);margin:5% 7%;padding:1%;font-size:35px;width:87%">Title Here</td>
+        </tr>
+        <tr>
+          <td class="blur1" rowspan="2">FACTORS</td>
+          <td class="blur1" colspan="5">RATINGS</td>
+        </tr>
+        <tr>
+          <?php foreach(['E','VS','S','F','P'] as $row): ?>
+            <td class="blur1 rate"><?= $row?></td>
+          <?php endforeach ?>
+          <?php $questions = [
+            'Question 1',
+            'Question 2',
+            'Question 3',
+            'Question 4',
+            'Question 5'
+          ];
+          for ($i=0; $i < count($questions); $i++) {
+            echo '<tr>';
+            echo '<td class="blur2 questions">'.$questions[$i].'</td>';
+            $r = 0;
+            foreach (range(1,5) as $value) {
+              echo '<td class="blur2 rate row'.$i.'" data-col="'.$r.'" data-row="'.$i.'"></td>';
+              $r++;
+            }
+            echo "</tr>";
+          }
+          ?>
+        </tr>
+      </table>
       <button class="btn btn_next" type="button" name="button" onclick="nextFeedback()" style="right: -80px;"><i class="fa fa-chevron-right fa-5x" aria-hidden="true" ></i></button>
   </div>
 

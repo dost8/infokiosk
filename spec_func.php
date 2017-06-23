@@ -4,6 +4,6 @@
 
   if($_GET['type'] == 'submitFeedback'){
     unset($_REQUEST['type']);
-    $db->insertSingleRow($_REQUEST, 'tbl_feedback');
+    $db->insertSingleRow($_REQUEST, ' feedback');
   }
  ?>

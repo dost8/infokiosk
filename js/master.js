@@ -8,8 +8,7 @@
   let width = window.screen.availWidth;
   let height = window.screen.availHeight;
 
-  if( (width < 1500 || width > 1700) || (height < 800 || height > 1000) ){
-    alert('Please set  screen resolution to 1600x900')
+  if(height != 860 || width != 1600){
   }
 })();
 
@@ -78,31 +77,6 @@ $(document).on('click','.org-block',function(){
   }
 });
 
-// Portals
-// Display selected link to description div
-function showLink(t){
-  //console.log(t)
-  $.ajax({
-    url:'portals/'+t+'-desc.php'
-  }).done(function(r){
-    $('#link-desc').html(r);
-  })
-}
-
-$(document).on('click','.onelab-buttons > div',function(){
-  $('#button-name').html( $(this).data('name') )
-
-  // Set images back to default
-  var src = 'images/clipart/'
-  $('.chemical img').attr('src',src+'chemical1.png')
-  $('.micro img').attr('src',src+'micro1.png')
-  $('.calib img').attr('src',src+'calibration1.png')
-  $('.radio img').attr('src',src+'radiological1.png')
-  $('.physical img').attr('src',src+'physical1.png')
-
-  // Change image of the selected button
-  $(this).children('img').attr('src','images/clipart/'+ $(this).data('image') +'2.png')
-});
 
 // Angular controller
 var app = angular.module("myApp", ['ngRoute']);

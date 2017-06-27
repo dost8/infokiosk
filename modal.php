@@ -12,24 +12,24 @@
 
 <!-- Modal for the Menu -->
 <div class="modal fade" id="menu_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Menu Modal">
-  <div class="modal-dialog modal-lg" style="margin-top:12%;">
-    <div class="modal-content" style="background:rgba(0, 21, 131, 0.19)" >
+  <div class="modal-dialog modal-lg" style="margin-top:12%;width:48%;">
+    <div class="modal-content" style="background:rgba(0, 80, 110, 0.19)" >
       <div class="modal-body">
         <div class="row" style="margin-left:2.5%">
-          <?php $title = ['organization','technology','feedback','portals','status','laboratory','about'];
-          foreach(range(0,3) as $button): ?>
+          <?php $title = ['organization','technology','feedback','portals','laboratory','about'];
+          foreach(range(0,2) as $button): ?>
             <a href="#<?=$title[$button]?>">
-              <div class="menu-button menu-button<?=$button?> col-sm-2" style="margin-right: 3.5%;">
+              <div class="menu-button menu-button<?=$button?> col-sm-2" style="margin-left:10%;">
                 <img src="images/clipart/<?=$title[$button]?>.png">
                 <p><?= strtoupper( $title[$button] )?></p>
               </div>
             </a>
           <?php endforeach?>
         </div>
-        <div class="row" style="margin-left:15%;margin-top:5%">
-          <?php foreach(range(4,6) as $button): ?>
+        <div class="row" style="margin-left:2.5%;margin-top:5%">
+          <?php foreach(range(3,5) as $button): ?>
             <a href="#<?=$title[$button]?>">
-              <div class="menu-button menu-button<?=$button?> col-sm-2" style="margin-left: 5%;">
+              <div class="menu-button menu-button<?=$button?> col-sm-2" style="margin-left: 10%;">
                 <img src="images/clipart/<?=$title[$button]?>.png">
                 <p><?= strtoupper( $title[$button] ) ?></p>
               </div>
@@ -117,6 +117,9 @@
   <div class="modal-dialog" style="width:94%">
     <div class="modal-content">
       <div class="modal-header">
+        <button class="close" type="button" name="button" data-dismiss="modal" aria-label>
+          <span aria-hidden="true">&times;</span>
+        </button>
         <p><i class="fa fa-briefcase"></i> 1st DOST TECHNOLOGY TRANSFER DAY <br> Promoting Research and Outstanding Milestones in Innovation and Science for Entrepreneurship</p>
       </div>
       <div class="modal-body">
@@ -127,7 +130,6 @@
           <ul>  </ul>
         </div>
         <div class="col-lg-7 div-frame" style="height:519px;">
-
         </div>
       </div>
     </div>
@@ -140,6 +142,9 @@
   <div class="modal-dialog" style="width:94%;">
     <div class="modal-content ">
       <div class="modal-header">
+        <button class="close" type="button" name="button" data-dismiss="modal" aria-label>
+          <span aria-hidden="true">&times;</span>
+        </button>
         <p><i class="fa fa-briefcase"></i>  Technopinoy Online Dashboard</p>
       </div>
       <div class="modal-body">

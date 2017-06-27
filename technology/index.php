@@ -140,10 +140,11 @@
   })
 
 
-  let armNavDisplay = false;
+  var armNavDisplay = false;
   $(document).on('click','.tech_modal li',function(){
     // get data attr "index" then split index for the corresponding index for JSON
     let dataIndex = $(this).data('index').toString().split(',')
+    let modal = (dataIndex[0] === "0") ? '#dostTech_modal' : '#vsuTech_modal';
 
     if(dataIndex.length == 2){
       // clear secondary navigation everytime a main navigation is clicked
@@ -154,14 +155,13 @@
       let dataList = dataArr[ dataIndex[0] ][ dataIndex[1] ];
       for(let key in dataList){
         let title = dataList[key]
-        $('.arm-nav ul').append('<li data-index="'+dataIndex[0]+','+dataIndex[1]+','+key+'"><i class="fa fa-file-pdf-o"></i> '+title+'</li>')
+        $(modal + ' .arm-nav ul').append('<li data-index="'+dataIndex[0]+','+dataIndex[1]+','+key+'"><i class="fa fa-file-pdf-o"></i> '+title+'</li>')
       }
     }
     if(dataIndex.length == 3){
       $('.arm-nav li').css('background','none');
-      let modal = (dataIndex[0] === "0") ? '#dostTech_modal' : '#vsuTech_modal';
       let parentDir = (dataIndex[0] === "0" ? 'dost_tech' : 'vsu_tech');
-      let link = 'technology/'+parentDir+'/'+dataArr[dataIndex[0]][dataIndex[1]][dataIndex[2]]+'.pdf';
+      let link = 'technology/'+parentDir+'/'+dataArr[ dataIndex[0] ][ dataIndex[1] ][ dataIndex[2]]+'.pdf';
       openLink( link, modal)
     }
     $(this).css('background','rgb(210, 210, 210)');

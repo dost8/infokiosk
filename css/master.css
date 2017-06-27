@@ -19,13 +19,13 @@ body{
 .menu-button{
   text-align: center;
   color: white;
-  width:21%;
+  width:150px;
 }
 .menu-button:hover{
   background: rgba(255, 255, 255, 0.31)
 }
 .menu-button img{
-  width: 80%;
+  width: 120px;
   height: 12%;
 }
 .menu-button p{

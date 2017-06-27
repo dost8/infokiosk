@@ -4,7 +4,7 @@
     height: 100%;
     color: white;
     border-radius: 10px;
-    background: -webkit-linear-gradient(rgba(220, 219, 254, 0.66), rgba(255, 255, 255, 0.1));
+    background: -webkit-linear-gradient(rgba(220, 219, 254, 0.66), rgba(0, 0, 0, 0.5));
     font-family:sans-serif;
     text-align: justify;
   }

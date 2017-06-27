@@ -43,7 +43,7 @@
   })
 
   $('.portals .block').on('click',function(){
-    $('.portals .block').css('background','none');
+    $('.portals .block').css('background','rgba(0, 0, 0, 0.5)');
     $(this).css('background','rgba(204, 202, 202, 0.6)')
   });
 

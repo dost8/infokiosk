@@ -93,31 +93,31 @@
         8:'Everything You Always Wanted to Know About Coconut'
       },
       2:{
-        0:'Corn Cassava',
+        0:'Corn Cassava Intercropping',
         1:'Mais',
-        2:'Steps in successful Hybrid Corn Culture'
+        2:'Steps in Successful Hybrid Corn Culture'
       },
       3:{
         0:'Abaca Mosaic',
         1:'Abaka',
         2:'Ang Hustong Pag-abakahan',
         3:'Ang Paghimo ug Abaka Nursery',
-        4:'Ang Pagkigi sa Abaca (Lanot)',
+        4:'Ang Pagkigi sa Abaka (Lanot)',
         5:'Paghimo ug Papel Gikan sa Abaka',
-        6:'Teknologiya as Abaka (Musa Textilis Nee)'
+        6:'Teknologiya sa Abaka (Musa Textilis Nee)'
       },
       4:{
         0:'Final Jackfruit Primer Cebuano',
         1:'Final Jackfruit Primer English',
-        2:'Jackfruit Leaflet no.1 Plant Nursery Best Practices',
-        3:'Jackfruit Leaflet no.2 Cleft G',
-        4:'Jackfruit Leaflet no.3 Coffee',
-        5:'Jackfruit Leaflet no.4 Nangka',
-        6:'Jackfruit Leaflet no.5 Marmala',
-        7:'Jackfruit Leaflet no.6 Puree',
-        8:'Jackfruit Leaflet no.7 Jam',
-        9:'Jackfruit Leaflet no.8 Wine',
-        10:'Jackfruit Leaflet no.9 Vinegar'
+        2:'Plant Nursery Best Management Practices on Phytophtora Disease',
+        3:'Production of Cleft-Grafted Jackfruit',
+        4:'How to make Coffee-like drink from Jackfruit Seeds',
+        5:'How to make Nangka (Jackfruit) Juice',
+        6:'How to make Jackfruit Marmalade',
+        7:'How to make Jackfruit Puree',
+        8:'How to make Jackfruit Jam',
+        9:'How to make Jackfruit Wine',
+        10:'How to make Jackfruit Vinegar'
       }
     }
   }

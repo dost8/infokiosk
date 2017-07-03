@@ -94,7 +94,7 @@
   <div id="feedback2" style="left:13%;opacity:0;z-index:-2">
     <p style="font-size:50px;font-weight:bolder;color:white;letter-spacing:5">FEEDBACK</p>
     <p style="color:white;font-size:25px;margin-top:-10px">Comment/Suggestions to improve our services:</p>
-    <textarea id="commentText" name="name" rows="8" cols="80" style="border-radius:10px;padding:30;font-size:25;height:70%;color:black" placeholder="Your comments   are greatly appreciated."></textarea>
+    <textarea id="commentText" name="name" rows="8" cols="80" style="border-radius:10px;padding:30;font-size:25;height:70%;color:black" placeholder="Your comments are greatly appreciated."></textarea>
     <button class="btn btn-info" style="font-size:25px;margin-top:100px;margin-left:-16%;border-radius:10px;padding:25" onclick="submitFeedback()">
       <span style="">Send Feedback</span>
     </button>

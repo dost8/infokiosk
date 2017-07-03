@@ -53,8 +53,8 @@ body{
 /*Organization*/
 .org-block{
   position: absolute;
-  width: 7.1%;
-  height: 7.1%;
+  width: 124px;
+  height: 54px;
   border-radius: 18px;
   word-wrap: break-word;
   color: white;

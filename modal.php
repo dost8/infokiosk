@@ -123,13 +123,13 @@
         <p><i class="fa fa-briefcase"></i> 1st DOST TECHNOLOGY TRANSFER DAY <br> Promoting Research and Outstanding Milestones in Innovation and Science for Entrepreneurship</p>
       </div>
       <div class="modal-body">
-        <div class="main-nav col-lg-2" style="width:230px;height:519px;">
+        <div class="main-nav col-lg-2" style="width:230px;height:620px;">
           <ul>  </ul>
         </div>
-        <div class="arm-nav col-lg-2" style="width:25.7%;height: 519px;">
+        <div class="arm-nav col-lg-2" style="width:25.7%;height: 620px;">
           <ul>  </ul>
         </div>
-        <div class="col-lg-7 div-frame" style="height:519px;">
+        <div class="col-lg-7 div-frame" style="height:655px;">
         </div>
       </div>
     </div>
@@ -148,16 +148,16 @@
         <p><i class="fa fa-briefcase"></i>  Technopinoy Online Dashboard</p>
       </div>
       <div class="modal-body">
-        <div class="main-nav col-lg-2" style="width:175px;height: 551px;">
+        <div class="main-nav col-lg-2" style="width:230px;height: 655px;">
           <ul>
           </ul>
         </div>
-        <div class="arm-nav col-lg-2" style="width:25.7%;height: 551px;">
+        <div class="arm-nav col-lg-2" style="width:25.7%;height: 655px;">
           <ul>
 
           </ul>
         </div>
-        <div class="col-lg-7 div-frame" style="height: 551px;">
+        <div class="col-lg-7 div-frame" style="height: 688px;">
 
         </div>
       </div>

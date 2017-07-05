@@ -5,7 +5,7 @@
   </a>
   <img src="images/onelab.png" alt="" style="height:23.7%">
   <section class="row row0" style="text-align:justify">
-    <div style="margin-top:10px;margin-left:25px;width:90%;background:white;border:1px solid grey;border-radius:2px;padding:10px;">
+    <div style="margin-top:10px;margin-left:25px;width:90%;background:white;border:1px solid grey;border-radius:2px;padding:10px;border:white 2px solid;">
       <h4>What is OneLab?</h4>
       <p>OneLab is an IT-based project that broades public access to testing services of allDOST laboratories at a single touch point. It integrates all DOST laboratories and services from across the country on a single platform that effectively allows for seamless handling of samples: from receiving, referral, transport, analysis to the prompt delivery of results. Analysis included are those water quality, food integrity and microbiological tests, calibration for weights and volumes. In other words, you can drop off  your samples for analysis in any of the regional DOST Laboratory and they will take care of it regardless of whether the analysis will be done in that  particular laboratory or elsewhere.</p>
     </div>

@@ -81,6 +81,7 @@ $(document).on('click','.org-block',function(){
 // Angular controller
 var app = angular.module("myApp", ['ngRoute']);
 
+
 app.config(function($routeProvider){
   $routeProvider
   .when('/laboratory',{

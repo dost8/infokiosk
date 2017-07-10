@@ -15,21 +15,19 @@
         exit;
       }
 
-      $inet_conn = $this->is_connected();
+      if($this->is_connected()){
+    #    var_dump($this->selectSingleData('backup', ['backup_date']));
+      #  $db2 = new mysqli('db4free.net:3306/dostinfokiosk', 'dostinfokiosk', '#SjFk8#oStxgZpYThNdP', 'dostinfokiosk');
+      }
     }
 
     function is_connected(){
-      $connected = @fsockopen('https://google.com',80);
-      if($connected){
-        $is_conn = true;
-        fclose($connected);
-      }else{
-        $is_conn = false;
-      }
-      return $is_conn;
+      $connected = @fsockopen('www.db4free.net', 80, $error);
+      var_dump($connected);
+      return ($connected ? true : false);
     }
 
-    function insertSingleRow(array $data, $table){
+    function insertSingleRow(string $table, array $data){
       $query = "INSERT INTO ".$table." SET";
       $dataCount = count($data);
       $i = 1;
@@ -40,6 +38,22 @@
       }
       $this->db->query($query);
       echo $this->db->error;
+    }
+
+    function selectSingleData(string $table, array $data, $where = 1){
+      $query = "SELECT";
+      $i = 1;
+      $dataCount = count($data);
+      foreach($data as  $value){
+        $comma = ($i < $dataCount ? ',' : '');
+        $query .= ' '.$value.$comma;
+        $i++;
+      }
+      $query .= " FROM ".$table;
+      $query .= " WHERE ".$where;
+      $result = $this->db->query($query);
+      echo $this->db->error;
+      return $result;
     }
   }
 

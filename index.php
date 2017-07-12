@@ -1,8 +1,8 @@
 <?php
-  require_once 'cls.database.php';
+  require_once 'cls.operations.php';
   require_once 'modal.php' ;
 
-  $db = new Database();
+  $db = new Operations();
   ?>
 <!DOCTYPE html>
 <html>

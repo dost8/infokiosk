@@ -12,22 +12,22 @@
 
 <!-- Modal for the Menu -->
 <div class="modal fade" id="menu_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Menu Modal">
-  <div class="modal-dialog modal-lg" style="margin-top:12%;width:48%;">
+  <div class="modal-dialog modal-lg" style="margin-top:12%;width:66%;">
     <div class="modal-content" style="background:rgba(0, 80, 110, 0.19)" >
       <div class="modal-body">
         <div class="row" style="margin-left:2.5%">
-          <?php $title = ['organization','technology','feedback','portals','laboratory','about'];
-          foreach(range(0,2) as $button): ?>
+          <?php $title = ['organization','technology','feedback','portals','laboratory','about', 'update'];
+          foreach(range(0,3) as $button): ?>
             <a href="#<?=$title[$button]?>">
-              <div class="menu-button menu-button<?=$button?> col-sm-2" style="margin-left:10%;">
+              <div class="menu-button menu-button<?=$button?> col-sm-2" style="margin-left:5%;margin-right:5%">
                 <img src="images/clipart/<?=$title[$button]?>.png">
                 <p><?= strtoupper( $title[$button] )?></p>
               </div>
             </a>
           <?php endforeach?>
         </div>
-        <div class="row" style="margin-left:2.5%;margin-top:5%">
-          <?php foreach(range(3,5) as $button): ?>
+        <div class="row" style="margin-left:13.5%;margin-top:5%">
+          <?php foreach(range(4,6) as $button): ?>
             <a href="#<?=$title[$button]?>">
               <div class="menu-button menu-button<?=$button?> col-sm-2" style="margin-left: 10%;">
                 <img src="images/clipart/<?=$title[$button]?>.png">
@@ -121,6 +121,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <p><i class="fa fa-briefcase"></i> 1st DOST TECHNOLOGY TRANSFER DAY <br> Promoting Research and Outstanding Milestones in Innovation and Science for Entrepreneurship</p>
+        <span></span>
       </div>
       <div class="modal-body">
         <div class="main-nav col-lg-2" style="width:230px;height:620px;">
@@ -129,7 +130,12 @@
         <div class="arm-nav col-lg-2" style="width:25.7%;height: 620px;">
           <ul>  </ul>
         </div>
-        <div class="col-lg-7 div-frame" style="height:655px;">
+        <div class="col-lg-7" style="height:623px;width:837px;">
+        </div>
+        <div class="col-sm-1" style="width:48px;height:623px;padding:0px;">
+          <button type="button" name="button" style="background:none;border:none;margin-top:200px;">
+            <img src="images/clipart/email.png" alt="" style="width:100%;">
+          </button>
         </div>
       </div>
     </div>

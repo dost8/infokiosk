@@ -7,9 +7,8 @@
 // $db = $m->mydb;
 // echo "Database mydb selected";
 
-  require_once 'cls.database.php';
-  $db = new Database();
-  die;
+  require_once 'cls.operations.php';
+  $db = new Operations();
 
   if($_GET['type'] == 'submitFeedback'){
     unset($_REQUEST['type']);

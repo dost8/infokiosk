@@ -7,7 +7,6 @@
 
   let width = window.screen.availWidth;
   let height = window.screen.availHeight;
-
   if(height != 860 || width != 1600){
   }
 })();
@@ -39,7 +38,7 @@ function continueTask(check){
 function openLink(u, f){
   var frame = $(f+' .div-frame').html('');
 
-  (frame).append('<iframe src="'+u+'#view=fitH" style="min-height:95%;min-width:95%;"></iframe>')
+  (frame).append('<iframe src="'+u+'#view=fitH" style="min-height:100%;min-width:100%;"></iframe>')
 }
 
 // for the iframes

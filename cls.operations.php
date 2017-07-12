@@ -55,33 +55,39 @@
       return $result;
     }
 
-    // function sendEmail($text, $subject, $email_address, $file_location = '', $file_name = ''){
-    //   ini_set('max_execution_time',0);
-    //   require 'PHPMailer/PHPMailerAutoload.php';
-    //
-    //   $mail = new PHPMailer;
-    //   $mail->isSMTP();                                      // Set mailer to use SMTP
-    //   $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-    //   $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    //   $mail->Username = 'dost8.infokiosk@gmail.com';                 // SMTP username
-    //   $mail->Password = 'Gc.68>xC{h}_dQ_N';                           // SMTP password
-    //   $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-    //   $mail->Port = 465;                                    // TCP port to connect to
-    //
-    //   $mail->setFrom('dost8.infokiosk@gmail.com', 'DOST8 Information Kiosk');
-    //   $mail->addAddress($email_address);     // Add a recipient
-    //   #$mail->addAddress('ellen@example.com');               // Name is optional
-    //   #$mail->addReplyTo('info@example.com', 'Information');
-    //   #$mail->addCC('cc@example.com');
-    //   #$mail->addBCC('bcc@example.com');
-    //   if($file_location != '')
-    //     $mail->addAttachment($file_location, $file_name);  // Add attachments
-    //
-    //   $mail->isHTML(true);                                  // Set email format to HTML
-    //
-    //   $mail->Subject = $subject;
-    //   $mail->Body    = $text;
-    // }
+    function sendEmail($text, $subject, $email_address, $file_location = '', $file_name = ''){
+      ini_set('max_execution_time',0);
+      require 'PHPMailer/PHPMailerAutoload.php';
+
+      $mail = new PHPMailer;
+      $mail->isSMTP();                                      // Set mailer to use SMTP
+      $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+      $mail->SMTPAuth = true;                               // Enable SMTP authentication
+      $mail->Username = 'dost8.infokiosk@gmail.com';                 // SMTP username
+      $mail->Password = 'Gc.68>xC{h}_dQ_N';                           // SMTP password
+      $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+      $mail->Port = 465;                                    // TCP port to connect to
+
+      $mail->setFrom('dost8.infokiosk@gmail.com', 'DOST8 Information Kiosk');
+      $mail->addAddress($email_address);     // Add a recipient
+      #$mail->addAddress('ellen@example.com');               // Name is optional
+      #$mail->addReplyTo('info@example.com', 'Information');
+      #$mail->addCC('cc@example.com');
+      #$mail->addBCC('bcc@example.com');
+      if($file_location != '')
+        $mail->addAttachment($file_location, $file_name);  // Add attachments
+
+      $mail->isHTML(true);                                  // Set email format to HTML
+
+      $mail->Subject = $subject;
+      $mail->Body    = $text;
+
+      if(!$mail->send()){
+        return true;
+      }else{
+        return false;
+      }
+    }
   }
 
  ?>

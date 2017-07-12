@@ -76,6 +76,8 @@ $(document).on('click','.org-block',function(){
   }
 });
 
+// Sending emails
+
 
 // Angular controller
 var app = angular.module("myApp", ['ngRoute']);

@@ -56,9 +56,9 @@
     }
   })
 
-
   var armNavDisplay = false;
   $(document).on('click','.tech_modal li',function(){
+    var link;
     // get data attr "index" then split index for the corresponding index for JSON
     let dataIndex = $(this).data('index').toString().split(',')
     let modal = (dataIndex[0] === "0") ? '#dostTech_modal' : '#vsuTech_modal';
@@ -76,11 +76,37 @@
       }
     }
     if(dataIndex.length == 3){
-      $('.arm-nav li').css('background','none');
       let parentDir = (dataIndex[0] === "0" ? 'dost_tech' : 'vsu_tech');
-      let link = 'technology/'+parentDir+'/'+dataArr[ dataIndex[0] ][ dataIndex[1] ][ dataIndex[2]]+'.pdf';
+      let filename = dataArr[ dataIndex[0] ][ dataIndex[1] ][ dataIndex[2]];
+      link = 'technology/'+parentDir+'/'+filename+'.pdf';
+
+      $('.arm-nav li').css('background','none');
+      $('.btn_email').css('display','block')
+      $('#sendEmail_modal').attr('data-file',link);
       openLink( link, modal)
     }
     $(this).css('background','rgb(210, 210, 210)');
+  })
+
+  // Send PDF Technology through Email
+  $('#btn_sendEmail').click(function(){
+    $('#sendEmail_modal #credit_email img').css('display','block')
+    $.ajax({
+      url:'spec_func.php',
+      data:{
+        'type' : 'emailSend',
+        'emailAdd' : $('#input_sendEmail').val(),
+        'file' : $('#sendEmail_modal').data('file')
+      }
+    }).done(function(){
+      $('#sendEmail_modal #credit_email span').css('display','block')
+      $('#sendEmail_modal #credit_email img').css('display','none')
+
+      setTimeout(function(){
+        $('#sendEmail_modal #credit_email span').css('display','none')
+        $('#sendEmail_modal').modal('toggle');
+        $('#sendEmail_modal input').val('');
+      }, 5000);
+    });
   })
 </script>

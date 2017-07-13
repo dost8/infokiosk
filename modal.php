@@ -110,33 +110,33 @@
   }
   #dostTech_modal .modal-content, #vsuTech_modal .modal-content{
     margin-top: 100px;
-    height: 80%;
+    height: 83.8%;
 }
 </style>
 
 <div class="modal fade tech_modal" id="dostTech_modal" tabindex="-2" aria-hidden="true" aria-labelledBy="Modal view for DOST Technologies">
   <div class="modal-dialog" style="width:94%">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header" style="padding-bottom:0px">
         <button class="close" type="button" name="button" data-dismiss="modal" aria-label>
           <span aria-hidden="true">&times;</span>
         </button>
         <p><i class="fa fa-briefcase"></i> 1st DOST TECHNOLOGY TRANSFER DAY <br> Promoting Research and Outstanding Milestones in Innovation and Science for Entrepreneurship</p>
-        <span></span>
+        <form action="" method="POST" onsubmit="event.preventDefault()" class="pull-right" style="opacity:0">
+          <span style="display:none"><b>File has been sent.</b></span>
+          <img class="emailLoadGif" src="images/clipart/load.gif" alt="loading screen" style="width:35px;display:none">
+          <input type="email" name="" value="" required="required" class="input_sendEmail">
+          <button class="btn btn-default btn_sendEmail" type="submit" name="button">Send me a Copy.</button>
+        </form>
       </div>
       <div class="modal-body">
-        <div class="main-nav col-lg-2" style="width:230px;height:620px;">
+        <div class="main-nav col-lg-2" style="width:230px;height:625px;">
           <ul>  </ul>
         </div>
-        <div class="arm-nav col-lg-2" style="width:25.7%;height: 620px;">
+        <div class="arm-nav col-lg-2" style="width:25.7%;height: 625px;">
           <ul>  </ul>
         </div>
-        <div class="col-lg-7" style="height:623px;width:837px;">
-        </div>
-        <div class="col-sm-1" style="width:48px;height:623px;padding:0px;">
-          <button class="btn_email" type="button" name="button" style="display:none;background:none;border:none;margin-top:200px;" data-toggle="modal" data-target="#sendEmail_modal">
-            <img src="images/clipart/email.png" alt="" style="width:100%;">
-          </button>
+        <div class="col-lg-7" style="height:625px;width:886px;">
         </div>
       </div>
     </div>
@@ -148,61 +148,34 @@
 <div class="modal fade tech_modal" id="vsuTech_modal" tabindex="-2" aria-hidden="true" aria-labelledBy="Modal view for VSU Technologies">
   <div class="modal-dialog" style="width:94%;">
     <div class="modal-content ">
-      <div class="modal-header">
+      <div class="modal-header" style="padding-bottom:0px">
         <button class="close" type="button" name="button" data-dismiss="modal" aria-label>
           <span aria-hidden="true">&times;</span>
         </button>
-        <p><i class="fa fa-briefcase"></i>  Technopinoy Online Dashboard</p>
-      </div>
-      <div class="modal-body">
-        <div class="main-nav col-lg-2" style="width:230px;height: 655px;">
-          <ul>
-          </ul>
-        </div>
-        <div class="arm-nav col-lg-2" style="width:25.7%;height: 655px;">
-          <ul>
-
-          </ul>
-        </div>
-        <div class="col-lg-7" style="height:655px;width:837px;">
-
-        </div>
-        <div class="col-sm-1" style="width:48px;height:623px;padding:0px;">
-          <button class="btn_email" type="button" name="button" style="display:none;background:none;border:none;margin-top:200px;" data-toggle="modal" data-target="#sendEmail_modal">
-            <img src="images/clipart/email.png" alt="" style="width:100%;">
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="sendEmail_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Modal for sending pdf emails">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button class="close" type="button" name="button" data-dismiss="modal" aria-label>
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form class="" action="" method="post" onsubmit="event.preventDefault()">
-          <label for="email">Email Address</label>
-          <input class="form-control" type="email" name="email" value="" id="input_sendEmail" required>
-          <br>
-          <button id="btn_sendEmail" class="btn btn-warning pull-right" type="submit" name="button">Get File</button>
+        <p><i class="fa fa-briefcase"></i> Technopinoy Online Dashboard</p>
+        <form action="" method="POST" onsubmit="event.preventDefault()" class="pull-right" style="opacity:0">
+          <span style="display:none"><b>File has been sent.</b></span>
+          <img class="emailLoadGif" src="images/clipart/load.gif" alt="loading screen" style="width:35px;display:none">
+          <input type="email" name="" value="" required="required">
+          <button class="btn btn-defult btn_sendEmail" type="submit" name="button">Send me a Copy.</button>
         </form>
-        <br><br>
-        <div id="credit_email" style="text-align"center>
-          <span style="display:none"><b>File Sent.</b></span>
-          <img src="images/clipart/load.gif" alt="" style="display:none;width:90px;margin-left:250px;">
+      </div>
+      <div class="modal-body">
+        <div class="main-nav col-lg-2" style="width:230px;height: 642px;">
+          <ul>
+          </ul>
+        </div>
+        <div class="arm-nav col-lg-2" style="width:25.7%;height: 642px;">
+          <ul>
+
+          </ul>
+        </div>
+        <div class="col-lg-7" style="height:655px;width:886px;">
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
 <style media="screen">
   #iframe_modal .modal-content{
     width: 180%;  height: 85%;

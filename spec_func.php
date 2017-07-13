@@ -10,6 +10,6 @@
 
   if($_GET['type'] == 'emailSend'){
     $arr = explode('/', $_GET["file"]);
-    $db->sendEmail('PDF file sent.', 'DOST-8 Information Kiosk', $_GET['emailAdd'], $_GET['file'], $arr[2]);
+    $db->sendEmail('PDF File from DOST-8 Information Kiosk', 'DOST-8 Information Kiosk', $_GET['emailAdd'], $_GET['file'], $arr[2]);
   }
  ?>

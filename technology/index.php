@@ -57,8 +57,9 @@
   })
 
   var armNavDisplay = false;
+  var link = null;
   $(document).on('click','.tech_modal li',function(){
-    var link;
+    var parent = $(this).parents('.tech_modal');
     // get data attr "index" then split index for the corresponding index for JSON
     let dataIndex = $(this).data('index').toString().split(',')
     let modal = (dataIndex[0] === "0") ? '#dostTech_modal' : '#vsuTech_modal';
@@ -76,37 +77,31 @@
       }
     }
     if(dataIndex.length == 3){
-      let parentDir = (dataIndex[0] === "0" ? 'dost_tech' : 'vsu_tech');
+      let parentDir = (dataIndex[0] === "0" ? ['dost_tech','#dostTech_modal'] : ['vsu_tech','#vsuTech_modal']);
       let filename = dataArr[ dataIndex[0] ][ dataIndex[1] ][ dataIndex[2]];
-      link = 'technology/'+parentDir+'/'+filename+'.pdf';
+      link = 'technology/'+parentDir[0]+'/'+filename+'.pdf';
 
       $('.arm-nav li').css('background','none');
-      $('.btn_email').css('display','block')
-      $('#sendEmail_modal').attr('data-file',link);
+      $(parentDir[1]+' form').css('opacity','1')
       openLink( link, modal)
     }
     $(this).css('background','rgb(210, 210, 210)');
   })
 
   // Send PDF Technology through Email
-  $('#btn_sendEmail').click(function(){
-    $('#sendEmail_modal #credit_email img').css('display','block')
+  $('.btn_sendEmail').click(function(){
+    var parent = $(this).parent();
+    $(parent).children('img').css('display','inline')
     $.ajax({
       url:'spec_func.php',
       data:{
         'type' : 'emailSend',
-        'emailAdd' : $('#input_sendEmail').val(),
-        'file' : $('#sendEmail_modal').data('file')
+        'emailAdd' : $('.input_sendEmail').val(),
+        'file' : link
       }
     }).done(function(){
-      $('#sendEmail_modal #credit_email span').css('display','block')
-      $('#sendEmail_modal #credit_email img').css('display','none')
-
-      setTimeout(function(){
-        $('#sendEmail_modal #credit_email span').css('display','none')
-        $('#sendEmail_modal').modal('toggle');
-        $('#sendEmail_modal input').val('');
-      }, 5000);
+      $(parent).children('img').css('display','none')
+      $(parent).children('span').css('display','inline')
     });
   })
 </script>

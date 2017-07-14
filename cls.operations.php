@@ -26,6 +26,10 @@
       return ($connected ? true : false);
     }
 
+    /**
+    * @param string $table the table that will be used for the query
+    * @param arrary $data supply the fields to be used for the query
+    */
     function insertSingleRow(string $table, array $data){
       $query = "INSERT INTO ".$table." SET";
       $dataCount = count($data);
@@ -87,6 +91,11 @@
       }else{
         return false;
       }
+    }
+
+    function updateKiosk(){
+      // Download updates from repository online repositoryls
+      echo shell_exec('downloadUpdates.bat');
     }
   }
 

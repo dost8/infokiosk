@@ -103,4 +103,21 @@ app.config(function($routeProvider){
   .when('/feedback',{
     templateUrl : 'feedback.php'
   })
+  .when('/update',{
+    resolve:{
+      init : function(){
+        $('#update_modal').modal('toggle');
+        console.log('string')
+        $.ajax({
+          url:'spec_func.php',
+          data:{
+            'type':'abcd'
+          }
+        }).done(function(res){
+          $('#update_modal .modal-body .done').css('display','none');
+        //  console.log(res)
+        })
+      }
+    }
+  })
 })

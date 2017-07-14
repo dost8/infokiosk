@@ -95,7 +95,10 @@
 
     function updateKiosk(){
       // Download updates from repository online repositoryls
-      echo shell_exec('downloadUpdates.bat');
+      $array = [];
+      shell_exec('downloadUpdates.bat', $array);
+
+      foreach($array as $list){}
     }
   }
 

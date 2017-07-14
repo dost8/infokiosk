@@ -207,6 +207,27 @@
   </div>
 </div>
 
+<!-- MOdal for update -->
+<div class="modal fade" id="update_modal" tabindex="-1" aria-hidden="true" aria-label="display info for downloading update">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body" style="text-align:center">
+        <div class="updating">
+          <img src="images/clipart/load.gif" alt="" style="width:70px;">
+          <span><b>Information Kiosk is Updating.</b></span>
+        </div>
+        <div class="done" style="display:none;">
+          <p class="done">Update successful. Click button to refresh.</p>
+          <button class="btn btn-primary" type="button" name="button" onclick="window.location = '/tech4ed'"></button>
+        </div>
+        <div class="noneed" style="display:none">
+          <p>System, Already Up-to-Date.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="alerts" tabindex="-1" aria-hidden="true" aria-labelledBy="For messages">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">

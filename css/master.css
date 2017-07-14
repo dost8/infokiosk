@@ -1,0 +1,124 @@
+body{
+  background: url('../images/bg.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.menu{
+  color:white;
+  position: fixed;
+  margin-left: 3%;
+  margin-top: 3%;
+  width: 7%;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.menu:hover{
+  background: rgba(255, 255, 255, 0.31)
+}
+
+.menu-button{
+  text-align: center;
+  color: white;
+  width:150px;
+}
+.menu-button:hover{
+  background: rgba(255, 255, 255, 0.31)
+}
+.menu-button img{
+  width: 120px;
+  height: 12%;
+}
+.menu-button p{
+  font-weight: bolder;
+}
+.headName{
+  position: absolute;
+  right: 0%; top: 6%;
+  color: white;
+  font-size: 25px;
+}
+.headName img{
+  height: 5%;  width: 15%;
+  margin-left:20px;
+}
+
+.view{
+  height: 83%;
+  width: 94%;
+  position: fixed;
+  top: 13%;
+  left: 3%;
+}
+
+/*Organization*/
+.org-block{
+  position: absolute;
+  width: 124px;
+  height: 54px;
+  border-radius: 18px;
+  word-wrap: break-word;
+  color: white;
+}
+.org-block span{
+  display: none;
+}
+/*Enable srcolling on modal*/
+.modal-open{
+  overflow-y: scroll;
+}
+
+/*Organization */
+#orgProfile_modal .modal-header .close{
+  opacity: 1;
+}
+#orgProfile_modal .modal-header img{
+  position: absolute;
+  min-height: 80px; max-height: 80px;
+  top: -6%; right:-38px;
+  background-size: cover;
+}
+
+#orgProfile_modal .block{
+  /*margin-top:-41%;*/
+  position: relative;
+}
+
+#orgProfile_modal .frame{
+  width: 104%;  height: 40%;
+  margin-left: -3%;
+}
+#orgProfile_modal .pp{
+  position: absolute;
+  left: 6.5%;
+  top: 59px;
+  height: 118px;
+}
+
+#orgProfile_modal .name{
+  margin-left: 30%;
+  color:white;
+  text-align: center;
+  font-size: 15px;
+  bottom: 30%;
+  position: absolute;
+  z-index: 1;
+  width: 63%;
+}
+#orgProfile_modal .name > :first-child{
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+#dostTech_modal .link_block{
+  background: white;
+  width: 20%;
+  height: 24%;
+  border-radius: 5px;
+  margin-right: 5px;
+  text-align: center;
+}
+#dostTech_modal .link_block img{
+  height: 25%;
+  margin:48px 0px;
+  margin-left:-16px;
+}

@@ -217,11 +217,11 @@
           <span><b>Information Kiosk is Updating.</b></span>
         </div>
         <div class="done" style="display:none;">
-          <p class="done">Update successful. Click button to refresh.</p>
+          <p><b>Update successful. Click button to refresh.</b></p>
           <button class="btn btn-primary" type="button" name="button" onclick="window.location = '/tech4ed'"></button>
         </div>
         <div class="noneed" style="display:none">
-          <p>System, Already Up-to-Date.</p>
+          <p><b>System, Already Up-to-Date.</b></p>
         </div>
       </div>
     </div>

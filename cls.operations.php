@@ -96,9 +96,13 @@
     function updateKiosk(){
       // Download updates from repository online repositoryls
       $array = [];
-      shell_exec('downloadUpdates.bat', $array);
-
-      foreach($array as $list){}
+      exec('downloadUpdates.bat', $array);
+      $output = null;
+      foreach($array as $list){
+        $output .= $list."<br>";
+      }
+      if(strpos($output, 'Already up-to-date.'))
+        return 'up-to-date';
     }
   }
 

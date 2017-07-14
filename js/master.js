@@ -111,11 +111,20 @@ app.config(function($routeProvider){
         $.ajax({
           url:'spec_func.php',
           data:{
-            'type':'abcd'
+            'type':'updateKiosk'
           }
         }).done(function(res){
-          $('#update_modal .modal-body .done').css('display','none');
-        //  console.log(res)
+          $('#update_modal .modal-body .updating').css('display','none');
+          if(res == 'up-to-date'){
+            $('#update_modal .modal-body .noneed').css('display','inline');
+          }else{
+            $('#update_modal .modal-body .done').css('display','inline');
+          }
+
+          setTimeout(function(){
+            $('#update_modal').modal('hide');
+            toggleMenu();
+          }, 3000);
         })
       }
     }

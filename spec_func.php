@@ -12,4 +12,8 @@
     $arr = explode('/', $_GET["file"]);
     $db->sendEmail('PDF File from DOST-8 Information Kiosk', 'DOST-8 Information Kiosk', $_GET['emailAdd'], $_GET['file'], $arr[2]);
   }
+
+  if($_GET['type'] == 'updateKiosk'){
+    $db->updateKiosk();
+  }
  ?>

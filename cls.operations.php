@@ -5,7 +5,6 @@
     public $db;
     function __construct()
     {
-      die();
       $this->db = new mysqli('localhost:3306', 'root', '', 'info_kiosk');
       if (mysqli_connect_errno()) {
         echo "

@@ -19,17 +19,20 @@
   <div class="row">
     <div class="col-md-5">
       <?php $title = [['One Expert','One Store','One Lab','Tech4ed','STARBOOKS'],[61,60,59,60,60]];
-        foreach(range(0,4) as $i):
+      $first_style = 'style="background:rgba(204, 202, 202, 0.6)"';
+        foreach(range(0,4) as $i){
        ?>
-       <div class="block col-sm-4" onclick="showLink('<?=$title[0][$i]?>')">
+       <div class="block col-sm-4" onclick="showLink('<?=$title[0][$i]?>')" <?= $first_style ?>>
           <img src="images/clipart/<?= $title[0][$i]?>.png" style="height:<?= $title[1][$i] ?>%">
          <p><?= $title[0][$i] ?></p>
        </div>
-     <?php endforeach ?>
+     <?php
+      $first_style = '';
+      }
+      ?>
     </div>
     <div class="col-md-1"></div>
     <div class="col-md-6" id="link-desc" style="height:90%;overflow-y:auto;">
-
     </div>
   </div>
 </div>

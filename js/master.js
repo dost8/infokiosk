@@ -15,6 +15,13 @@ function toggleMenu(){
   $('#menu_modal').modal('toggle');
 }
 
+// Remove vertical scrollbar from modal
+$('.modal').on('show.bs.modal', function(){
+  $('body').css('margin-right','0px');
+  $('body').removeClass('modal-open');
+})
+
+
 $('.menu-button').click(function(){
   if( !$('#prompt').val() == "" ){
     event.preventDefault();
@@ -43,7 +50,6 @@ function openLink(u, f){
 
 // for the iframes
 function backLink(){
-  console.log( $('.iframe') );
   event.preventDefault()
 }
 
@@ -104,29 +110,6 @@ app.config(function($routeProvider){
     templateUrl : 'feedback.php'
   })
   .when('/update',{
-    resolve:{
-      init : function(){
-        $('#update_modal').modal('toggle');
-        console.log('string')
-        $.ajax({
-          url:'spec_func.php',
-          data:{
-            'type':'updateKiosk'
-          }
-        }).done(function(res){
-          $('#update_modal .modal-body .updating').css('display','none');
-          if(res == 'up-to-date'){
-            $('#update_modal .modal-body .noneed').css('display','inline');
-          }else{
-            $('#update_modal .modal-body .done').css('display','inline');
-          }
-
-          setTimeout(function(){
-            $('#update_modal').modal('hide');
-            toggleMenu();
-          }, 3000);
-        })
-      }
-    }
+    templateUrl : 'update.php'
   })
 })

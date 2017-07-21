@@ -99,9 +99,8 @@
     cursor: pointer;
   }
   .tech_modal .div-frame{
-    width: 61.6%;
     position: absolute;
-    right: -44px;
+    right: 1px;
     padding: 0px;
   }
 
@@ -136,7 +135,7 @@
         <div class="arm-nav col-lg-2" style="width:25.7%;height: 625px;">
           <ul>  </ul>
         </div>
-        <div class="col-lg-7" style="height:625px;width:886px;">
+        <div class="col-lg-7 div-frame" style="height:625px;width:886px;">
         </div>
       </div>
     </div>
@@ -170,7 +169,7 @@
 
           </ul>
         </div>
-        <div class="col-lg-7" style="height:655px;width:886px;">
+        <div class="col-lg-7 div-frame" style="height:655px;width:886px;">
         </div>
       </div>
     </div>

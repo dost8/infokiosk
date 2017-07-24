@@ -2,7 +2,6 @@
   <img src="images/clipart/org-chart.png" width="85%" alt="" style="position:absolute;left:0%;top:-3.5%;width:1480">
   <?php
     require_once('orgList.php');
-    ];
     foreach ($positions as $value): ?>
       <a href="#" onclick="event.preventDefault()">
         <div class="org-block" style="margin-left:<?= $value[0] ?>%;margin-top:<?= $value[1] ?>%;padding:4px;">

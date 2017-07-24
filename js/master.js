@@ -9,6 +9,15 @@
   let height = window.screen.availHeight;
   if(height != 860 || width != 1600){
   }
+
+  // check if updates are available
+  $.ajax({
+    url:'spec_func.php',
+    data:{
+      'type':'checkUpdate'
+    }
+  })
+  console.log('string')
 })();
 
 function toggleMenu(){

@@ -20,7 +20,7 @@
       $connected = @fsockopen('www.db4free.net', 80, $error);
 
       if($connected){
-    #    $db2 = new mysqli('db4free.net:3306/dostinfokiosk','dostinfokiosk','#SjFk8#oStxgZpYThNdP','dostinfokiosk');
+        $db2 = new mysqli('db4free.net:3306/dostinfokiosk','dostinfokiosk','#SjFk8#oStxgZpYThNdP','dostinfokiosk');
         $last_backup = $this->selectData('backup',['backup_date'],1,true);
         if(strcmp($last_backup['backup_date'], date('Y-m-d')) < 0)
         {
@@ -38,8 +38,8 @@
 
             $i++;
           }
-          $this->db->query($query);
-          echo $this->db->error;
+          $db2->query($query);
+          echo $db2->error;
         }
       }
      return false;
@@ -121,16 +121,19 @@
       }
     }
 
-    function updateKiosk(){
+    function execBatchFile($file){
       // Download updates from repository online repositoryls
       $array = [];
-      exec('downloadUpdates.bat', $array);
+      exec($file, $array);
       $output = null;
       foreach($array as $list){
         $output .= $list."<br>";
       }
-      if(strpos($output, 'Already up-to-date.'))
-        return 'up-to-date';
+      return $output;
+    }
+
+    function checkUpdate(){
+
     }
   }
 

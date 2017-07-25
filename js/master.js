@@ -9,11 +9,27 @@
   let height = window.screen.availHeight;
   if(height != 860 || width != 1600){
   }
+
+  // check if updates are available
+  $.ajax({
+    url:'spec_func.php',
+    data:{
+      'type':'checkUpdate'
+    }
+  })
+  console.log('string')
 })();
 
 function toggleMenu(){
   $('#menu_modal').modal('toggle');
 }
+
+// Remove vertical scrollbar from modal
+$('.modal').on('show.bs.modal', function(){
+  $('body').css('margin-right','0px');
+  $('body').removeClass('modal-open');
+})
+
 
 $('.menu-button').click(function(){
   if( !$('#prompt').val() == "" ){
@@ -43,7 +59,6 @@ function openLink(u, f){
 
 // for the iframes
 function backLink(){
-  console.log( $('.iframe') );
   event.preventDefault()
 }
 
@@ -102,5 +117,8 @@ app.config(function($routeProvider){
   })
   .when('/feedback',{
     templateUrl : 'feedback.php'
+  })
+  .when('/update',{
+    templateUrl : 'update.php'
   })
 })

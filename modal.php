@@ -99,9 +99,8 @@
     cursor: pointer;
   }
   .tech_modal .div-frame{
-    width: 61.6%;
     position: absolute;
-    right: -44px;
+    right: 1px;
     padding: 0px;
   }
 
@@ -136,7 +135,7 @@
         <div class="arm-nav col-lg-2" style="width:25.7%;height: 625px;">
           <ul>  </ul>
         </div>
-        <div class="col-lg-7" style="height:625px;width:886px;">
+        <div class="col-lg-7 div-frame" style="height:625px;width:886px;">
         </div>
       </div>
     </div>
@@ -170,7 +169,7 @@
 
           </ul>
         </div>
-        <div class="col-lg-7" style="height:655px;width:886px;">
+        <div class="col-lg-7 div-frame" style="height:655px;width:886px;">
         </div>
       </div>
     </div>
@@ -202,6 +201,27 @@
     <div class="modal-content">
       <div class="modal-body">
 
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MOdal for update -->
+<div class="modal fade" id="update_modal" tabindex="-1" aria-hidden="true" aria-label="display info for downloading update">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body" style="text-align:center">
+        <div class="updating">
+          <img src="images/clipart/load.gif" alt="" style="width:70px;">
+          <span><b>Information Kiosk is Updating.</b></span>
+        </div>
+        <div class="done" style="display:none;">
+          <p><b>Update successful. Click button to refresh.</b></p>
+          <button class="btn btn-primary" type="button" name="button" onclick="window.location = '/tech4ed'"></button>
+        </div>
+        <div class="noneed" style="display:none">
+          <p><b>System, Already Up-to-Date.</b></p>
+        </div>
       </div>
     </div>
   </div>

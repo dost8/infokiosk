@@ -2,6 +2,9 @@ body{
   background: url('../images/bg.png') no-repeat center center fixed;
   background-size: cover;
 }
+body.modal-open{
+  overflow-y: hidden;
+}
 
 .menu{
   color:white;

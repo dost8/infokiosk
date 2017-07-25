@@ -14,18 +14,41 @@
         ";
         exit;
       }
-
-      if($this->is_connected()){
-    #    var_dump($this->selectSingleData('backup', ['backup_date']));
-      #  $db2 = new mysqli('db4free.net:3306/dostinfokiosk', 'dostinfokiosk', '#SjFk8#oStxgZpYThNdP', 'dostinfokiosk');
-      }
     }
 
     function is_connected(){
       $connected = @fsockopen('www.db4free.net', 80, $error);
-      return ($connected ? true : false);
+
+      if($connected){
+        $db2 = new mysqli('db4free.net:3306/dostinfokiosk','dostinfokiosk','#SjFk8#oStxgZpYThNdP','dostinfokiosk');
+        $last_backup = $this->selectData('backup',['backup_date'],1,true);
+        if(strcmp($last_backup['backup_date'], date('Y-m-d')) < 0)
+        {
+          $feedbacks = $this->selectData('feedback',['rate','comment']);
+          // Data to be passed to online DB. YEAH !!!!
+          $values = [];
+          $columns = [];
+          $query = "INSERT INTO feedback (rate, comment, date) VALUES ";
+          $i = 1;
+          foreach($feedbacks as $record){
+            $query .= " ('".$record["rate"]."', '".$record["comment"]."',NOW())";
+
+            if($i < count($feedbacks))
+              $query .= ',';
+
+            $i++;
+          }
+          $db2->query($query);
+          echo $db2->error;
+        }
+      }
+     return false;
     }
 
+    /**
+    * @param string $table the table that will be used for the query
+    * @param arrary $data supply the fields to be used for the query
+    */
     function insertSingleRow(string $table, array $data){
       $query = "INSERT INTO ".$table." SET";
       $dataCount = count($data);
@@ -39,7 +62,7 @@
       echo $this->db->error;
     }
 
-    function selectSingleData(string $table, array $data, $where = 1){
+    function selectData(string $table, array $data, $where = 1, $limit = false){
       $query = "SELECT";
       $i = 1;
       $dataCount = count($data);
@@ -50,13 +73,22 @@
       }
       $query .= " FROM ".$table;
       $query .= " WHERE ".$where;
-      $result = $this->db->query($query);
+      $query = $this->db->query($query);
+
+      $data = [];
+      $limit_result = null;
+      while($result = $query->fetch_assoc()){
+        array_push($data, $result);
+        $limit_result= $result;
+      }
+      if($limit)
+        return $limit_result;
+
       echo $this->db->error;
-      return $result;
+      return $data;
     }
 
     function sendEmail($text, $subject, $email_address, $file_location = '', $file_name = ''){
-      ini_set('max_execution_time',0);
       require 'PHPMailer/PHPMailerAutoload.php';
 
       $mail = new PHPMailer;
@@ -87,6 +119,17 @@
       }else{
         return false;
       }
+    }
+
+    function execBatchFile($file){
+      // Download updates from repository online repositoryls
+      $array = [];
+      exec($file, $array);
+      $output = null;
+      foreach($array as $list){
+        $output .= $list."<br>";
+      }
+      return $output;
     }
   }
 

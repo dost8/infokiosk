@@ -13,22 +13,22 @@
     </section>
 
     <section class="row 2nd" style="background:url(portals/2nd-div-bg.jpg);background-size:cover;width:106.5%;margin-left:-3%;">
-      <div style="color:#fff;width:99%;">
+      <div style="color:#fff;width:97%;">
         <h2 style="text-align:center;">OneExpert seeks to achieve the following:</h3>
-        <ul style="list-style-type:none;margin-left:-10px">
+        <ul style="list-style-type:none;margin-left:-10px;text-indent:-9px">
           <li><i class="fa fa-check" style="color:yellow"></i>&nbsp;Establish a nation-wide network of S&T experts.</li>
           <li><i class="fa fa-check" style="color:yellow"></i>&nbsp;Significantly improve access to experts and technologies.</li>
-          <li><i class="fa fa-check" style="color:yellow"></i>&nbsp;Encourage involvement of local scientists, researchers, engineers, inventors and other technical people from both the public and private sectors in addressing S&T problems of the country</li>
+          <li><i class="fa fa-check" style="color:yellow"></i>&nbsp;Encourage involvement of local scientists, researchers, engineers, inventors and other technical people from both the public and private sectors in addressing S&T problems of the country.</li>
           <li><i class="fa fa-check" style="color:yellow"></i>&nbsp;Encourage information and knowledge sharing among local scientists and researchers.</li>
           <li><i class="fa fa-check" style="color:yellow"></i>&nbsp;Enhance the use of ICT in the delivery of government programs, projects and services.</li>
         </ul>
       </div>
     </section>
 
-    <section class="row 3rd">
+    <section class="row 3rd" style="width:101%;">
       <div style="color:#555">
         <h2 style="text-align:center;">OneExpert has the following features:</h2>
-        <ul style="list-style-type:none;margin-left:-10px;">
+        <ul style="list-style-type:none;margin-left:-10px;text-indent:5px;text-indent:-9px;">
           <li><i class="fa fa-check" style="color:green"></i>&nbsp;Database of experts searchable by field of expertise, institution and location.</li>
           <li><i class="fa fa-check" style="color:green"></i>&nbsp;Interaction with S&T experts through private messaging, wall posts and videoconferencing through exisiting third party applications.</li>
           <li><i class="fa fa-check" style="color:green"></i>&nbsp;Link to a searchable technology database through DOST-STII STARBOOKS</li>

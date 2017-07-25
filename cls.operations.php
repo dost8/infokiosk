@@ -131,10 +131,6 @@
       }
       return $output;
     }
-
-    function checkUpdate(){
-
-    }
   }
 
  ?>

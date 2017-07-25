@@ -18,6 +18,6 @@ ini_set('max_execution_time',0);
 
   if($_GET['type'] == 'checkUpdate'){
     $result = $operation->execBatchFile('checkUpdates.bat');
-    var_dump($result);
+    echo($result);
   }
 ?>

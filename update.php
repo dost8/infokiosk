@@ -35,5 +35,8 @@
     }else{
       $('.div1 p b').text('Information Kiosk, Download Succesfull.');
     }
+
+    $('.menu-button6').css('background','none');
+    $('.menu-button6 p').text('UPDATES');
   });
 </script>

@@ -107,11 +107,12 @@
   #dostTech_modal .modal-dialog, #vsuTech_modal .modal-dialog{
     width: 79%;
   }
-  #dostTech_modal .modal-content, #vsuTech_modal .modal-content{
+  .tech_modal .modal-content{
     margin-top: 100px;
     height: 83.8%;
 }
 </style>
+
 
 <div class="modal fade tech_modal" id="dostTech_modal" tabindex="-2" aria-hidden="true" aria-labelledBy="Modal view for DOST Technologies">
   <div class="modal-dialog" style="width:94%">
@@ -126,6 +127,7 @@
           <img class="emailLoadGif" src="images/clipart/load.gif" alt="loading screen" style="width:35px;display:none">
           <input type="email" name="" value="" required="required" class="input_sendEmail">
           <button class="btn btn-default btn_sendEmail" type="submit" name="button">Send me a Copy.</button>
+          <button class="btn btn-default btn_enlargePDF" type="button" name="button">Enlarge PDF</button>
         </form>
       </div>
       <div class="modal-body">
@@ -175,6 +177,32 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade tech_modal" id="enlarge_pdf" tabindex="0" aria-hidden="true" aria-label="View the PDF larger">
+  <div class="modal-dialog" style="width:96%">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span id="pdfTitle"></span>
+        <button class="close" type="button" name="button" data-dismiss="modal" aria-label>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <style media="screen">
+          .enlarge_pdf .div-frame iframe{
+            height:703px;
+          }
+        </style>
+        <div class="div-frame" style="width:100%;">
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <style media="screen">
   #iframe_modal .modal-content{
     width: 180%;  height: 85%;
@@ -226,6 +254,7 @@
     </div>
   </div>
 </div>
+
 
 <div class="modal fade" id="alerts" tabindex="-1" aria-hidden="true" aria-labelledBy="For messages">
   <div class="modal-dialog modal-sm">

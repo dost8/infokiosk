@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="css/font-awesome.min.css">
-<div class="" style="background:white;height:100%;border-radius:5px;">
+<div class="" style="background:white;height:initial;border-radius:5px;">
   <div class="">
     <a href="http://www.tech4ed.gov.ph" target="_blank" style="position:absolute;">
      <button class="btn btn-info" type="button" name="button"><i class="fa fa-external-link"></i> Go to Link</button>
@@ -47,8 +47,8 @@
 
         <p><b>4. Advocacy and Promotion</b></p>
         <p style="margin-top:-15px">This component will focus on the development of a focused advocacy effort to increase awareness appreciation and support for the Tech4ED Project.</p>
+<br>
       </div>
     </section>
-    <hr>
   </div>
 </div>

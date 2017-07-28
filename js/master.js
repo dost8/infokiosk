@@ -55,10 +55,14 @@ function continueTask(check){
 }
 
 // Opening external websites inside iframe
-function openLink(u, f){
+function openLink(u, f, h = null){
   var frame = $(f+' .div-frame').html('');
-
-  (frame).append('<iframe src="'+u+'#view=fitH" style="min-height:100%;min-width:100%;"></iframe>')
+  var height = null;
+  if(h != null){
+    height = 'height:'+h+';'
+    console.log(h)
+  }
+  (frame).append('<iframe src="'+u+'#view=fitH" style="min-height:100%;min-width:100%;'+height+'"></iframe>')
 }
 
 // for the iframes

@@ -18,10 +18,13 @@
 </style>
 <div class="div1 col-lg-3">
   <img src="images/clipart/load.gif" alt="">
-  <p class="text"><b>Information Kiosk, Checking for Updates...</b></p>
+  <p class="text"><b>Checking for Updates...</b></p>
 </div>
 
 <script type="text/javascript">
+  setTimeout(function(){
+    $('.text b').text('Downloading updates.')
+  },10000)
   $.ajax({
     url:'spec_func.php',
     data : {

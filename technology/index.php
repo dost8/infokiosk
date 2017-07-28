@@ -58,6 +58,7 @@
 
   var armNavDisplay = false;
   var link = null;
+  var filename = null;
   $(document).on('click','.tech_modal li',function(){
     var parent = $(this).parents('.tech_modal');
     // get data attr "index" then split index for the corresponding index for JSON
@@ -90,6 +91,9 @@
 
   // Send PDF Technology through Email
   $('.btn_sendEmail').click(function(){
+    if(!(/\S+@\S+\.\S+/.test( $('.input_sendEmail').val() ))){
+      return false;
+    }
     var parent = $(this).parent();
     $(parent).children('img').css('display','inline')
     $.ajax({
@@ -104,4 +108,16 @@
       $(parent).children('span').css('display','inline')
     });
   })
+
+  // View PDF largely
+  $('.btn_enlargePDF').click(function(){
+    openLink(link, '#enlarge_pdf', '96%');
+    let filename = link.toString().split('/');
+    $("#enlarge_pdf #pdfTitle").text(filename[2])
+
+    $('#enlarge_pdf').modal({
+      backdrop:'static',
+      keyboard:false
+    });
+  });
 </script>

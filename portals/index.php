@@ -60,7 +60,6 @@
     })
   }
 
-
   $(document).on('click','.onelab-buttons > div',function(){
     $('#button-name').html( $(this).data('name') )
 

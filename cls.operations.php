@@ -16,33 +16,52 @@
       }
     }
 
-    function is_connected(){
+    function cloud_backup(){
       $connected = @fsockopen('www.db4free.net', 80, $error);
 
       if($connected){
         $db2 = new mysqli('db4free.net:3306/dostinfokiosk','dostinfokiosk','#SjFk8#oStxgZpYThNdP','dostinfokiosk');
         $last_backup = $this->selectData('backup',['backup_date'],1,true);
-        if(strcmp($last_backup['backup_date'], date('Y-m-d')) < 0)
-        {
-          $feedbacks = $this->selectData('feedback',['rate','comment']);
+
+        // $query =  $db2->query("SELECT * FROM feedbacks");
+        // while ($result = $query->fetch_assoc()) {
+        //   print_r($result);
+        //   echo "</br>";
+        // }
+
+        if(strcmp($last_backup['backup_date'], date('Y-m-d')) < 0){
+          $feedbacks = $this->selectData('feedback',['rate','comment', 'type', 'date'], 'date >= "'.$last_backup['backup_date'].'"');
           // Data to be passed to online DB. YEAH !!!!
           $values = [];
           $columns = [];
-          $query = "INSERT INTO feedback (rate, comment, date) VALUES ";
+
+          $query = "INSERT INTO feedbacks (rate, comment, type, date) VALUES ";
           $i = 1;
           foreach($feedbacks as $record){
-            $query .= " ('".$record["rate"]."', '".$record["comment"]."',NOW())";
+            $date = date('Y-m-d', strtotime($record["date"]));
+            $query .= " ('".$record["rate"]."', '".$record["comment"]."', ".$record["type"].", '".$date."')";
 
             if($i < count($feedbacks))
               $query .= ',';
 
             $i++;
           }
+
           $db2->query($query);
           echo $db2->error;
+
+          $this->insertSingleRow('backup', ['backup_date'=>date('Y-m-d')]);
         }
       }
      return false;
+    }
+
+    function cloud_backup_force(){
+      $result = $this->selectData('backup', ['backup_date'], 1, true);
+      if(strcmp($result['backup_date'], date('Y-m-d')) <= 1792 ){
+        $this->cloud_backup();
+        echo "true";
+      }
     }
 
     /**
@@ -61,6 +80,7 @@
       $this->db->query($query);
       echo $this->db->error;
     }
+
 
     function selectData(string $table, array $data, $where = 1, $limit = false){
       $query = "SELECT";
@@ -81,10 +101,11 @@
         array_push($data, $result);
         $limit_result= $result;
       }
+      echo $this->db->error;
+
       if($limit)
         return $limit_result;
 
-      echo $this->db->error;
       return $data;
     }
 

@@ -21,11 +21,14 @@
     height:75px;
   }
   .feedback .questions{
-    width:40%
+    width:40%;
+    font-size: large;
   }
   .feedback .rate{
     min-height: 75px;     max-height: 75px;
     min-width: 140px;     max-width: 140px;
+    font-weight: 800;
+    font-size: 33px;
   }
   .blur1{
     background:rgba(221, 237, 189, 0.61);
@@ -51,60 +54,147 @@
     background: rgba(255, 255, 255, 0.4);
     border-radius: 10px;
   }
+
+  #myCarousel .left-td.rdo{
+    padding: 20px;
+  }
+  #myCarousel .left-td.rdo input[type="radio"]{
+    width: 20px;
+    height: 20;
+    border:0;
+    transform: scale(2,2);
+  }
+  #myCarousel .left-td.text{
+    padding: 18px;
+    padding-right: 60px;
+    font-weight: bolder;
+  }
+  #feedback_link img{
+    background: white;
+    height:100px;
+  }
+  #feedback_link table{
+    border-spacing: 10px;
+    border-collapse: collapse;
+  }
+
+  /*Radio Button*/
+  .rdo{
+    display:none;
+  }
+  .rdo + label{
+    color:white;
+    font-family:Arial, sans-serif;
+    font-size:14px;
+  }
+  .rdo + label span{
+    display: inline-block;
+    width: 19px;
+    height : 19px;
+    margin : -1px 4px 0 0;
+    vertical-align : middle;
+    cursor : pointer;
+    -moz-border-radius:5%;
+    border-radius : 50%;
+  }
+  .rdo + label span{
+    background: white;
+  }
+  .rdo:checked + label span{
+    background : rgb(9, 195, 44);
+  }
+  .rdo + label span, .rdo:checked _+ label span{
+    -webkit-transition : background-color 0.4s linear;
+    -o-transition : background-color 0.4s linear;
+    -moz-transition : background-color 0.4s linear;
+    transition : background-color 0.4s linear;
+  }
 </style>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
 
-<div class=" row feedback">
+  <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <!-- First page / Nature of Business -->
+      <div class="item active" style="height:100%;background-image:url('images/Clipart/Box.png');background-size:cover;padding:65px;color:white">
+        <table>
+          <tr>
+            <td style="border-right:2px solid white">
+              <table style="font-size:35px;color:white;font-family:monospace;">
+                <tr>
+                  <td colspan="4" style="font-family:monospace;font-weight:bolder;font-size:larger">Nature of Businesss (Choose One)</td>
+                </tr>
+                <?php $list = ['Food','Plastic/Rubber','Agriculture','Handicraft/Holiday Decors','Construction','Metals & Engineering','Furniture','Government','Beverage','Chemicals/Patrochemicals','Trading','Pharmaceuticals','Mining','Academe','Transport','Others'];
 
-  <div class="" id="feedback1" style="background:url('images/clipart/chart-bg.png');background-size:contain">
-      <table class="">
-        <tr>
-          <td colspan="6" style="background:rgb(50,60,36);margin:5% 7%;padding:1%;font-size:35px;width:87%">Title Here</td>
-        </tr>
-        <tr>
-          <td class="blur1" rowspan="2">FACTORS</td>
-          <td class="blur1" colspan="5">RATINGS</td>
-        </tr>
-        <tr>
-          <?php foreach(['E','VS','S','F','P'] as $row): ?>
-            <td class="blur1 rate"><?= $row?></td>
-          <?php endforeach ?>
-          <?php $questions = [
-            'Question 1',
-            'Question 2',
-            'Question 3',
-            'Question 4',
-            'Question 5'
-          ];
-          for ($i=0; $i < count($questions); $i++) {
-            echo '<tr>';
-            echo '<td class="blur2 questions">'.$questions[$i].'</td>';
-            $r = 0;
-            foreach (range(1,5) as $value) {
-              echo '<td class="blur2 rate row'.$i.'" data-col="'.$r.'" data-row="'.$i.'"></td>';
-              $r++;
-            }
-            echo "</tr>";
-          }
-          ?>
-        </tr>
-      </table>
-      <button class="btn btn_next" type="button" name="button" onclick="nextFeedback()" style="right: -80px;"><i class="fa fa-chevron-right fa-5x" aria-hidden="true" ></i></button>
+                  echo "<tr><form>";
+                  for($i = 1; $i <= count($list); $i++){
+                      echo '<td class="left-td rdo"><input type="radio" name="businessType" class="feedback_radio radio-warning radio'.$i.'"><label><span></span></label></td>';
+                      echo '<td class="left-td text">'.$list[$i - 1].'</td>';
+
+                    if(($i % 2) == 0){
+                      echo "</tr><tr>";
+                    }
+                  }
+                  echo '</form></tr>';
+                 ?>
+              </table>
+              </td>
+
+              <td style="padding-left:45px;">
+                <table id="feedback_links" style="margin:-20px 40px;cell-spacing:20px">
+                  <tr>
+                    <td><h3 style="position:absolute;right:60px;top:54px;color:white">Service Availed for DOST <br> (Please check and include details):</h3></td>
+                  </tr>
+                  <?php
+                    $list = ['setup','packaging','training','undergrad','datbed','finance'];
+                    foreach ($list as $key => $value):
+                   ?>
+                  <tr>
+                    <td style="text-align:center;width:50px;padding-top:5px;padding-bottom:5px;background:white;"><img src="images/clipart/<?= $value ?>.png" style="height:70px;"></td>
+                  </tr>
+                <?php endforeach ?>
+                </table>
+              </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="item">
+        <img src="chicago.jpg" alt="Chicago" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="ny.jpg" alt="New york" style="width:100%;">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev" onclick="event.preventDefault()" style="width:4%;background:none">
+      <span><i class="fa fa-chevron-left fa-4x" style="margin:329px 0px"></i></span>
+      <span class="sr-only">Previous</span>
+    </a>
+
+    <a class="right carousel-control" href="#myCarousel" data-slide="next" onclick="event.preventDefault()" style="width:4%;background:none">
+      <span><i class="fa fa-chevron-right fa-4x" style="margin:329px 0px"></i></span>
+      <span class="sr-only">Next</span>
+    </a>
+
+    <ol class="carousel-indicators" style="display:none">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
   </div>
-
-  <div id="feedback2" style="left:13%;opacity:0;z-index:-2">
-    <p style="font-size:50px;font-weight:bolder;color:white;letter-spacing:5">FEEDBACK</p>
-    <p style="color:white;font-size:25px;margin-top:-10px">Comment/Suggestions to improve our services:</p>
-    <textarea id="commentText" name="name" rows="8" cols="80" style="border-radius:10px;padding:30;font-size:25;height:70%;color:black" placeholder="Your comments are greatly appreciated."></textarea>
-    <button class="btn btn-info" style="font-size:25px;margin-top:100px;margin-left:-16%;border-radius:10px;padding:25" onclick="submitFeedback()">
-      <span style="">Send Feedback</span>
-    </button>
-  </div>
-</div>
 
 <script type="text/javascript">
   $(document).ready(function(){
     $('.headName span').text('Customer Feedback')
     $('.headName img').attr('src','images/clipart/feedback.png')
+
+    $('#myCarousel').carousel({
+      pause : true,
+      interval : false
+    })
   })
 
 let charRate = [0,0,0,0,0]

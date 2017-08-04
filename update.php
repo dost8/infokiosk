@@ -22,8 +22,9 @@
 </div>
 
 <script type="text/javascript">
-// will display "Download success" if there is download or time execution is greater than 10 seconds
-var downloadProxy = true;
+  setTimeout(function(){
+    $('.text b').text('Downloading updates.')
+  },10000)
   $.ajax({
     url:'spec_func.php',
     data : {
@@ -38,15 +39,7 @@ var downloadProxy = true;
       $('.div1 p b').text('Information Kiosk, Download Succesfull.');
     }
 
-    downloadProxy = false;
-
     $('.menu-button6').css('background','none');
     $('.menu-button6 p').text('UPDATES');
   });
-
-  setTimeout(function(){
-    if(downloadProxy){
-      $('.text b').text('Downloading updates.');
-    }
-  },8000);
 </script>

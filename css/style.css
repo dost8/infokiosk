@@ -1,0 +1,12 @@
+div.mainFrame{
+  width: 90%;
+  margin: 5%;
+  height: 780px;
+}
+.colorWhite{
+  color: white;
+}
+.borderLine{
+  border: 5px solid white;
+  border-radius: 10px;
+}

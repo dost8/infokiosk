@@ -41,6 +41,28 @@
   </div>
 </div>
 
+<!-- Feedback modals -->
+<div class="modal fade" id="feedback_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="feedback modal" style="font-family:monospace">
+  <div class="modal-dialog modal-lg" style="margin-top:15%">
+    <div class="modal-content" style="background:rgb(205, 203, 204)">
+      <div class="modal-header">
+        <img src="images/clipart/triangle.png" alt="" style="position:absolute;height:328px;left:60%;top:-224px;">
+        <span style="margin-left:-58%;margin-top:20px;">
+
+        </span>
+      </div>
+      <div class="modal-body">
+        <div class="">
+          <textarea name="name" rows="8" cols="80" placeholder="Please specify the purpose..." style="width:97%;height:140px;margin-left:10px;font-size:33px;resize:none;border:none"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default" type="button" name="button" style="background:rgb(74, 165, 170);color:white;font-size:33px;">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="prompt_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Prompt Modal">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">

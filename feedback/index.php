@@ -63,7 +63,7 @@
   }
 </style>
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="font-family:'ubuntu' san-serif">
   <!-- Indicators -->
   <ol class="carousel-indicators" style="display:none">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -73,12 +73,12 @@
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
-    <div class="item active">
+    <div class="item ">
       <?php include_once 'chart1.php'; ?>
     </div>
 
-    <div class="item">
-      <img src="chicago.jpg" alt="Chicago">
+    <div class="item active">
+      <?php include_once 'chart2.php'; ?>
     </div>
 
     <div class="item">

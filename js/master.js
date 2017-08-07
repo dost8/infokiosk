@@ -1,9 +1,10 @@
-(function(){
+$(document).ready(function(){
   // $('#video_intro').modal('toggle');
   // setTimeout(function(){
   //   $('#video_intro').modal('toggle');
+  //   toggleMenu()
   // }, 3500);
-  // toggleMenu()
+
 
   let width = window.screen.availWidth;
   let height = window.screen.availHeight;
@@ -22,7 +23,7 @@
       $('.menu-button6 p').text('UPDATES ARE AVAILABLE');
     }
   })
-})();
+});
 
 function toggleMenu(){
   $('#menu_modal').modal('toggle');

@@ -124,7 +124,7 @@ app.config(function($routeProvider){
     templateUrl : 'portals/index.php'
   })
   .when('/feedback',{
-    templateUrl : 'feedback.php'
+    templateUrl : 'feedback/index.php'
   })
   .when('/update',{
     templateUrl : 'update.php'

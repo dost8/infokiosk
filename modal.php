@@ -55,6 +55,24 @@
   </div>
 </div>
 
+<!-- feedback DOST-services modal -->
+<div class="modal fade" id="dost-services_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="DOST Services modal from the feeback function" style="font-family:monospace">
+  <div class="modal-dialog modal-lg" style="margin-top:15%;">
+    <div class="modal-content" style="background:rgb(205, 203, 204)">
+      <div class="modal-header">
+        <span style="margin-top:20px;width:250px;height:75px;"><img src="" alt="DOST services" style="width:50%"></span>
+        <img src="images/clipart/triangle.png" alt="" style="position:absolute;width:440px;right:-16%;top:-39%;">
+      </div>
+      <div class="modal-body">
+        <textarea name="name" rows="8" cols="80" style="resizable:false;width:100%;height:30%;font-size:37px;padding:12px;" placeholder="Please specify the purpose..."></textarea>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" style="background:rgb(74, 164, 169);font-size:30px;color:white;border-radius:18px;">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="orgProfile_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Organization view profile">
   <div class="modal-dialog modal-lg" style="margin-top:10%;width:40%">
     <div class="modal-content" style="background:rgb(196,196,196);min-height:20%" style="">

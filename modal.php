@@ -12,27 +12,25 @@
 
 <!-- Modal for the Menu -->
 <div class="modal fade" id="menu_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Menu Modal">
-  <div class="modal-dialog modal-lg" style="margin-top:12%;width:66%;">
+  <div class="modal-dialog modal-lg" style="margin-top:12%;width:75%">
     <div class="modal-content" style="background:rgba(0, 80, 110, 0.19)" >
       <div class="modal-body">
-        <div class="row" style="margin-left:2.5%">
+        <div class="row">
           <?php $title = ['organization','technology','feedback','portals','laboratory','about', 'update'];
           foreach(range(0,3) as $button): ?>
-            <a href="#<?=$title[$button]?>">
-              <div class="menu-button menu-button<?=$button?> col-sm-2" style="margin-left:5%;margin-right:5%">
+            <a href="#<?=$title[$button]?>" class="menu-button menu-button<?=$button?>" >
+              <!-- <div class="menu-button menu-buttonol-sm-5" style="margin-left:5%;margin-right:5%"> -->
                 <img src="images/clipart/<?=$title[$button]?>.png">
                 <p><?= strtoupper( $title[$button] )?></p>
-              </div>
+              <!-- </div> -->
             </a>
           <?php endforeach?>
         </div>
         <div class="row" style="margin-left:13.5%;margin-top:5%">
           <?php foreach(range(4,6) as $button): ?>
-            <a href="#<?=$title[$button]?>">
-              <div class="menu-button menu-button<?=$button?> col-sm-2" style="margin-left: 10%;">
+            <a href="#<?=$title[$button]?>" class="menu-button menu-button<?=$button?>">
                 <img src="images/clipart/<?=$title[$button]?>.png">
                 <p><?= strtoupper( $title[$button] ) ?></p>
-              </div>
             </a>
           <?php endforeach ?>
         </div>

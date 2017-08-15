@@ -23,6 +23,7 @@ body.modal-open{
   text-align: center;
   color: white;
   width:150px;
+  margin:0% 3% 0% 3%;
 }
 .menu-button:hover{
   background: rgba(255, 255, 255, 0.31)

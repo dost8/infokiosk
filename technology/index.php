@@ -25,13 +25,13 @@
   }
 
 </style>
-<a href="#" target="_blank" class='tech_link' onclick="event.preventDefault()" data-toggle="modal" data-target="#dostTech_modal">
+<a href="#" target="_blank" class='tech_link' onclick="event.preventDefault()" data-target="dostTech">
   <div class='tech_div'>
     <p>DOST Technologies</p>
   </div>
 </a>
 
-<a href="#" target="_blank" class="tech_link" onclick="event.preventDefault()" data-toggle="modal" data-target="#vsuTech_modal">
+<a href="#" target="_blank" class="tech_link" onclick="event.preventDefault()" data-target="vsuTech">
   <div class="tech_div">
     <p>VSU - VICAARP Technology</p>
   </div>
@@ -39,21 +39,38 @@
 
 <script src="technology/techList.js" charset="utf-8"></script>
 <script type="text/javascript">
+
+
   $(document).ready(function(){
     $('.headName span').text('Technology')
     $('.headName img').attr('src','images/clipart/technology.png')
+  })
 
-    // For DOST Tech Main navigation
-    let dataList = dataArr[0][0];
-    for(let key in dataList){
-      $('#dostTech_modal .main-nav ul').append('<li data-index="0,'+key+'"><i class="fa fa-folder-open"></i>'+dataList[key]+'</li>')
+  $('.tech_link').on('click', function(){
+    // Clear list
+    var techListModal = ".tech_modal.techList-modal";
+    $(techListModal+' .main-nav ul').html('');
+    $(techListModal+' .arm-nav ul').html('');
+    $(techListModal+' form').css('opacity','0');
+    $(techListModal+' img.emailDoneGif').css('display','none');
+
+    var target = $(this).data('target');
+    if(target == 'dostTech'){
+      var header = "1st DOST TECHNOLOGY TRANSFER DAY <br> Promoting Research and Outstanding Milestones in Innovation and Science for Entrepreneurship.";
+      var dataList = dataArr[0][0];
+      var index = 0;
+    }else{
+      var header = "Technopinoy Online Dashboard";
+      var dataList = dataArr[1][0];
+      var index = 1;
     }
 
-    // For VSU Tech Main navigation
-    dataList = dataArr[1][0];
     for(let key in dataList){
-      $('#vsuTech_modal .main-nav ul').append('<li data-index="1,'+key+'"><i class="fa fa-folder-open"></i>'+dataList[key]+'</li>')
+      $('.tech_modal.techList-modal .main-nav ul').append('<li data-index="'+index+','+key+'"><i class="fa fa-folder-open"></i>'+dataList[key]+'</li>')
     }
+
+    $('.tech_modal .modal-header .header-text').text('').append(header);
+    $('.tech_modal.techList-modal').modal('toggle');
   })
 
   var armNavDisplay = false;
@@ -63,7 +80,6 @@
     var parent = $(this).parents('.tech_modal');
     // get data attr "index" then split index for the corresponding index for JSON
     let dataIndex = $(this).data('index').toString().split(',')
-    let modal = (dataIndex[0] === "0") ? '#dostTech_modal' : '#vsuTech_modal';
 
     if(dataIndex.length == 2){
       // clear secondary navigation everytime a main navigation is clicked
@@ -74,17 +90,16 @@
       let dataList = dataArr[ dataIndex[0] ][ dataIndex[1] ];
       for(let key in dataList){
         let title = dataList[key]
-        $(modal + ' .arm-nav ul').append('<li data-index="'+dataIndex[0]+','+dataIndex[1]+','+key+'"><i class="fa fa-file-pdf-o"></i> '+title+'</li>')
+        $('.tech_modal.techList-modal' + ' .arm-nav ul').append('<li data-index="'+dataIndex[0]+','+dataIndex[1]+','+key+'"><i class="fa fa-file-pdf-o"></i> '+title+'</li>')
       }
     }
     if(dataIndex.length == 3){
       let parentDir = (dataIndex[0] === "0" ? ['dost_tech','#dostTech_modal'] : ['vsu_tech','#vsuTech_modal']);
       let filename = dataArr[ dataIndex[0] ][ dataIndex[1] ][ dataIndex[2]];
       link = 'technology/'+parentDir[0]+'/'+filename+'.pdf';
-
       $('.arm-nav li').css('background','none');
-      $(parentDir[1]+' form').css('opacity','1')
-      openLink( link, modal)
+      $('.techList-modal form').css('opacity','1')
+      openLink( link, '.tech_modal.techList-modal')
     }
     $(this).css('background','rgb(210, 210, 210)');
   })
@@ -95,7 +110,7 @@
       return false;
     }
     var parent = $(this).parent();
-    $(parent).children('img').css('display','inline')
+    $(parent).children('img.emailLoadGif').css('display','inline')
     $.ajax({
       url:'spec_func.php',
       data:{
@@ -104,8 +119,8 @@
         'file' : link
       }
     }).done(function(){
-      $(parent).children('img').css('display','none')
-      $(parent).children('span').css('display','inline')
+      $(parent).children('img.emailLoadGif').css('display','none')
+      $(parent).children('img.emailDoneGif').css('display','inline')
     });
   })
 

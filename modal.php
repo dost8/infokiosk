@@ -115,15 +115,23 @@
     border-bottom: 1px solid #cfc9c9;
   }
   .tech_modal .modal-header p{
-    margin:0px;
+    margin:0px -105px;
     font-size:23px;
   }
   .tech_modal .modal-body{
     padding:0px;
   }
+  .tech_modal .modal-body .main-nav{
+    width : 276px;
+  }
+  .tech_modal .modal-body .arm-nav{
+    width : 25.7%;
+  }
+
   .tech_modal .main-nav, .tech_modal .arm-nav{
     background: #e7e7e7;
     border-right: 1px solid #cfc9c9;
+    height: 672px;
   }
   .tech_modal ul{
     list-style: none;
@@ -140,9 +148,11 @@
     position: absolute;
     right: 1px;
     padding: 0px;
+    width:886px;
+    height:672px;
   }
 
-  #dostTech_modal .modal-dialog, #vsuTech_modal .modal-dialog{
+  .tech_modal .modal-dialog{
     width: 79%;
   }
   .tech_modal .modal-content{
@@ -152,30 +162,33 @@
 </style>
 
 
-<div class="modal fade tech_modal" id="dostTech_modal" tabindex="-2" aria-hidden="true" aria-labelledBy="Modal view for DOST Technologies">
-  <div class="modal-dialog" style="width:94%">
+<div class="modal fade tech_modal techList-modal" tabindex="-2" aria-hidden="true" aria-labelledBy="Modal view for DOST Technologies">
+  <div class="modal-dialog" style="min-width:1550px !important;">
     <div class="modal-content">
-      <div class="modal-header" style="padding-bottom:0px">
-        <button class="close" type="button" name="button" data-dismiss="modal" aria-label>
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <p><i class="fa fa-briefcase"></i> 1st DOST TECHNOLOGY TRANSFER DAY <br> Promoting Research and Outstanding Milestones in Innovation and Science for Entrepreneurship</p>
-        <form action="" method="POST" onsubmit="event.preventDefault()" class="pull-right" style="opacity:0">
-          <span style="display:none"><b>File has been sent.</b></span>
-          <img class="emailLoadGif" src="images/clipart/load.gif" alt="loading screen" style="width:35px;display:none">
-          <input type="email" name="" value="" required="required" class="input_sendEmail">
-          <button class="btn btn-default btn_sendEmail" type="submit" name="button">Send me a Copy.</button>
-          <button class="btn btn-default btn_enlargePDF" type="button" name="button">Enlarge PDF</button>
-        </form>
+      <div class="modal-header" style="padding-bottom:0px;min-height:79;">
+          <p style="position:absolute;left:125px;"><i class="fa fa-briefcase"></i> <span class="header-text"></span></p>
+          <button class="close pull-right" type="button" name="button" data-dismiss="modal" aria-label style="right: 20px; top: 10px; position: absolute;">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        <section class="section" style="position:absolute;right:20px;top:40px;">
+          <form action="" method="POST" onsubmit="event.preventDefault()" class="" style="opacity:0">
+            <img class="emailDoneGif" src="images/clipart/checked.png" alt="Done Image" style="width:32px;padding:3px;display:none;background:white;border:1px solid #c9c5c5">
+            <img class="emailLoadGif" src="images/clipart/load.gif" alt="loading screen" style="width:35px;display:none;">
+            <input type="email" name="" value="" required="required" class="input_sendEmail form-control" placeholder="Email Address" style="width:220px; display:inline;">
+            <button class="btn btn-default btn_sendEmail" type="submit" name="button">Send me a Copy.</button>
+            <button class="btn btn-default btn_enlargePDF" type="button" name="button">Enlarge PDF</button>
+          </form>
+        </section>
       </div>
       <div class="modal-body">
-        <div class="main-nav col-lg-2" style="width:230px;height:625px;">
+        <div class="main-nav col-lg-3">
           <ul>  </ul>
         </div>
-        <div class="arm-nav col-lg-2" style="width:25.7%;height: 625px;">
+        <div class="arm-nav col-lg-3">
           <ul>  </ul>
         </div>
-        <div class="col-lg-7 div-frame" style="height:625px;width:886px;">
+        <div class="col-lg-7 div-frame" style="">
         </div>
       </div>
     </div>
@@ -184,8 +197,8 @@
 
 <style media="screen">
 </style>
-<div class="modal fade tech_modal" id="vsuTech_modal" tabindex="-2" aria-hidden="true" aria-labelledBy="Modal view for VSU Technologies">
-  <div class="modal-dialog" style="width:94%;">
+<!-- <div class="modal fade tech_modal" id="vsuTech_modal" tabindex="-2" aria-hidden="true" aria-labelledBy="Modal view for VSU Technologies">
+  <div class="modal-dialog" style="min-width:1550px !important;">
     <div class="modal-content ">
       <div class="modal-header" style="padding-bottom:0px">
         <button class="close" type="button" name="button" data-dismiss="modal" aria-label>
@@ -200,11 +213,11 @@
         </form>
       </div>
       <div class="modal-body">
-        <div class="main-nav col-lg-2" style="width:230px;height: 642px;">
+        <div class="main-nav col-lg-2">
           <ul>
           </ul>
         </div>
-        <div class="arm-nav col-lg-2" style="width:25.7%;height: 642px;">
+        <div class="arm-nav col-lg-2">
           <ul>
 
           </ul>
@@ -214,14 +227,14 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <div class="modal fade tech_modal" id="enlarge_pdf" tabindex="0" aria-hidden="true" aria-label="View the PDF larger">
-  <div class="modal-dialog" style="width:96%">
+  <div class="modal-dialog" style="min-width:1550px !important">
     <div class="modal-content">
-      <div class="modal-header">
-        <span id="pdfTitle"></span>
-        <button class="close" type="button" name="button" data-dismiss="modal" aria-label>
+      <div class="modal-header" style="height:45px;">
+        <span id="pdfTitle" style="position:absolute;left:19px;"></span>
+        <button class="close" type="button" name="button" data-dismiss="modal" style="position:absolute;right:20px;" aria-label>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>

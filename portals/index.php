@@ -7,7 +7,7 @@
     border-radius: 5px;
     text-align: center;
     height: 210px;
-    width: 228px;
+    min-width: 228px !important;
   }
   .portals .block img{
     height: 100px;

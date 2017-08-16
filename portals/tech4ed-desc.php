@@ -36,16 +36,16 @@
 
       <div class="">
         <h4 style="font-weight:bold">PROJECT COMPONENTS</h4>
-        <p><b>1. Establishment of Tech4ED Centers</b></p>
+        <p><b>1. Establishment of Tech4ED Centers</b></p><br>
         <p style="margin-top:-15px">This component seeks to establish Tech4ED Centers in undeserved and unserved communities which have no, if not minimal, access to ICT. Among the notable activities in this component are the Center selection, launch and operations.</p>
 
-        <p><b>2. Content Development</b></p>
+        <p><b>2. Content Development</b></p><br>
         <p style="margin-top:-15px">This component shall seek to provide need-based, community-responsive contents which can be accessed thru the Tech4ED Centers. These ICT-enabled contents and services are mostly exisiting materials from various partners delivered thru the Tech4ED platform.</p>
 
-        <p><b>3. Capability Building</b></p>
+        <p><b>3. Capability Building</b></p><br>
         <p style="margin-top:-15px">This component aims to build the capability of Tech4ED Center Knowledge workers, excluding the DICT FOO personnel. The Center manager, technical and administrative support staff, on the use of Tech4ED platform and in the areas of planning, managing and sustaining the operation of the Tech4ED Center.</p>
 
-        <p><b>4. Advocacy and Promotion</b></p>
+        <p><b>4. Advocacy and Promotion</b></p><br>
         <p style="margin-top:-15px">This component will focus on the development of a focused advocacy effort to increase awareness appreciation and support for the Tech4ED Project.</p>
 <br>
       </div>

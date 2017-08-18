@@ -8,7 +8,7 @@
     width:87%;
   }
 
-  table{
+  .chart2 table{
     border-collapse: separate;
     border-spacing: 5px;
     position: absolute;
@@ -54,7 +54,7 @@
     </tr>
     <tr>
       <?php foreach(['E','VS','S','F','P'] as $value){
-        echo '<td class="blur1 rate">'.$value.'</td>';
+        echo '<td class="blur1">'.$value.'</td>';
       }
        $questions = [
         'Timelessnes (service completed within the agreed time of delivery).',
@@ -76,3 +76,16 @@
     </tr>
   </table>
 </div>
+<script type="text/javascript">
+let chartRate = [0,0,0,0,0]
+let smiley =  ['happy','happy (1)','smile','sad','sad (1)'];
+$(document).on('click','.rate', function(){
+  let rowNo = $(this).data('row')
+  let row = '.row'+rowNo
+  let colNo = $(this).data('col')
+  $(row).html('')
+  $(this).append('<img src="images/clipart/'+ smiley[ colNo ] +'.png" style="width:50px;">')
+  chartRate[ rowNo ] = colNo;
+  data.chartRate= chartRate;
+})
+</script>

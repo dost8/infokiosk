@@ -79,8 +79,10 @@
 <div class="modal fade" id="dost-services_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="DOST Services modal from the feeback function" style="font-family:monospace">
   <div class="modal-dialog modal-lg" style="margin-top:15%;">
     <div class="modal-content" style="background:rgb(205, 203, 204)">
-      <div class="modal-header">
-        <span style="margin-top:20px;width:250px;height:75px;"><img src="" alt="DOST services" style="width:50%"></span>
+      <div class="modal-header" style="height:12%;">
+        <span style="margin-top:20px;width:250px;height:75px;position:absolute;left:20;">
+          <img src="" alt="DOST services" style="width:100%">
+        </span>
         <img src="images/clipart/triangle.png" alt="" style="position:absolute;width:440px;right:-16%;top:-39%;">
       </div>
       <div class="modal-body">
@@ -88,6 +90,74 @@
       </div>
       <div class="modal-footer">
         <button class="btn" style="background:rgb(74, 164, 169);font-size:30px;color:white;border-radius:18px;">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style media="screen">
+  #feedback_preview-modal table *{
+    font-size : 25px;
+  }
+  #feedback_preview-modal table input, #feedback_preview-modal table textarea{
+    text-align: left;
+    background: white;
+  }
+  #feedback_preview-modal table .chart-img{
+    height:85px;   max-height: 75px;
+    border:1px solid #ccc;
+  }
+  #feedback_preview-modal table .chart-img > img{
+    width: 73px;
+    height: 65px;
+  }
+</style>
+<div class="modal fade" id="feedback_preview-modal" tabindex="-1" aria-hidden="true" aria-labelledby="Preview for the data user has inputted">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1>Feedback Preview</h1>
+      </div>
+      <div class="modal-body">
+        <table class="table" style="border-collapse: separate">
+          <tr>
+            <td colspan="5">
+              <label class=""><i>Nature of Business</i></label>
+              <input class="nob form-control" type="text" name="" value="" disabled>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="5">
+              <label for=""><i>Availed DOST Service</i></label>
+              <textarea class="services form-control" name="name" rows="2" style="resize:none" disabled></textarea>
+              <hr style="margin:5px;">
+              <label for=""><i>DOST Services Comment</i></label>
+              <textarea class="services_text form-control" name="name" style="resize:none" disabled></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="5">
+              <label for=""><i>Delivery of Services</i></label>
+            </td>
+          </tr>
+          <tr>
+            <?php foreach(range(0,4) as $i): ?>
+            <td class="chart-img chart<?=$i?>"></td>
+            <?php endforeach ?>
+          </tr>
+          <tr>
+            <td colspan="5">
+              <label for=""><i>Comments/Suggestions</i></label>
+              <textarea class="comment form-control" name="name" rows="2" disabled></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="5">
+              <button class="btn btn-default pull-right btn-proceed" type="button" name="button">Proceed</button>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>

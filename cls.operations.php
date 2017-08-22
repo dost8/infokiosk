@@ -29,24 +29,26 @@
         //   echo "</br>";
         // }
 
+      #  $db2->query("ALTER TABLE feedbacks DROP COLUMN type");
+      #  die();
+
         if(strcmp($last_backup['backup_date'], date('Y-m-d')) < 0){
-          $feedbacks = $this->selectData('feedback',['rate','comment', 'type', 'date'], 'date >= "'.$last_backup['backup_date'].'"');
+          $feedbacks = $this->selectData('feedback',['chartRate','nob','d_services','d_services_text','comment', 'date'], 'date >= "'.$last_backup['backup_date'].'"');
           // Data to be passed to online DB. YEAH !!!!
           $values = [];
           $columns = [];
 
-          $query = "INSERT INTO feedbacks (rate, comment, type, date) VALUES ";
+          $query = "INSERT INTO feedbacks (chartRate, nob, d_services, d_services_text, comment, date) VALUES ";
           $i = 1;
           foreach($feedbacks as $record){
             $date = date('Y-m-d', strtotime($record["date"]));
-            $query .= " ('".$record["rate"]."', '".$record["comment"]."', ".$record["type"].", '".$date."')";
+            $query .= " ('".$record["chartRate"]."', '".$record["nob"]."', '".$record["d_services"]."', '".$record["d_services_text"]."', '".$record["comment"]."', '".$date."')";
 
             if($i < count($feedbacks))
               $query .= ',';
 
             $i++;
           }
-
           $db2->query($query);
           echo $db2->error;
 

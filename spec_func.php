@@ -4,7 +4,9 @@ ini_set('max_execution_time',0);
   $operation = new Operations();
   if($_GET['type'] == 'submitFeedback'){
     unset($_REQUEST['type']);
-    $operation->insertSingleRow('feedback', $REQUEST);
+    $_REQUEST['chartRate'] = implode($_REQUEST['chartRate']);
+    $_REQUEST['date'] = date('Y-m-d');
+    $operation->insertSingleRow('feedback', $_REQUEST);
   }
   if($_GET['type'] == 'emailSend'){
     $arr = explode('/', $_GET['file']);

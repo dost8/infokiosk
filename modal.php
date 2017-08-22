@@ -383,6 +383,9 @@
       <div class="modal-body">
 
       </div>
+      <div class="modal-footer">
+        <button class="btn btn-default" type="button" name="button" onclick="closeAlert()">Continue</button>
+      </div>
     </div>
   </div>
 </div>

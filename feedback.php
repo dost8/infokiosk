@@ -210,7 +210,7 @@ $('#feedback_modal .modal-footer > button').click(function(){
 })
 
 // Satisfaction Chart
-let charRate = [0,0,0,0,0]
+let chartRate = [0,0,0,0,0]
 let smiley =  ['happy','happy (1)','smile','sad','sad (1)'];
 $(document).on('click','.rate', function(){
   let rowNo = $(this).data('row')
@@ -218,7 +218,7 @@ $(document).on('click','.rate', function(){
   let colNo = $(this).data('col')
   $(row).html('')
   $(this).append('<img src="images/clipart/'+ smiley[ colNo ] +'.png" style="width:50px;">')
-  charRate[ colNo ] = rowNo;
+  chartRate[ colNo ] = rowNo;
 })
 
 var rightPos = [1600, 800]
@@ -242,7 +242,7 @@ function submitFeedback(){
     $.ajax({
       type:'GET',
       url:'spec_func.php',
-      data:{'chart':charRate.join(''),'comment':comment,'type':'submitFeedback'}
+      data:{'chart':chartRate.join(''),'comment':comment,'type':'submitFeedback'}
     }).done(function(r){
       $('#alerts .modal-body').html('')
     })

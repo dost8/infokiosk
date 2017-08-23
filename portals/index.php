@@ -52,7 +52,6 @@
 
   // Display selected link to description div
   function showLink(t){
-    //console.log(t)
     $.ajax({
       url:'portals/'+t+'-desc.php'
     }).done(function(r){

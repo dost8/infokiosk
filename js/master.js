@@ -61,7 +61,6 @@ function openLink(u, f, h = null){
   var height = null;
   if(h != null){
     height = 'height:'+h+';'
-    console.log(h)
   }
   (frame).append('<iframe src="'+u+'#view=fitH" style="min-height:100%;min-width:100%;'+height+'"></iframe>')
 }
@@ -100,12 +99,17 @@ $(document).on('click','.org-block',function(){
   }
 });
 
+// alert continue button
+function closeAlert(){
+  $('#alerts').modal('toggle');
+  toggleMenu();
+}
+
 // Sending emails
 
 
 // Angular controller
 var app = angular.module("myApp", ['ngRoute']);
-
 
 app.config(function($routeProvider){
   $routeProvider

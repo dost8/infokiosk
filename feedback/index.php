@@ -74,7 +74,7 @@ var data = {
   // setting values for the Preview modal
   $(modal + 'table .nob').val(data.comment);
   $(modal + 'table .services').val(data.d_services);
-  $(modal + 'table .services_text').val(data.d_services_text);  console.log(data.chartRate)
+  $(modal + 'table .services_text').val(data.d_services_text);
   $.each(data.chartRate, function(index, value){
     $(modal + 'table .chart'+index).append('<img src="images/clipart/'+smiley[value]+'.png">');
   })
@@ -85,14 +85,14 @@ var data = {
 
  $('#feedback_preview-modal .btn-proceed').click(function(){
    $('#feedback_preview-modal').modal('hide');
-   $('#alerts .modal-body').html('').attr('<img src="images/clipart/load.gif" style="width:50px;height:50px;">');
+   $('#alerts .modal-body').html('<img src="images/clipart/load.gif" style="width:120px;height:100px;">');
    $('#alerts').modal('toggle');
+   JSON.stringify(data);
      $.ajax({
        url:'spec_func.php',
        data:data,
-       dataType:'JSON'
      }).done(function(r){
-       $('#alerts .modal-body').append('<h3>Thank you for your feedback. <br>This will help in future DOST-8 endeavours. </h3>')
-     })
+       $('#alerts .modal-body').html('<h3>Thank you for your feedback. <br>This will help in future DOST-8 endeavours. </h3>')
+     });
   })
 </script>

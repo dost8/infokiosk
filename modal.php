@@ -380,7 +380,7 @@
 <div class="modal fade" id="alerts" tabindex="-1" aria-hidden="true" aria-labelledBy="For messages">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-      <div class="modal-body">
+      <div class="modal-body" style="text-align:center">
 
       </div>
       <div class="modal-footer">

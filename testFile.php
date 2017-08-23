@@ -1,6 +1,16 @@
-<?php
-// $hello = shell_exec("git clone https://github.com/jeffreyquilaquil/tech4ed");
-// $hulala = 'hulala';
+<button type="button" name="button" onclick="hello('string1',123)">
+  click me
+</button>
 
-echo shell_exec("test.bat");
-?>
+<script type="text/javascript">
+  var data = {
+    'string1' : ''
+  }
+  console.log(data);
+  function hello(e, v){
+    console.log(e);
+    var elem = e;
+    data.elem = v;
+    console.log(data);
+  }
+</script>

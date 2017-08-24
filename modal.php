@@ -231,7 +231,6 @@
 }
 </style>
 
-
 <div class="modal fade tech_modal techList-modal" tabindex="-2" aria-hidden="true" aria-labelledBy="Modal view for DOST Technologies">
   <div class="modal-dialog" style="min-width:1550px !important;">
     <div class="modal-content">
@@ -265,40 +264,6 @@
   </div>
 </div>
 
-<style media="screen">
-</style>
-<!-- <div class="modal fade tech_modal" id="vsuTech_modal" tabindex="-2" aria-hidden="true" aria-labelledBy="Modal view for VSU Technologies">
-  <div class="modal-dialog" style="min-width:1550px !important;">
-    <div class="modal-content ">
-      <div class="modal-header" style="padding-bottom:0px">
-        <button class="close" type="button" name="button" data-dismiss="modal" aria-label>
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <p><i class="fa fa-briefcase"></i> Technopinoy Online Dashboard</p>
-        <form action="" method="POST" onsubmit="event.preventDefault()" class="pull-right" style="opacity:0">
-          <span style="display:none"><b>File has been sent.</b></span>
-          <img class="emailLoadGif" src="images/clipart/load.gif" alt="loading screen" style="width:35px;display:none">
-          <input type="email" name="" value="" required="required">
-          <button class="btn btn-defult btn_sendEmail" type="submit" name="button">Send me a Copy.</button>
-        </form>
-      </div>
-      <div class="modal-body">
-        <div class="main-nav col-lg-2">
-          <ul>
-          </ul>
-        </div>
-        <div class="arm-nav col-lg-2">
-          <ul>
-
-          </ul>
-        </div>
-        <div class="col-lg-7 div-frame" style="height:655px;width:886px;">
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
 <div class="modal fade tech_modal" id="enlarge_pdf" tabindex="0" aria-hidden="true" aria-label="View the PDF larger">
   <div class="modal-dialog" style="min-width:1550px !important">
     <div class="modal-content">
@@ -322,7 +287,6 @@
     </div>
   </div>
 </div>
-
 
 <style media="screen">
   #iframe_modal .modal-content{
@@ -375,7 +339,6 @@
     </div>
   </div>
 </div>
-
 
 <div class="modal fade" id="alerts" tabindex="-1" aria-hidden="true" aria-labelledBy="For messages">
   <div class="modal-dialog modal-sm">

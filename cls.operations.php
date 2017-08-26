@@ -3,8 +3,10 @@
   class Operations
   {
     public $db;
+    public $lgu;
     function __construct()
     {
+      $this->lgu = 'Abuyog';
       $this->db = new mysqli('localhost:3306', 'root', '', 'info_kiosk');
       if (mysqli_connect_errno()) {
         echo "
@@ -38,11 +40,11 @@
           $values = [];
           $columns = [];
 
-          $query = "INSERT INTO feedbacks (chartRate, nob, d_services, d_services_text, comment, date) VALUES ";
+          $query = "INSERT INTO feedbacks (chartRate, nob, d_services, d_services_text, comment, date, lgu) VALUES ";
           $i = 1;
           foreach($feedbacks as $record){
             $date = date('Y-m-d', strtotime($record["date"]));
-            $query .= " ('".$record["chartRate"]."', '".$record["nob"]."', '".$record["d_services"]."', '".$record["d_services_text"]."', '".$record["comment"]."', '".$date."')";
+            $query .= " ('".$record["chartRate"]."', '".$record["nob"]."', '".$record["d_services"]."', '".$record["d_services_text"]."', '".$record["comment"]."', '".$date."','".$this->lgu."')";
 
             if($i < count($feedbacks))
               $query .= ',';

@@ -13,7 +13,7 @@ ini_set('max_execution_time',0);
     $operation->sendEmail('PDF File from DOST-8 Information Kiosk','DOST-8 Information Kiosk', $_GET['emailAdd'], $_GET['file'], $arr[2]);
   }
   if($_GET['type'] == 'updateKiosk'){
-    $operation->cloud_backup();
+    $operation->cloud_backup();die;
     $result = $operation->execBatchFile('downloadUpdates.bat');
     if(strpos($result, 'Already up-to-date.'))
       echo '';

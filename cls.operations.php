@@ -90,7 +90,11 @@ ini_set('max_execution_time',0);
     }
 
 
-    function selectData(string $table, array $data, $where = 1, $limit = false, $db2 = false){
+    function selectData($table, array $data, $where = 1, $limit = false, $db2 = false){
+      $db_conn = $this->db;
+      if($db2)
+        $db_conn = $this->db2_conn();
+      
       $query = "SELECT";
       $i = 1;
       $dataCount = count($data);
@@ -101,7 +105,8 @@ ini_set('max_execution_time',0);
       }
       $query .= " FROM ".$table;
       $query .= " WHERE ".$where;
-      $query = $this->db->query($query);
+      $query = $db_conn->query($query);
+      echo $db_conn->error;
 
       $data = [];
       $limit_result = null;
@@ -109,7 +114,7 @@ ini_set('max_execution_time',0);
         array_push($data, $result);
         $limit_result= $result;
       }
-      echo $this->db->error;
+      echo $db_conn->error;
 
       if($limit)
         return $limit_result;
@@ -117,7 +122,7 @@ ini_set('max_execution_time',0);
       return $data;
     }
 
-    function selectQuery(string $query, $db2 = false){
+    function selectQuery($query, $db2 = false){
       $db_conn = $this->db;
       if($db2){
         $db_conn = $this->db2_conn();

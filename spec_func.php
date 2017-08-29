@@ -28,4 +28,67 @@ ini_set('max_execution_time',0);
       $operation->cloud_backup_force();
     }
   }
+
+  if($_GET['type'] == 'viewChart'){
+    $where = ' lgu = "'.$_GET['lgu'].'"';
+    if(isset($_GET['date'])){
+      $date = explode('--',$_GET['date']);
+      #$where .= " AND d"
+    }
+    $resultKey = ['chartRate','comment','nob','date','d_services','d_services_text'];
+    $dataArr = [[],[],[],[],[],[]];
+    $result = $operation->selectData("feedbacks", $resultKey, $where, false, true);
+    foreach($result as $key => $value){
+      for($i=0; $i<count($dataArr); $i++){
+        $index = $resultKey[$i];
+        array_push($dataArr[$i], $value[$index]);
+      }
+    }
+
+    // Count the number of ratings
+    // Count how many 1s, 2s and etc
+    $chartStr = implode($dataArr[0]); //0 is the index for the Charts
+    $chartStrCnt = [0,0,0,0,0];
+    foreach(range(1,5) as $key => $value){
+      $chartStrCnt[$key] = substr_count($chartStr, $value);
+    }
+    $chartStrCnt = json_encode($chartStrCnt);
+    ?>
+    <canvas id="myChart" width="500" height="300"></canvas>
+    <script type="text/javascript">
+      var ctx = document.getElementById("myChart");
+      var chartStrCnt = <?php echo $chartStrCnt; ?>;
+      var label = 'Chart Ratings from '+<?php echo(json_encode($_REQUEST['lgu'])); ?>;
+      console.log(chartStrCnt);
+      var myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+              labels: ["Excellent", "Very Satisfied", 'Satisfied','Fair','Poor'],
+              datasets: [{
+                  label: label,
+                  data: chartStrCnt,
+                  backgroundColor: [
+                      'rgba(3, 140, 12, 0.81)',
+                      'rgba(98, 187, 8, 0.8)',
+                      'rgba(250, 255, 0, 0.8)',
+                      'rgba(217, 157, 3, 0.8)',
+                      'rgba(190, 3, 3, 0.8)'
+                  ],
+                  borderColor: [
+                      'rgba(3, 140, 12,1)',
+                      'rgba(98, 187, 85, 1)',
+                      'rgba(250, 255, 0, 1)',
+                      'rgba(217, 157, 3, 1)',
+                      'rgba(190, 3, 3, 0.8)'
+                    ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+            responsive: false,
+          }
+      });
+    </script>
+  <?php
+  }
 ?>

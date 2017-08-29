@@ -5,7 +5,7 @@
 <div class="row">
   <section>
     <h1>Chart Ratings</h1>
-    <?php $lguList = $op->selectQuery('SELECT DISTINCT lgu FROM feedbacks', true); ?>
+    <?php $lguList = $op->selectQuery("SELECT DISTINCT lgu FROM feedbacks", true); ?>
     <div>
       <label for="">Municipalities</label>
       <select class="lguSelect" name="">
@@ -14,8 +14,9 @@
         <?php endforeach ?>
       </select>
     </div>
-    <div class="col-md-4 div-chart">
-      <img src="images/clipart/loading.gif" alt="">
+    <div class="col-md-4 div-chart" style="height:100%;background:red;">
+      <img src="images/clipart/load.gif" alt=""> 
+        hahahahaha
     </div>
   </section>
 </div>
@@ -33,7 +34,7 @@
       $('.div-chart').html('<img src="../images/clipart/load.gif">');
       $.ajax({
         url : 'spec_func.php',
-        data : 'type=view_chart&lgu='+$(this).val()
+        data : 'type=viewChart&lgu='+$(this).val()
       }).done(function(r){
         $('.div-chart').html(r);
       });

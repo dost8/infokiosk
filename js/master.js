@@ -134,4 +134,7 @@ app.config(function($routeProvider){
   .when('/update',{
     templateUrl : 'update.php'
   })
+  .when('/status',{
+    templateUrl : 'status/index.php'
+  })
 })

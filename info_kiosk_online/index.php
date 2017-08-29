@@ -41,6 +41,9 @@
                 <?php endforeach ?>
               </select>
             </div>
+            <div class="">
+
+            </div>
             <div class="col-md-6 div-chart">
             </div>
          </div>

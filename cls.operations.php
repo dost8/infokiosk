@@ -1,11 +1,10 @@
 <?php
-
+ini_set('max_execution_time',0);
   class Operations
   {
     public $db;
     public $lgu;
-    function __construct()
-    {
+    function __construct(){
       $this->lgu = 'Abuyog';
       $this->db = new mysqli('localhost:3306', 'root', '', 'info_kiosk');
       if (mysqli_connect_errno()) {
@@ -18,11 +17,16 @@
       }
     }
 
+    function db2_conn(){
+      $conn = new mysqli('db4free.net:3306/dostinfokiosk','dostinfokiosk','#SjFk8#oStxgZpYThNdP','dostinfokiosk');
+      return $conn;
+    }
+
     function cloud_backup(){
       $connected = @fsockopen('www.db4free.net', 80, $error);
 
       if($connected){
-        $db2 = new mysqli('db4free.net:3306/dostinfokiosk','dostinfokiosk','#SjFk8#oStxgZpYThNdP','dostinfokiosk');
+        $db2 = $this->db2_conn();
         $last_backup = $this->selectData('backup',['backup_date'],1,true);
 
         // $query =  $db2->query("SELECT * FROM feedbacks");
@@ -72,7 +76,7 @@
     * @param string $table the table that will be used for the query
     * @param arrary $data supply the fields to be used for the query
     */
-    function insertSingleRow(string $table, array $data){
+    function insertSingleRow(string $table, array $data, $db2 = false){
       $query = "INSERT INTO ".$table." SET";
       $dataCount = count($data);
       $i = 1;
@@ -86,7 +90,7 @@
     }
 
 
-    function selectData(string $table, array $data, $where = 1, $limit = false){
+    function selectData(string $table, array $data, $where = 1, $limit = false, $db2 = false){
       $query = "SELECT";
       $i = 1;
       $dataCount = count($data);
@@ -109,6 +113,22 @@
 
       if($limit)
         return $limit_result;
+
+      return $data;
+    }
+
+    function selectQuery(string $query, $db2 = false){
+      $db_conn = $this->db;
+      if($db2){
+        $db_conn = $this->db2_conn();
+      }
+
+      $data = [];
+      $query = $db_conn->query($query);
+      echo $this->db->error;
+      while($result = $query->fetch_assoc()){
+        array_push($data, $result);
+      }
 
       return $data;
     }

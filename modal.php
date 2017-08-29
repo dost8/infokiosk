@@ -340,6 +340,16 @@
   </div>
 </div>
 
+<div class="modal fade" id="loadGif-modal">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img src="images/clipart/load.gif" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="alerts" tabindex="-1" aria-hidden="true" aria-labelledBy="For messages">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">

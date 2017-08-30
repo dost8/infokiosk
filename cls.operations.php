@@ -59,7 +59,7 @@ ini_set('max_execution_time',0);
           };
           $db2->query($query);
           echo $db2->error;
-          $this->insertSingleRow('backup', ['backup_date'=>date('Y-m-d')]);
+       #   $this->insertSingleRow('backup', ['backup_date'=>date('Y-m-d')]);
         }
       }
      return false;
@@ -77,7 +77,7 @@ ini_set('max_execution_time',0);
     * @param string $table the table that will be used for the query
     * @param arrary $data supply the fields to be used for the query
     */
-    function insertSingleRow(string $table, array $data, $db2 = false){
+    function insertSingleRow($table, array $data, $db2 = false){
       $query = "INSERT INTO ".$table." SET";
       $dataCount = count($data);
       $i = 1;

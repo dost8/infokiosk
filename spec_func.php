@@ -1,7 +1,7 @@
 <?php
 ini_set('max_execution_time',0);
   require_once 'cls.operations.php';
-  $operation = new Operations(); $operation->cloud_backup(); die;
+  $operation = new Operations();
 
   if($_GET['type'] == 'submitFeedback'){
     unset($_REQUEST['type']);
@@ -55,7 +55,7 @@ ini_set('max_execution_time',0);
     }
     $chartStrCnt = json_encode($chartStrCnt);
     ?>
-    <canvas id="myChart" width="500" height="300" style="width:590px;height:355px;margin-top:8px;"></canvas>
+    <canvas id="myChart" width="556" height="300" style="width:556px;height:355px;"></canvas>
     <script type="text/javascript">
       var ctx = document.getElementById("myChart");
       var chartStrCnt = <?php echo $chartStrCnt; ?>;
@@ -89,6 +89,32 @@ ini_set('max_execution_time',0);
           }
       });
     </script>
+    <!--BREAK-->
+    <?php
+      $navBarMain = array_unique($dataArr[4]); //Index 4 is the index for the Services
+    ?>
+    <div class="sidebar-wrapper" role="navigation">
+      <div class="sidebar-nav navbar-collapse">
+        <ul class="nav">
+          <?php
+            $navBarMain = array_unique($dataArr[4]); //Index 4 is the index for the Services
+            foreach($navBarMain as $key1 => $value1){
+              echo '<li><a href="#" onclick="event.preventDefault()">'.strtoupper($value1).'</a><span class="fa-arrow"></span>';
+              echo '<ul class="nav nav-second-level collapse">';
+                // foreach($dataArr[4] as $key2 => $value2){
+                //   if($value1 == $value2){
+                //     echo '<li>'.$dataArr[5][$key2].'</li>';
+                //     unset($dataArr[4][$key2]);
+                //     unset($dataArr[5][$key3]);
+                //   }
+                // }
+              echo '</ul>';
+              echo '</li>';
+            }
+          ?>
+        </ul>
+      </div>
+    </div>
     <!--BREAK-->
     <div style="overflow-y:auto">
       <h3>List of Comments</h3>

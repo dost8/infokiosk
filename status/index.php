@@ -14,8 +14,8 @@
     </select>
   </div>
 
-   <!-- <div class="col-lg-7" style="overflow-y:auto;background:red">
-    <div class="col-md-5" style="height:50%;">
+    <div class="col-lg-10" style="overflow-y:auto;">
+    <div class="col-md-6" style="height:50%;">
       <div class="panel panel-default">
         <div class="panel-heading">
           <i class="fa fa-bar-chart-o fa-fw"></i>
@@ -25,15 +25,18 @@
 
         </div>
       </div>
-    </div> -->
+    </div> 
 
-    <!-- <div class="col-md-5">
+     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <i class="fa fa-"></i>
+          <i class="fa fa-gears fa-fw"></i> DOST 8 Services
+        </div>
+        <div class="panel-body div-services" style="height:55%;">
+          
         </div>
       </div>
-    </div> -->
+    </div> 
 
     <!-- <div class="col-md-5" style="height:90%;">
       <div class="panel panel-default">
@@ -57,8 +60,8 @@
 
         </div>
       </div>
-    </div>
-  </div> -->
+    </div>-->
+  </div> 
 </div>
 
 <script type="text/javascript">
@@ -71,14 +74,14 @@
     });
 
     $('.lguSelect').on('change',function(){
-      $('.div-chart, .div-comments').html('<img src="images/clipart/load.gif" style="width:200px;">');
+      $('.div-chart, .div-services').html('<img src="images/clipart/load.gif" style="width:200px;">');
       $.ajax({
         url : 'spec_func.php',
         data : 'type=viewChart&lgu='+$(this).val()
       }).done(function(res){
         var res = res.split('<!--BREAK-->');
         $('.div-chart').html(res[0]);
-        $('.div-comments').html(res[1]);
+        $('.div-services').html(res[1]);
       });
     });
   });

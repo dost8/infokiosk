@@ -18,25 +18,27 @@ ini_set('max_execution_time',0);
     }
 
     function db2_conn(){
-      $conn = new mysqli('db4free.net:3306/dostinfokiosk','dostinfokiosk','#SjFk8#oStxgZpYThNdP','dostinfokiosk');
+    #  $conn = new mysqli('db4free.net:3306/dostinfokiosk','dostinfokiosk','#SjFk8#oStxgZpYThNdP','dostinfokiosk');
+      // Dummy connection
+      $conn = new mysqli('localhost:3306','root','','info_kiosk_online');
       return $conn;
     }
 
     function cloud_backup(){
-      $connected = @fsockopen('www.db4free.net', 80, $error);
-
+    #  $connected = @fsockopen('www.db4free.net', 80, $error);
+      $connected = true;
       if($connected){
         $db2 = $this->db2_conn();
         $last_backup = $this->selectData('backup',['backup_date'],1,true);
 
-        // $query =  $db2->query("SELECT * FROM feedbacks");
+        // $query =  $db2->query("SELECT * FROM backup LIMIT 1"); echo $db2->error;
         // while ($result = $query->fetch_assoc()) {
         //   print_r($result);
         //   echo "</br>";
         // }
 
-      #  $db2->query("ALTER TABLE feedbacks DROP COLUMN type");
-      #  die();
+        // $db2->query("ALTER TABLE feedbacks DROP COLUMN type");
+        // die();
 
         if(strcmp($last_backup['backup_date'], date('Y-m-d')) < 0){
           $feedbacks = $this->selectData('feedback',['chartRate','nob','d_services','d_services_text','comment', 'date'], 'date >= "'.$last_backup['backup_date'].'"');
@@ -54,10 +56,9 @@ ini_set('max_execution_time',0);
               $query .= ',';
 
             $i++;
-          }
+          };
           $db2->query($query);
           echo $db2->error;
-
           $this->insertSingleRow('backup', ['backup_date'=>date('Y-m-d')]);
         }
       }
@@ -94,7 +95,7 @@ ini_set('max_execution_time',0);
       $db_conn = $this->db;
       if($db2)
         $db_conn = $this->db2_conn();
-      
+
       $query = "SELECT";
       $i = 1;
       $dataCount = count($data);

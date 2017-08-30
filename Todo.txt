@@ -1,0 +1,11 @@
+Satiscation Rating
+	Display Satisfaction Chart; Categorize by satisfaction/Pie Chart
+Nature of Business
+	Display Nature of Business; Categorize by NOB/Bar Chart
+Services Availed
+	Create Dropdown by Services
+	Inside dropdowns are the comments
+Comments
+	Display comments by buttons; Categorize by dates
+
+CREATE DUMMY DATABASE

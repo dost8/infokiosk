@@ -3,22 +3,62 @@
   $op = new Operations();
  ?>
 <div class="row">
-  <section>
-    <h1>Chart Ratings</h1>
-    <?php $lguList = $op->selectQuery("SELECT DISTINCT lgu FROM feedbacks", true); ?>
-    <div>
-      <label for="">Municipalities</label>
-      <select class="lguSelect" name="">
-        <?php foreach($lguList as $key => $value): ?>
-          <option value="<?=$value['lgu']?>"><?=$value['lgu']?></option>
-        <?php endforeach ?>
-      </select>
+  <?php $lguList = $op->selectQuery("SELECT DISTINCT lgu FROM feedbacks", true); ?>
+  <div class="col-md-2">
+    <label for="">Municipalities</label>
+    <br>
+    <select class="lguSelect form-control" name="">
+      <?php foreach($lguList as $key => $value): ?>
+        <option value="<?=$value['lgu']?>"><?=$value['lgu']?></option>
+      <?php endforeach ?>
+    </select>
+  </div>
+
+   <!-- <div class="col-lg-7" style="overflow-y:auto;background:red">
+    <div class="col-md-5" style="height:50%;">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <i class="fa fa-bar-chart-o fa-fw"></i>
+          Area Chart
+        </div>
+        <div class="panel-body div-chart" style="height:85%;">
+
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div class="col-md-5">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <i class="fa fa-"></i>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div class="col-md-5" style="height:90%;">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <i class="fa fa-comments"></i>
+          Comments
+        </div>
+        <div class="panel-body">
+
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div class="col-md-5" style="height:40.1%;width:40.9%;position:absolute;margin:24.4% 16.4%;">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <i class="fa fa-briefcase fa-fw"></i>
+          Nature of Business
+        </div>
+        <div class="panel-body div-nob" style="height:265px;">
+
+        </div>
+      </div>
     </div>
-    <div class="col-md-4 div-chart" style="height:100%;background:red;">
-      <img src="images/clipart/load.gif" alt=""> 
-        hahahahaha
-    </div>
-  </section>
+  </div> -->
 </div>
 
 <script type="text/javascript">
@@ -31,12 +71,14 @@
     });
 
     $('.lguSelect').on('change',function(){
-      $('.div-chart').html('<img src="../images/clipart/load.gif">');
+      $('.div-chart, .div-comments').html('<img src="images/clipart/load.gif" style="width:200px;">');
       $.ajax({
         url : 'spec_func.php',
         data : 'type=viewChart&lgu='+$(this).val()
-      }).done(function(r){
-        $('.div-chart').html(r);
+      }).done(function(res){
+        var res = res.split('<!--BREAK-->');
+        $('.div-chart').html(res[0]);
+        $('.div-comments').html(res[1]);
       });
     });
   });

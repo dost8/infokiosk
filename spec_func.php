@@ -1,7 +1,8 @@
 <?php
 ini_set('max_execution_time',0);
   require_once 'cls.operations.php';
-  $operation = new Operations();
+  $operation = new Operations(); $operation->cloud_backup(); die;
+
   if($_GET['type'] == 'submitFeedback'){
     unset($_REQUEST['type']);
     $_REQUEST['chartRate'] = implode($_REQUEST['chartRate']);
@@ -54,12 +55,11 @@ ini_set('max_execution_time',0);
     }
     $chartStrCnt = json_encode($chartStrCnt);
     ?>
-    <canvas id="myChart" width="500" height="300"></canvas>
+    <canvas id="myChart" width="500" height="300" style="width:590px;height:355px;margin-top:8px;"></canvas>
     <script type="text/javascript">
       var ctx = document.getElementById("myChart");
       var chartStrCnt = <?php echo $chartStrCnt; ?>;
       var label = 'Chart Ratings from '+<?php echo(json_encode($_REQUEST['lgu'])); ?>;
-      console.log(chartStrCnt);
       var myChart = new Chart(ctx, {
           type: 'bar',
           data: {
@@ -89,6 +89,17 @@ ini_set('max_execution_time',0);
           }
       });
     </script>
-  <?php
+    <!--BREAK-->
+    <div style="overflow-y:auto">
+      <h3>List of Comments</h3>
+      <?php
+        foreach($dataArr[1] as $key => $value){
+          if(strlen($value) > 25)
+            $value = substr($value, 0, 20).'...';
+          echo "<button class='btn form-control' style='color:black;text-align:left'><img class='' src='images/clipart/blank-dp.png' style='width:20px;'>".$value."</button>";
+        }
+       ?>
+    </div>
+    <?php
   }
 ?>

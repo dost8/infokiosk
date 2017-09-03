@@ -17,28 +17,14 @@ ini_set('max_execution_time',0);
       }
     }
 
-    function db2_conn(){
-    #  $conn = new mysqli('db4free.net:3306/dostinfokiosk','dostinfokiosk','#SjFk8#oStxgZpYThNdP','dostinfokiosk');
-      // Dummy connection
-      $conn = new mysqli('localhost:3306','root','','info_kiosk_online');
-      return $conn;
+    function __destruct(){
+      mysqli_close($this->db);
     }
 
     function cloud_backup(){
-    #  $connected = @fsockopen('www.db4free.net', 80, $error);
-      $connected = true;
+      $connected = @fsockopen('www.google.com', 80, $error);
       if($connected){
-        $db2 = $this->db2_conn();
         $last_backup = $this->selectData('backup',['backup_date'],1,true);
-
-        // $query =  $db2->query("SELECT * FROM backup LIMIT 1"); echo $db2->error;
-        // while ($result = $query->fetch_assoc()) {
-        //   print_r($result);
-        //   echo "</br>";
-        // }
-
-        // $db2->query("ALTER TABLE feedbacks DROP COLUMN type");
-        // die();
 
         if(strcmp($last_backup['backup_date'], date('Y-m-d')) < 0){
           $feedbacks = $this->selectData('feedback',['chartRate','nob','d_services','d_services_text','comment', 'date'], 'date >= "'.$last_backup['backup_date'].'"');
@@ -46,20 +32,20 @@ ini_set('max_execution_time',0);
           $values = [];
           $columns = [];
 
-          $query = "INSERT INTO feedbacks (chartRate, nob, d_services, d_services_text, comment, date, lgu) VALUES ";
           $i = 1;
+          if(!is_dir('backups/'.$this->lgu))
+            mkdir('backups/'.$this->lgu);
+
+          $file = fopen('backups/'.$this->lgu.'/'.date('Y-m-d').'.txt', 'w');
           foreach($feedbacks as $record){
-            $date = date('Y-m-d', strtotime($record["date"]));
-            $query .= " ('".$record["chartRate"]."', '".$record["nob"]."', '".$record["d_services"]."', '".$record["d_services_text"]."', '".$record["comment"]."', '".$date."','".$this->lgu."')";
+            $record['date'] = date('Y-m-d', strtotime($record["date"]));
+            $record['lgu'] = $this->lgu;
+            $record = implode('<-->', $record)."\n";
+            fwrite($file, $record);
 
-            if($i < count($feedbacks))
-              $query .= ',';
-
-            $i++;
           };
-          $db2->query($query);
-          echo $db2->error;
-       #   $this->insertSingleRow('backup', ['backup_date'=>date('Y-m-d')]);
+          fclose($file);
+          $this->insertSingleRow('backup', ['backup_date'=>date('Y-m-d')]);
         }
       }
      return false;
@@ -71,6 +57,24 @@ ini_set('max_execution_time',0);
         $this->cloud_backup();
         echo "true";
       }
+    }
+
+    function textToSQL($fileDir){
+      $query = "INSERT INTO feedbacks (chartRate, nob, d_services, d_services_text, comment, date, lgu) VALUE";
+      $file = fopen($fileDir,'r');
+      $lineCount = 0;
+      $lines = [];
+      while(!feof($file)){
+        $record = explode('<-->', fgets($file) );
+        array_push($lines, $record);
+      }
+      $lines = array_pop($lines); print_r($lines);
+      foreach($lines as $key => $record){
+        print_r($record)."</br>";
+       # $query .= " ('".$record[0]."','".$record[1]."','".$record[2]."','".$record[3]."','".$record[4]."','".$record[5]."','".$record[6]."'),";
+      }
+      $query = substr($query, 0, -1);
+      //echo $query;
     }
 
     /**
@@ -91,10 +95,8 @@ ini_set('max_execution_time',0);
     }
 
 
-    function selectData($table, array $data, $where = 1, $limit = false, $db2 = false){
+    function selectData($table, array $data, $where = 1, $limit = false){
       $db_conn = $this->db;
-      if($db2)
-        $db_conn = $this->db2_conn();
 
       $query = "SELECT";
       $i = 1;
@@ -123,11 +125,8 @@ ini_set('max_execution_time',0);
       return $data;
     }
 
-    function selectQuery($query, $db2 = false){
+    function selectQuery($query){
       $db_conn = $this->db;
-      if($db2){
-        $db_conn = $this->db2_conn();
-      }
 
       $data = [];
       $query = $db_conn->query($query);
@@ -135,7 +134,6 @@ ini_set('max_execution_time',0);
       while($result = $query->fetch_assoc()){
         array_push($data, $result);
       }
-
       return $data;
     }
 

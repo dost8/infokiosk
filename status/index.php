@@ -3,9 +3,22 @@
   $op = new Operations();
  ?>
 <div class="row">
-  <?php $lguList = $op->selectQuery("SELECT DISTINCT lgu FROM feedbacks", true);
-        $dates[0] = $op->selectQuery("SELECT date FROM feedbacks ORDER BY _id ASC LIMIT 1", true);
-        $dates[1] = $op->selectQuery("SELECT date FROM feedbacks ORDER BY _id DESC LIMIT 1", true);
+  <?php 
+        $lguList = scandir('../backups/');
+        for($i = 2; $i < count($lguList);$i++){
+          $result = $op->selectData('feedbacks',['date'],"lgu = '".$lguList[$i]."'", true);
+          $dateList = scandir('../backups/'.$lguList[$i]);
+          for($ii = 2;$ii < count($dateList); $ii++){
+            $dateList[$ii] = str_replace('.txt','',$dateList[$ii]);
+
+            if(strtotime($dateList[$ii]) > strtotime($result['date']))
+              $op->textToSQL('../backups/'.$lguList[$i].'/'.$dateList[$ii].'.txt');
+          }
+        }
+
+        // $lguList = $op->selectQuery("SELECT DISTINCT lgu FROM feedbacks");
+        $dates[0] = $op->selectQuery("SELECT date FROM feedbacks ORDER BY _id ASC LIMIT 1");
+        $dates[1] = $op->selectQuery("SELECT date FROM feedbacks ORDER BY _id DESC LIMIT 1");
 
         $dates[0] = date('Y-m-d', strtotime($dates[0][0]['date']));
         $dates[1] = date('Y-m-d', strtotime($dates[1][0]['date']));
@@ -14,9 +27,9 @@
     <label for="">Municipalities</label>
     <br>
     <select class="lguSelect form-control" name="" style="height:45px;">
-      <?php foreach($lguList as $key => $value): ?>
-        <option value="<?=$value['lgu']?>"><?=$value['lgu']?></option>
-      <?php endforeach ?>
+      <?php for($i = 2; $i < count($lguList);$i++){ 
+        echo '<option value="'.$lguList[$i].'">'.$lguList[$i].'</option>';  
+       } ?>
     </select>
 
     <label for="">Date From</label>

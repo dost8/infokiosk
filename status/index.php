@@ -50,7 +50,7 @@
           Customer Satisfaction Chart
         </div>
         <div class="panel-body div-chart" style="height:85%;padding:0px;">
-
+          <img src="images/clipart/load.gif" style="width:251px;margin:60px 150px">
         </div>
       </div>
     </div>
@@ -58,10 +58,10 @@
      <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <i class="fa fa-gears fa-fw"></i> DOST 8 Services
+          <i class="fa fa-gears fa-fw"></i> DOST 8 Services Feedbacks
         </div>
-        <div class="panel-body div-services" style="height:55%;padding:0px;">
-
+        <div class="panel-body div-services" style="height:55%;padding:0px;overflow-y:auto;">
+          <img src="images/clipart/load.gif" style="width:265px;margin:90px 150px">
         </div>
       </div>
     </div>
@@ -72,7 +72,8 @@
           <i class="fa fa-comments"></i>
           Comments
         </div>
-        <div class="panel-body div-comments" style="height:320px;padding:0px;">
+        <div class="panel-body div-comments" style="height:320px;padding:0px;overflow-y:auto;">
+          <img src="images/clipart/load.gif" style="width:240px;margin:70 168">
         </div>
       </div>
     </div>
@@ -84,7 +85,7 @@
           Nature of Business Availed
         </div>
         <div class="panel-body div-nob" style="height:235px;padding:0px;">
-
+          <img src="images/clipart/load.gif" style="width:200px;margin:50 190">
         </div>
       </div>
     </div>
@@ -99,7 +100,11 @@
         lgu = $('.lguSelect').val();
       }
 
-      $('.div-chart, .div-services').html('<img src="images/clipart/load.gif" style="width:200px;">');
+      $('.div-chart').html('<img src="images/clipart/load.gif" style="width:251px;margin:60px 150px">');
+      $('.div-services').html('<img src="images/clipart/load.gif" style="width:265px;margin:90px 150px">');
+      $('.div-comments').html('<img src="images/clipart/load.gif" style="width:240px;margin:70 168">');
+      $('.div-nob').html('<img src="images/clipart/load.gif" style="width:200px;margin:50 190">');
+
       $.ajax({
         url : 'spec_func.php',
         data : 'type=viewChart&lgu='+lgu+'&fromDate='+$('.date-from').val()+'&toDate'+$('.date-to').val()

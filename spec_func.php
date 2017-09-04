@@ -55,39 +55,35 @@ ini_set('max_execution_time',0);
     }
     $chartStrCnt = json_encode($chartStrCnt);
     ?>
-    <canvas id="myRateChart" width="556" height="290" style="width:556px;height:355px;"></canvas>
+    <div id="myRateChart" width="556" height="290" style="width:556px;height:355px;"></div>
     <script type="text/javascript">
-      var ctx = document.getElementById("myRateChart");
       var chartStrCnt = <?php echo $chartStrCnt; ?>;
       var label = 'Chart Ratings from '+<?php echo(json_encode($_REQUEST['lgu'])); ?>;
-      var myChart = new Chart(ctx, {
-          type: 'pie',
-          data: {
-              labels: ["Excellent", "Very Satisfied", 'Satisfied','Fair','Poor'],
-              datasets: [{
-                  label: label,
-                  data: chartStrCnt,
-                  backgroundColor: [
-                      'rgba(3, 140, 12, 0.81)',
-                      'rgba(98, 187, 8, 0.8)',
-                      'rgba(250, 255, 0, 0.8)',
-                      'rgba(217, 157, 3, 0.8)',
-                      'rgba(190, 3, 3, 0.8)'
-                  ],
-                  borderColor: [
-                      'rgba(3, 140, 12,1)',
-                      'rgba(98, 187, 85, 1)',
-                      'rgba(250, 255, 0, 1)',
-                      'rgba(217, 157, 3, 1)',
-                      'rgba(190, 3, 3, 0.8)'
-                    ],
-                  borderWidth: 1
-              }]
-          },
-          options: {
-            responsive: false,
-          }
-      });
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart(){
+        var data = google.visualization.arrayToDataTable([
+          ['Chart','Customer Satisfaction Rate'],
+          ['Excellent',chartStrCnt[0]],
+          ['Very Satisfied',chartStrCnt[1]],
+          ['Satisfied',chartStrCnt[2]],
+          ['Fair',chartStrCnt[3]],
+          ['Poor',chartStrCnt[4]]
+        ]);
+
+        var options = {
+          title: 'Customer Satisfaction Chart',
+          width: 520,
+          height: 320
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('myRateChart'));
+        chart.draw(data, options);
+        //  $("#myRateChart rect").attr('height','250px');
+      }
+
     </script>
     <!--BREAK-->
     <?php
@@ -131,26 +127,6 @@ ini_set('max_execution_time',0);
       </div>
     </div>
 
-    <div class="panel">
-      <ul class="myNav dropdown-menu" id="side-menu">
-        <?php
-          $navBarMain = array_unique($dataArr[4]); //Index 4 is the index for the Services
-          foreach($navBarMain as $key1 => $value1){
-            echo '<li><a href="#" onclick="event.preventDefault()">'.strtoupper($value1).'</a><span class="fa-arrow"></span>';
-            echo '<ul class="nav nav-second-level collapse">';
-              // foreach($dataArr[4] as $key2 => $value2){
-              //   if($value1 == $value2){
-              //     echo '<li>'.$dataArr[5][$key2].'</li>';
-              //     unset($dataArr[4][$key2]);
-              //     unset($dataArr[5][$key3]);
-              //   }
-              // }
-            echo '</ul>';
-            echo '</li>';
-          }
-        ?>
-      </ul>
-    </div>
     <!--BREAK-->
     <div style="overflow-y:auto">
       <?php
@@ -170,34 +146,91 @@ ini_set('max_execution_time',0);
         array_push($data[1],$value);
       }
      ?>
-    <canvas id="myNobChart" height="210" width="565" style="width:565px;height:210px;"></canvas>
+    <div id="myNobChart" height="210" width="565" style="width:565px;height:210px;"></div>
     <script type="text/javascript">
-      var ctx = document.getElementById("myNobChart");
       var chartStrCnt = <?php echo json_encode($data[1]); ?>;
       var labels = <?php echo json_encode($data[0]); ?>;
-      var myChart = new Chart(ctx, {
-          type: 'bar',
-          data: {
-              labels: labels,
-              datasets: [{
-                  data: chartStrCnt,
-                  backgroundColor: [
-                      'rgba(3, 140, 12, 0.81)'
-                  ],
-                  borderColor: [
-                      'rgba(3, 140, 12,1)'
-                    ],
-                  borderWidth: 1
-              }]
-          },
-          options: {
-            responsive: false,
-            legend:{
-              display: false
-            }
-          }
-      });
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart2);
+      dataArr = ["NOB","Value"];
+      for(let i = 0; i < chartStrCnt.length; i++){
+        dataArr.push( [labels[i], chartStrCnt[i]] );
+      }
+      function drawChart2(){
+        var data = google.visualization.arrayToDataTable([
+          dataArr
+        ]);
+
+        var view = new google.visualization.DataView(data);
+
+        var options = {
+          title: 'Density of Precious Metals, in g/cm^3',
+          width: 520,
+          height: 230,
+          bar: {groupWidth: '95%'},
+          legend: {position:'none'}
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('myNobChart'));
+        chart.draw(view, options);
+      }
+
+      // var color = [];
+      // for(var item in chartStrCnt){
+      //   color.push( getRandomColor() );
+      // }
+      // var myChart = new Chart(ctx, {
+      //     type: 'bar',
+      //     data: {
+      //         labels: labels,
+      //         datasets: [{
+      //             data: chartStrCnt,
+      //             backgroundColor: color
+      //         }]
+      //     },
+      //     options: {
+      //       responsive: false,
+      //       legend:{
+      //         display: false
+      //       }
+      //     }
+      // });
     </script>
+    <?php
+  }
+
+  if($_GET['type'] == 'test'){
+    ?>
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+
+  var data = google.visualization.arrayToDataTable([
+    ['Task', 'Customer Satisfaction Chart'],
+    ['Work',     5],
+    ['Eat',      2],
+    ['Commute',  2],
+    ['Watch TV', 2],
+    ['Sleep',    7]
+  ]);
+
+  var options = {
+    title: 'My Daily Activities'
+  };
+
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+  chart.draw(data, options);
+}
+</script>
+</head>
+<body>
+<div id="piechart" style="width: 900px; height: 500px;"></div>
+</body>
     <?php
   }
 ?>

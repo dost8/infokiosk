@@ -1,9 +1,10 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <?php
   require_once '../cls.operations.php';
   $op = new Operations();
  ?>
 <div class="row">
-  <?php 
+  <?php
         $lguList = scandir('../backups/');
         for($i = 2; $i < count($lguList);$i++){
           $result = $op->selectData('feedbacks',['date'],"lgu = '".$lguList[$i]."'", true);
@@ -27,8 +28,8 @@
     <label for="">Municipalities</label>
     <br>
     <select class="lguSelect form-control" name="" style="height:45px;">
-      <?php for($i = 2; $i < count($lguList);$i++){ 
-        echo '<option value="'.$lguList[$i].'">'.$lguList[$i].'</option>';  
+      <?php for($i = 2; $i < count($lguList);$i++){
+        echo '<option value="'.$lguList[$i].'">'.$lguList[$i].'</option>';
        } ?>
     </select>
 
@@ -48,7 +49,7 @@
           <i class="fa fa-bar-chart-o fa-fw"></i>
           Customer Satisfaction Chart
         </div>
-        <div class="panel-body div-chart" style="height:85%;">
+        <div class="panel-body div-chart" style="height:85%;padding:0px;">
 
         </div>
       </div>
@@ -82,7 +83,7 @@
           <i class="fa fa-briefcase fa-fw"></i>
           Nature of Business Availed
         </div>
-        <div class="panel-body div-nob" style="height:235px;">
+        <div class="panel-body div-nob" style="height:235px;padding:0px;">
 
         </div>
       </div>
@@ -95,7 +96,7 @@
     $.fn.fetchRecord = function(init = false){
       var lgu = $('.lguSelect option:first').val();
       if(!init){
-        lgu = $(this).val();
+        lgu = $('.lguSelect').val();
       }
 
       $('.div-chart, .div-services').html('<img src="images/clipart/load.gif" style="width:200px;">');

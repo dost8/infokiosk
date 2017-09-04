@@ -42,10 +42,9 @@ ini_set('max_execution_time',0);
             $record['lgu'] = $this->lgu;
             $record = implode('<-->', $record)."\n";
             fwrite($file, $record);
-
           };
           fclose($file);
-          $this->insertSingleRow('backup', ['backup_date'=>date('Y-m-d')]);
+      #    $this->insertSingleRow('backup', ['backup_date'=>date('Y-m-d')]);
         }
       }
      return false;
@@ -68,13 +67,14 @@ ini_set('max_execution_time',0);
         $record = explode('<-->', fgets($file) );
         array_push($lines, $record);
       }
-      $lines = array_pop($lines); print_r($lines);
-      foreach($lines as $key => $record){
-        print_r($record)."</br>";
-       # $query .= " ('".$record[0]."','".$record[1]."','".$record[2]."','".$record[3]."','".$record[4]."','".$record[5]."','".$record[6]."'),";
-      }
+
+     for($i = 0;$i < (count($lines) - 2);$i++){
+      //  print_r($lines[$i])."</br>";
+       $query .= " ('".$lines[$i][0]."','".$lines[$i][1]."','".$lines[$i][2]."','".$lines[$i][3]."','".$lines[$i][4]."','".$lines[$i][5]."','".$lines[$i][6]."'),";
+     }
       $query = substr($query, 0, -1);
-      //echo $query;
+      $this->db->query($query);
+      echo $this->db->error;
     }
 
     /**

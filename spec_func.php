@@ -61,7 +61,7 @@ ini_set('max_execution_time',0);
       var label = 'Chart Ratings from '+<?php echo(json_encode($_REQUEST['lgu'])); ?>;
 
       google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawChart); 
 
       function drawChart(){
         var data = google.visualization.arrayToDataTable([
@@ -80,7 +80,7 @@ ini_set('max_execution_time',0);
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('myRateChart'));
-        chart.draw(data, options);
+        chart.draw(data, options); 
         //  $("#myRateChart rect").attr('height','250px');
       }
 
@@ -108,7 +108,7 @@ ini_set('max_execution_time',0);
           echo '<div class="panel-heading" role="tab" id="heading'.$key1.'" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse'.$key1.'" aria-expanded="true" aria-controls="collapse'.$key1.'">
             <h4 class="panel-title">
               <a role="button" href="#collapse'.$key1.'" onclick="event.preventDefault()">
-                '.$value1.'
+                '.strtoupper($value1).'
               </a>
             </h4>
           </div>
@@ -116,8 +116,8 @@ ini_set('max_execution_time',0);
             <div class="panel-body">';
             foreach($dataArr[4] as $key2 => $value2){
               if($value1 == $value2){
-                echo '<p class="btn form-control" style="text-align:left">'.$value2.'</p>';
-                unset($dataArr[4][$key]);   unset($dataArr[5][$key]);
+                echo '<p class="btn form-control" style="text-align:left">'.$dataArr[5][$key2].'</p>';
+                unset($dataArr[4][$key2]);   unset($dataArr[5][$key2]);
               }
             }
           echo '</div>
@@ -148,24 +148,22 @@ ini_set('max_execution_time',0);
      ?>
     <div id="myNobChart" height="210" width="565" style="width:565px;height:210px;"></div>
     <script type="text/javascript">
-      var chartStrCnt = <?php echo json_encode($data[1]); ?>;
-      var labels = <?php echo json_encode($data[0]); ?>;
+      var chartStrCnt1 = <?php echo json_encode($data[1]); ?>;
+      var labels1 = <?php echo json_encode($data[0]); ?>;
 
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart2);
-      dataArr = ["NOB","Value"];
-      for(let i = 0; i < chartStrCnt.length; i++){
-        dataArr.push( [labels[i], chartStrCnt[i]] );
+      dataArr = [["NOB","Value"]];
+      for(let i = 0; i < chartStrCnt1.length; i++){
+        dataArr.push( [labels1[i], chartStrCnt1[i]] );
       }
       function drawChart2(){
-        var data = google.visualization.arrayToDataTable([
-          dataArr
-        ]);
+        var data = google.visualization.arrayToDataTable(dataArr);
 
         var view = new google.visualization.DataView(data);
 
         var options = {
-          title: 'Density of Precious Metals, in g/cm^3',
+          title: 'Nature of Business availed',
           width: 520,
           height: 230,
           bar: {groupWidth: '95%'},
@@ -177,40 +175,6 @@ ini_set('max_execution_time',0);
       }
 
     </script>
-    <?php
-  }
-
-  if($_GET['type'] == 'test'){
-    ?>
-     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript">
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
-function drawChart() {
-
-  var data = google.visualization.arrayToDataTable([
-    ['Task', 'Customer Satisfaction Chart'],
-    ['Work',     5],
-    ['Eat',      2],
-    ['Commute',  2],
-    ['Watch TV', 2],
-    ['Sleep',    7]
-  ]);
-
-  var options = {
-    title: 'My Daily Activities'
-  };
-
-  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-  chart.draw(data, options);
-}
-</script>
-</head>
-<body>
-<div id="piechart" style="width: 900px; height: 500px;"></div>
-</body>
     <?php
   }
 ?>

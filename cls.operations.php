@@ -5,7 +5,7 @@ ini_set('max_execution_time',0);
     public $db;
     public $lgu;
     function __construct(){
-      $this->lgu = 'Abuyog';
+      $this->lgu = 'Carigara';
       $this->db = new mysqli('localhost:3306', 'root', '', 'info_kiosk');
       if (mysqli_connect_errno()) {
         echo "
@@ -44,7 +44,7 @@ ini_set('max_execution_time',0);
             fwrite($file, $record);
           };
           fclose($file);
-      #    $this->insertSingleRow('backup', ['backup_date'=>date('Y-m-d')]);
+          $this->insertSingleRow('backup', ['backup_date'=>date('Y-m-d')]);
         }
       }
      return false;
@@ -65,14 +65,17 @@ ini_set('max_execution_time',0);
       $lines = [];
       while(!feof($file)){
         $record = explode('<-->', fgets($file) );
-        array_push($lines, $record);
+        if(count($record) > 1){
+          array_push($lines, $record);
+        }else{
+          return false;
+        }
       }
 
      for($i = 0;$i < (count($lines) - 2);$i++){
       //  print_r($lines[$i])."</br>";
        $query .= " ('".$lines[$i][0]."','".$lines[$i][1]."','".$lines[$i][2]."','".$lines[$i][3]."','".$lines[$i][4]."','".$lines[$i][5]."','".$lines[$i][6]."'),";
      }
-      $query = substr($query, 0, -1);
       $this->db->query($query);
       echo $this->db->error;
     }

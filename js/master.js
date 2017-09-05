@@ -5,12 +5,6 @@ $(document).ready(function(){
   //   toggleMenu()
   // }, 3500);
 
-  $('body').on('click',function(){
-    setTimeout(function(){
-      console.log('2 seconds');
-    }, 2000);
-  });
-
   let width = window.screen.availWidth;
   let height = window.screen.availHeight;
   if(height != 860 || width != 1600){
@@ -90,7 +84,6 @@ function getRandomColor() {
 
 // Display profile in the organization
 $(document).on('click','.org-block',function(){
-  $('#orgProfile_modal .modal-body').empty();
   var i = 1;
   var notClick = false;
   $.each( $(this).children('span'), function(){
@@ -103,7 +96,7 @@ $(document).on('click','.org-block',function(){
     appendThis += "<img src='images/profile/"+data[1]+".jpg' class='pp'>"
     appendThis += "</div>"
 
-    $('#orgProfile_modal .modal-body').append(appendThis)
+    $('#orgProfile_modal .modal-body div').html(appendThis)
     if(data[2] == 'true'){
       notClick = true;
     }
@@ -150,5 +143,8 @@ app.config(function($routeProvider){
   })
   .when('/status',{
     templateUrl : 'status/index.php'
+  })
+  .when('/news',{
+    templateUrl : 'news/index.php'
   })
 })

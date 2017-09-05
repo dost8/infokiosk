@@ -5,6 +5,11 @@ $(document).ready(function(){
   //   toggleMenu()
   // }, 3500);
 
+  $('body').on('click',function(){
+    setTimeout(function(){
+      console.log('2 seconds');
+    }, 2000);
+  });
 
   let width = window.screen.availWidth;
   let height = window.screen.availHeight;

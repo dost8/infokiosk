@@ -176,26 +176,6 @@ ini_set('max_execution_time',0);
         chart.draw(view, options);
       }
 
-      // var color = [];
-      // for(var item in chartStrCnt){
-      //   color.push( getRandomColor() );
-      // }
-      // var myChart = new Chart(ctx, {
-      //     type: 'bar',
-      //     data: {
-      //         labels: labels,
-      //         datasets: [{
-      //             data: chartStrCnt,
-      //             backgroundColor: color
-      //         }]
-      //     },
-      //     options: {
-      //       responsive: false,
-      //       legend:{
-      //         display: false
-      //       }
-      //     }
-      // });
     </script>
     <?php
   }

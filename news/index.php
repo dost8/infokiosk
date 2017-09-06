@@ -1,12 +1,13 @@
 
 HTML   JS  Result
-Edit on 
+Edit on
 <textarea id="wyswyg">
-  
+
 </textarea>
-<button onclick="hulala()">Submit</button>
+<br>
+<button onclick="uploadNews()" class="btn btn-default pull-right">Submit</button>
 <script type="text/javascript">
-    function getContent(){
+    function uploadNews(){
         var content = tinyMCE.get('#wyswyg').content();
     }
 

@@ -4,6 +4,7 @@ ini_set('max_execution_time',0);
   {
     public $db;
     public $lgu;
+    public $online = true;
     function __construct(){
       $this->lgu = 'Carigara';
       $this->db = new mysqli('localhost:3306', 'root', '', 'info_kiosk');

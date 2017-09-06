@@ -16,7 +16,7 @@
     <div class="modal-content" style="background:rgba(0, 80, 110, 0.19)" >
       <div class="modal-body">
         <div class="row">
-          <?php $title = ['organization','technology','feedback','portals','laboratory','about', 'update'];
+          <?php $title = ['organization','technology','feedback','portals','laboratory','about', 'update','status','news'];
           foreach(range(0,3) as $button): ?>
             <a href="#<?=$title[$button]?>" class="menu-button menu-button<?=$button?>" >
               <!-- <div class="menu-button menu-buttonol-sm-5" style="margin-left:5%;margin-right:5%"> -->
@@ -34,6 +34,19 @@
             </a>
           <?php endforeach ?>
         </div>
+        <?php
+          if($operation->online){
+            echo '<div class="row" style="margin-top:5%;margin-left:28%">';
+              foreach(range(7,8) as $button){
+                echo '<a href="#'.$title[$button].'" class="menu-button menu-button'.$button.'" >
+                  <img src="images/clipart/'.$title[$button].'.png">
+                  <p>'.strtoupper( $title[$button] ).'</p>
+                </a>';
+
+              }
+            echo '</div>';
+          }
+         ?>
       </div>
     </div>
   </div>

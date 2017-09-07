@@ -61,7 +61,7 @@ ini_set('max_execution_time',0);
       var label = 'Chart Ratings from '+<?php echo(json_encode($_REQUEST['lgu'])); ?>;
 
       google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart); 
+      google.charts.setOnLoadCallback(drawChart);
 
       function drawChart(){
         var data = google.visualization.arrayToDataTable([
@@ -80,7 +80,7 @@ ini_set('max_execution_time',0);
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('myRateChart'));
-        chart.draw(data, options); 
+        chart.draw(data, options);
         //  $("#myRateChart rect").attr('height','250px');
       }
 
@@ -176,5 +176,23 @@ ini_set('max_execution_time',0);
 
     </script>
     <?php
+  }
+
+  if($_GET['type'] == 'uploadNews'){
+    // $_GET['content'] $_GET['url']
+    $content = $_GET['news'];
+
+    $url = explode(',,',$_GET['url']);
+    foreach($url as $key => $value){
+      $value2 = 'resources/'.$value;
+      $content = str_replace($value, $value2, $content);
+
+      // CHECK IF FILE EXIST IN DATABASE;
+      if(!file_exists($value2)){
+        echo "DOWNLOAD THIS SHIT --></br>";
+        echo $value2;
+      }
+    }
+
   }
 ?>

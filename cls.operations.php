@@ -85,7 +85,7 @@ ini_set('max_execution_time',0);
     * @param string $table the table that will be used for the query
     * @param arrary $data supply the fields to be used for the query
     */
-    function insertSingleRow($table, array $data, $db2 = false){
+    function insertSingleRow($table, array $data){
       $query = "INSERT INTO ".$table." SET";
       $dataCount = count($data);
       $i = 1;
@@ -96,6 +96,8 @@ ini_set('max_execution_time',0);
       }
       $this->db->query($query);
       echo $this->db->error;
+
+      return $this->db->insert_id;
     }
 
 
@@ -105,7 +107,7 @@ ini_set('max_execution_time',0);
       $query = "SELECT";
       $i = 1;
       $dataCount = count($data);
-      foreach($data as  $value){
+      foreach($data as $value){
         $comma = ($i < $dataCount ? ',' : '');
         $query .= ' '.$value.$comma;
         $i++;

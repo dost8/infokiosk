@@ -36,9 +36,8 @@ function uploadNews(){
     $.ajax({
       url: 'spec_func.php',
       data: 'type=uploadNews&news='+content+'&url='+data
-    }).done(function(){
-
+    }).done(function(r){
+      $('#alerts .modal-body').html('Column has been uploaded');
     })
-
 }
 </script>

@@ -180,19 +180,29 @@ ini_set('max_execution_time',0);
 
   if($_GET['type'] == 'uploadNews'){
     // $_GET['content'] $_GET['url']
-    $content = $_GET['news'];
-
+    $content = $_GET['news'];die($content);
+    $arrContextOptions=array(
+        "ssl"=>array(
+            "verify_peer"=>false,
+            "verify_peer_name"=>false,
+        ),
+    );
     $url = explode(',,',$_GET['url']);
     foreach($url as $key => $value){
-      $value2 = 'resources/'.$value;
-      $content = str_replace($value, $value2, $content);
-
       // CHECK IF FILE EXIST IN DATABASE;
-      if(!file_exists($value2)){
-        echo "DOWNLOAD THIS SHIT --></br>";
-        echo $value2;
+      $extension = '.'.substr( strrchr($value,'.'),1);
+      $check = $operation->selectData('resources',['_id'],"link='".$value."'", true);
+      if(empty($check)){
+        $last_id = $operation->insertSingleRow('resources',['link'=>$value]);
+        $value2 = 'resources/'.$last_id.$extension;
+        $file = file_get_contents($value, false, stream_context_create($arrContextOptions));
+        file_put_contents($value2, $file);
+      }else{
+        $value2 = 'resources/'.$check['_id'].$extension;
       }
+      $content = str_replace($value, $value2, $content);
     }
-
+    $operation->insertSingleRow('news',['news'=>urlencode($content), 'date'=>date('Y-m-d')]);
+    $operation->execBatchFile('upload.bat');
   }
 ?>

@@ -205,4 +205,33 @@ ini_set('max_execution_time',0);
     $operation->insertSingleRow('news',['news'=>urlencode($content), 'date'=>date('Y-m-d')]);
     $operation->execBatchFile('upload.bat');
   }
+
+  if($_GET['type'] == 'getAnnouncements'){
+    $result = $operation->selectData('news',['news']);
+    $active = ' active';
+    $count = 0;
+    $li = null;   $div = null;
+    $whole = '<div class="newsCarousel carousel slide" data-ride="carousel"> <div class="carousel-inner">';
+    foreach($result as $key => $value){
+      $div .= '<div class="item item'.$count.''.$active.'" >'.urldecode($value['news']).$count.'</div>';
+      $li .= '<li data-target=".newsCarousel" data-slide-to="'.$count.'" class="hol'.$active.'"></li>';
+      $active = ''; $count++;
+
+    }
+    $whole .= $div.'</div> <ol class="carousel-indicators">'.$li.'</ol>';
+
+    $whole .= '<a class="left carousel-control" href=".newsCarousel" data-slide="prev">
+                <span class="fa fa-chevron-left fa-4x"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href=".newsCarousel" data-slide="next">
+                <span class="fa fa-chevron-right fa-4x"></span>
+                <span class="sr-only">Next</span>
+              </a> </div>';
+    // $whole .= "<script type='text/javascript'>  $('#announcements').carousel({
+    //     pause : false,
+    //     interval : true
+    //   });</script>"
+    echo $whole;
+  }
 ?>

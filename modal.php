@@ -325,7 +325,9 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-body">
-
+        <button class="close" type="button" name="button" data-dismiss="modal" style="position:absolute;right:20px;" aria-label>
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
     </div>
   </div>
@@ -357,6 +359,25 @@
     <div class="modal-content">
       <div class="modal-body">
         <img src="images/clipart/load.gif" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="announcements" tabindex="-1" aria-hidden="true" aria-labelledby="For announcements">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        Announcements
+        <button class="close" type="button" name="button" data-dismiss="modal" style="position:absolute;right:20px;" aria-label>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="carousel-inner">
+
+          </div>
+        </div>
       </div>
     </div>
   </div>

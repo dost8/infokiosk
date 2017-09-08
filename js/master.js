@@ -1,3 +1,19 @@
+$(document).idle({
+  onIdle: function(){
+
+
+    $.ajax({
+      url : 'spec_func.php?type=getAnnouncements'
+    }).done(function(r){
+      $('#announcements .modal-body .carousel-inner').html(r);
+      console.log(r);
+    })
+
+    $('#announcements').modal('show');
+  },
+  idle: 10000
+});
+
 $(document).ready(function(){
   // $('#video_intro').modal('toggle');
   // setTimeout(function(){
@@ -22,6 +38,11 @@ $(document).ready(function(){
       $('.menu-button6 p').text('UPDATES ARE AVAILABLE');
     }
   })
+
+  $('#announcements').carousel({
+    pause : false,
+    interval : true
+  });
 });
 
 function toggleMenu(){

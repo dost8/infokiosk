@@ -181,10 +181,10 @@
     $('.headName span').text('Customer Feedback')
     $('.headName img').attr('src','images/clipart/feedback.png')
 
-    $('#myCarousel').carousel({
-      pause : true,
-      interval : false
-    })
+    // $('#myCarousel').carousel({
+    //   pause : true,
+    //   interval : false
+    // })
   })
 
 // Business type selection;

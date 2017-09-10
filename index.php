@@ -23,6 +23,7 @@
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/angular-route.min.js"></script>
     <script type="text/javascript" src="js/idle.js"></script>
+    <script type="text/javascript" src="js/slick.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.bundle.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/master.js" ></script>

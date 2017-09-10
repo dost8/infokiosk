@@ -1,12 +1,11 @@
 $(document).idle({
   onIdle: function(){
-
-
     $.ajax({
-      url : 'spec_func.php?type=getAnnouncements'
+      url : 'spec_func.php',
+      data : 'type=getAnnouncements'
     }).done(function(r){
-      $('#announcements .modal-body .carousel-inner').html(r);
-      console.log(r);
+      $('#announcements .modal-body').html(r);
+      // console.log(r);
     })
 
     $('#announcements').modal('show');

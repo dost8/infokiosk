@@ -180,7 +180,7 @@ ini_set('max_execution_time',0);
 
   if($_GET['type'] == 'uploadNews'){
     // $_GET['content'] $_GET['url']
-    $content = $_GET['news'];die($content);
+    $content = $_GET['news'];
     $arrContextOptions=array(
         "ssl"=>array(
             "verify_peer"=>false,
@@ -188,19 +188,21 @@ ini_set('max_execution_time',0);
         ),
     );
     $url = explode(',,',$_GET['url']);
-    foreach($url as $key => $value){
-      // CHECK IF FILE EXIST IN DATABASE;
-      $extension = '.'.substr( strrchr($value,'.'),1);
-      $check = $operation->selectData('resources',['_id'],"link='".$value."'", true);
-      if(empty($check)){
-        $last_id = $operation->insertSingleRow('resources',['link'=>$value]);
-        $value2 = 'resources/'.$last_id.$extension;
-        $file = file_get_contents($value, false, stream_context_create($arrContextOptions));
-        file_put_contents($value2, $file);
-      }else{
-        $value2 = 'resources/'.$check['_id'].$extension;
+    if(count($url) > 0){
+      foreach($url as $key => $value){
+        // CHECK IF FILE EXIST IN DATABASE;
+        $extension = '.'.substr( strrchr($value,'.'),1);
+        $check = $operation->selectData('resources',['_id'],"link='".$value."'", true);
+        if(empty($check)){
+          $last_id = $operation->insertSingleRow('resources',['link'=>$value]);
+          $value2 = 'resources/'.$last_id.$extension;
+          $file = file_get_contents($value, false, stream_context_create($arrContextOptions));
+          file_put_contents($value2, $file);
+        }else{
+          $value2 = 'resources/'.$check['_id'].$extension;
+        }
+        $content = str_replace($value, $value2, $content);
       }
-      $content = str_replace($value, $value2, $content);
     }
     $operation->insertSingleRow('news',['news'=>urlencode($content), 'date'=>date('Y-m-d')]);
     $operation->execBatchFile('upload.bat');
@@ -208,30 +210,66 @@ ini_set('max_execution_time',0);
 
   if($_GET['type'] == 'getAnnouncements'){
     $result = $operation->selectData('news',['news']);
-    $active = ' active';
     $count = 0;
-    $li = null;   $div = null;
-    $whole = '<div class="newsCarousel carousel slide" data-ride="carousel"> <div class="carousel-inner">';
+    $li = null; $div = null;
+    $active = ['active','fa-circle'];
     foreach($result as $key => $value){
-      $div .= '<div class="item item'.$count.''.$active.'" >'.urldecode($value['news']).$count.'</div>';
-      $li .= '<li data-target=".newsCarousel" data-slide-to="'.$count.'" class="hol'.$active.'"></li>';
-      $active = ''; $count++;
-
+      $div .= '<div class="carousel-item item'.$key.' '.$active[0].'">'.urldecode($value['news']).'</div>';
+      $li .= '<li class="carousel-link '.$active[0].' link'.$key.'" data-link="'.$key.'"><i class="fa '.$active[1].'" style="color:blue"></i></li>';
+      $active = ['','fa-circle-o'];
     }
-    $whole .= $div.'</div> <ol class="carousel-indicators">'.$li.'</ol>';
+    ?>
+      <style>
+        .carousel-item{
+          display:none;
+        }
+        .carousel-item.active{
+          display:block;
+        }
+        .carousel-link{
+          display:inline;
+          cursor:pointer;
+        }
+      </style>
+      <div id="myOwnCarousel">
+        <div class="inner-carousel">
+          <?=$div?>
+        </div>
+        <ul>
+          <?=$li?>
+        </ul>
+      </div>
+      <script type="text/javascript">
+        $('.carousel-link').on('click', function(){
+          changeNews($(this).data('link'));
+        })
 
-    $whole .= '<a class="left carousel-control" href=".newsCarousel" data-slide="prev">
-                <span class="fa fa-chevron-left fa-4x"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="right carousel-control" href=".newsCarousel" data-slide="next">
-                <span class="fa fa-chevron-right fa-4x"></span>
-                <span class="sr-only">Next</span>
-              </a> </div>';
-    // $whole .= "<script type='text/javascript'>  $('#announcements').carousel({
-    //     pause : false,
-    //     interval : true
-    //   });</script>"
-    echo $whole;
-  }
+        $(document).ready(function(){
+           var carouselCount = $('.carousel-item').length
+           var hol = 0;
+            while(hol < 100){
+              console.log('hol1')
+              for(let i = 0;i < carouselCount;i++){
+                console.log('hol2')
+                setTimeout(function(){
+                  changeNews(i);
+                  console.log('hol3')
+                }, 3000)
+              }
+              hol++;
+            }
+        })
+
+
+        function changeNews(numb){
+          $('.carousel-link, .carousel-item').removeClass('active');
+          $('.carousel-link.link'+numb+', .carousel-item.item'+numb).addClass('active');
+
+          $('.carousel-link > i').removeClass('fa-circle').addClass('fa-circle-o');
+          $('.carousel-link.active > i').removeClass('fa-circle-o').addClass('fa-circle');
+
+        }
+      </script>
+    <?php
+}
 ?>

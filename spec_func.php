@@ -212,63 +212,30 @@ ini_set('max_execution_time',0);
     $result = $operation->selectData('news',['news']);
     $count = 0;
     $li = null; $div = null;
-    $active = ['active','fa-circle'];
+    $active = ['','fa-circle'];
     foreach($result as $key => $value){
-      $div .= '<div class="carousel-item item'.$key.' '.$active[0].'">'.urldecode($value['news']).'</div>';
-      $li .= '<li class="carousel-link '.$active[0].' link'.$key.'" data-link="'.$key.'"><i class="fa '.$active[1].'" style="color:blue"></i></li>';
+      $div .= '<div class="item'.$key.' '.$active[0].'">'.urldecode($value['news']).'</div>';
       $active = ['','fa-circle-o'];
     }
     ?>
-      <style>
-        .carousel-item{
-          display:none;
-        }
-        .carousel-item.active{
-          display:block;
-        }
-        .carousel-link{
-          display:inline;
-          cursor:pointer;
-        }
-      </style>
-      <div id="myOwnCarousel">
-        <div class="inner-carousel">
-          <?=$div?>
-        </div>
-        <ul>
-          <?=$li?>
-        </ul>
+      <div class="myOwnCarousel slider">
+        <?=$div?>
       </div>
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" rel="stylesheet" />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" /> -->
       <script type="text/javascript">
-        $('.carousel-link').on('click', function(){
-          changeNews($(this).data('link'));
-        })
-
-        $(document).ready(function(){
-           var carouselCount = $('.carousel-item').length
-           var hol = 0;
-            while(hol < 100){
-              console.log('hol1')
-              for(let i = 0;i < carouselCount;i++){
-                console.log('hol2')
-                setTimeout(function(){
-                  changeNews(i);
-                  console.log('hol3')
-                }, 3000)
-              }
-              hol++;
-            }
-        })
-
-
-        function changeNews(numb){
-          $('.carousel-link, .carousel-item').removeClass('active');
-          $('.carousel-link.link'+numb+', .carousel-item.item'+numb).addClass('active');
-
-          $('.carousel-link > i').removeClass('fa-circle').addClass('fa-circle-o');
-          $('.carousel-link.active > i').removeClass('fa-circle-o').addClass('fa-circle');
-
-        }
+      // $(document).on('ready', function () {
+      //   $(".myOwnCarousel").slick({
+      //       dots: true,
+      //       infinite: true,
+      //       slidesToShow: 1,
+      //       slidesToScroll: 1,
+      //       autoplay:true,
+      //       autoplaySpeed:1000
+      //   });
+      // });
       </script>
     <?php
 }

@@ -18,6 +18,9 @@ body.modal-open{
 .menu:hover{
   background: rgba(255, 255, 255, 0.31)
 }
+.menu:link,.menu-visited{
+  color:white;
+}
 
 .menu-button{
   text-align: center;

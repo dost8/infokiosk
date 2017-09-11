@@ -368,16 +368,14 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        Announcements
+
         <button class="close" type="button" name="button" data-dismiss="modal" style="position:absolute;right:20px;" aria-label>
           <span aria-hidden="true">&times;</span>
         </button>
+        <h4 class="modal-title">Announcements</h4>
       </div>
-      <div class="modal-body">
-          <div class="carousel-inner">
+      <div class="modal-body" style="height:650px;text-align:center;overflow-y:auto;">
 
-          </div>
-        </div>
       </div>
     </div>
   </div>

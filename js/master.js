@@ -1,14 +1,15 @@
 $(document).idle({
   onIdle: function(){
-    $.ajax({
-      url : 'spec_func.php',
-      data : 'type=getAnnouncements'
-    }).done(function(r){
-      $('#announcements .modal-body').html(r);
-      // console.log(r);
-    })
-
-    $('#announcements').modal('show');
+    if( !$('#announcements').hasClass('in') ){
+      $('#announcements').modal('show');
+      $.ajax({
+        url : 'spec_func.php',
+        data : 'type=getAnnouncements'
+      }).done(function(r){
+        $('#announcements .modal-body').html(r);
+        console.log(r);
+      })
+    }
   },
   idle: 10000
 });
@@ -38,9 +39,13 @@ $(document).ready(function(){
     }
   })
 
-  $('#announcements').carousel({
-    pause : false,
-    interval : true
+  $(".myOwnCarousel").slick({
+      dots: true,
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay:true,
+      autoplaySpeed:1000
   });
 });
 

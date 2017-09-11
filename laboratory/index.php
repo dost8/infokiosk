@@ -27,13 +27,15 @@
 <div class="frame laboratory">
   <div class="wrapper" style="text-align:justify">
     <?php
+      $selected = 'btn-selected';
       // List of available services offered by DOST-8 laboratory
       $list = ['Total Suspended Solids','Heterotrophic Place Count (HPC)',
       'Total Coliform Count','pH','Sulfate','Total Hardness','Chloride','Calcium',
       'Total Fat','Alkalinity','Carbonate and bicarbonate','Aluminum','Chlorine (Residual)',
       'Moisture'];
       foreach ($list as $key => $value) {
-        echo '<div class="btn service'.$key.'" onclick="labService('.$key.')">'.$value.'</div>';
+        echo '<div class="btn service'.$key.' '.$selected.'" onclick="labService('.$key.')">'.$value.'</div>';
+        $selected = '';
       }
     ?>
   </div>
@@ -45,8 +47,9 @@
 <script src="laboratory/serviceList.js" charset="utf-8"></script>
 <script type="text/javascript">
   $(document).ready(function(){
-    $('.headName span').text('Laboratory')
-    $('.headName img').attr('src','images/clipart/laboratory.png')
+    $('.headName span').text('Laboratory');
+    $('.headName img').attr('src','images/clipart/laboratory.png');
+    labService(0);
   });
 
   function labService(i){

@@ -94,6 +94,9 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
+    $('.headName span').text('Status')
+    $('.headName img').attr('src','images/clipart/status.png')
+
     $.fn.fetchRecord = function(init = false){
       var lgu = $('.lguSelect option:first').val();
       if(!init){

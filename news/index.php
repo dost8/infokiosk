@@ -24,6 +24,11 @@ tinymce.init({
   ]
 });
 
+$(document).ready(function(){
+  $('.headName span').text('News')
+  $('.headName img').attr('src','images/clipart/news.png')
+});
+
 function uploadNews(){
 
   if( $('#newsTitle').val() == "" ){

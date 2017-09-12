@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <div style="background:rgb(39, 39, 39);height:100%;border-radius:5px;font-family: 'Open Sans',sans-serif;color:#eee">
-  <a href="http://onestore.ph/" target="_blank" style="position:absolute;">
+  <a href="#" target="_blank" style="position:absolute;" onclick="openModalLink('http://onestore.ph/','One Store')">
     <button class="btn btn-info" type="button" name="button"><i class="fa fa-external-link"></i> Go to Link</button>
   </a>
   <img src="images/clipart/one store.png" style="position:static;margin-left:36%;height:26.3%;">

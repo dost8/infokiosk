@@ -32,7 +32,7 @@
       ?>
     </div>
     <div class="col-md-1"></div>
-    <div class="col-md-6" id="link-desc" style="height:90%;overflow-y:auto;">
+    <div class="col-md-6" id="link-desc" style="height:90%;overflow-y:overlay;">
     </div>
   </div>
 </div>
@@ -74,11 +74,11 @@
     $(this).children('img').attr('src','images/clipart/'+ $(this).data('image') +'2.png')
   });
 
-  function openNewWindow(link){
+  function openModalLink(link, name){
     event.preventDefault();
-    $.ajax({
-      url:'spec_func.php',
-      data: 'type=openLink&link='+link
-    });
+    //$('#viewLinks .modal-body').html('<iframe src="https://9gag.com/trending" width="1520px" height="730px" frameborder="0" allowfullscreen></iframe>');
+    $('#viewLinks .modal-body').html('<iframe id="iframeLink" src="'+link+'" width="1548px" height="770px" frameborder="0" allowfullscreen></iframe>');
+    $('#viewLinks .modal-header .modal-title').text( name );
+    $('#viewLinks').modal('show');
   }
 </script>

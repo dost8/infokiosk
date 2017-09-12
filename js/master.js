@@ -13,7 +13,7 @@ $(document).idle({
   onActive: function(){
     // console.log('holll');
   },
-  idle: 5000
+  idle: 600000
 });
 
 $(document).ready(function(){

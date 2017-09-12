@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <div class="" style="background:rgb(236,236,236);height:100%;border-radius:5px;font-family:roboto;">
-  <a href="http://www.starbooks.ph/" target="_blank">
+  <a href="#" target="_blank" onclick="openModalLink('http://www.starbooks.ph/', 'STARBOOKS')">
     <button class="btn btn-info" type="button" name="button"><i class="fa fa-external-link"></i> Go to Link</button>
   </a>
 

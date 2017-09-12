@@ -368,14 +368,29 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-
         <button class="close" type="button" name="button" data-dismiss="modal" style="position:absolute;right:20px;" aria-label>
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title">Announcements</h4>
+        <h2 class="modal-title">Announcements</h2>
       </div>
       <div class="modal-body" style="height:650px;text-align:center;overflow-y:auto;">
 
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="viewLinks" tabindex="-1" aria-hidden="true" aria-labelledby="For viewing external links">
+  <div class="modal-dialog modal-lg" style="min-width:1550px !important">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title"></h2>
+        <button class="close" type="button" name="button" data-dismiss="modal" style="position:absolute;right:20px;" aria-label>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="padding:0px;">
+        <iframe src="" width="" height=""></iframe>
       </div>
     </div>
   </div>

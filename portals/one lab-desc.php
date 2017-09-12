@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <div style="background:rgb(243,245,246);height:100%;border-radius:5px;font-family:roboto">
-  <a href="http://web.onelab.ph/" target="_new">
+  <a href="#" onclick="openModalLink('http://web.onelab.ph','One Lab')">
     <button class="btn btn-info" type="button" name="button"><i class="fa fa-external-link"></i> Go to Link</button>
   </a>
   <img src="images/onelab.png" alt="" style="height:23.7%">

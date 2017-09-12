@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <div class="" style="background:white;height:initial;border-radius:5px;">
   <div class="">
-    <a href="http://www.tech4ed.gov.ph" target="_blank" style="position:absolute;">
+    <a href="#" target="_blank" style="position:absolute;" onclick="openModalLink('http://www.tech4ed.gov.ph','Tech4Ed')">
      <button class="btn btn-info" type="button" name="button"><i class="fa fa-external-link"></i> Go to Link</button>
     </a>
-    <div class="row" style="margin-left:5px;">
+    <div class="row" style="margin-left:5px;width:538px;">
       <img src="images/clipart/tech4ed-h.png" alt="" style="height:94px;margin-top:35px;">
     </div>
   <br>
@@ -47,7 +47,7 @@
 
         <p><b>4. Advocacy and Promotion</b></p><br>
         <p style="margin-top:-15px">This component will focus on the development of a focused advocacy effort to increase awareness appreciation and support for the Tech4ED Project.</p>
-<br>
+        <br>
       </div>
     </section>
   </div>

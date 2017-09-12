@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <div class="" style="background:white;height:100%;border-radius:5px;font-family:roboto;">
-   <a href="https://oneexpert.gov.ph/visitors/login_required" target="_blank" style="position:absolute;">
+   <a href="#" style="position:absolute;" onclick="openNewWindow(0)">
     <button class="btn btn-info" type="button" name="button"><i class="fa fa-external-link"></i> Go to Link</button>
   </a>
  <h1 style="text-align:center;margin-top:0px">OneExpert</h1>

@@ -74,5 +74,11 @@
     $(this).children('img').attr('src','images/clipart/'+ $(this).data('image') +'2.png')
   });
 
-
+  function openNewWindow(link){
+    event.preventDefault();
+    $.ajax({
+      url:'spec_func.php',
+      data: 'type=openLink&link='+link
+    });
+  }
 </script>

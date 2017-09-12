@@ -33,7 +33,7 @@
 
 <a href="#" target="_blank" class="tech_link" onclick="event.preventDefault()" data-target="vsuTech">
   <div class="tech_div">
-    <p>VSU - VICAARP Technology</p>
+    <p>VSU - VICARP Technology</p>
   </div>
 </a>
 

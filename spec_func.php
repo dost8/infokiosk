@@ -239,5 +239,12 @@ ini_set('max_execution_time',0);
         });
       </script>
     <?php
-}
+    }
+
+    if($_GET['type'] == 'openLink'){
+      $list = ['oneExpert.bat','One Store','One Lab','Tech4ed','STARBOOKS'];
+      echo system("cmd /c C:/xampp/htdocs/tech4ed/".$list[$_GET['link']]);
+      die;
+      echo $operation->execBatchFile('hol2.bat');
+    }
 ?>

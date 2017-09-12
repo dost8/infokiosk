@@ -7,11 +7,13 @@ $(document).idle({
         data : 'type=getAnnouncements'
       }).done(function(r){
         $('#announcements .modal-body').html(r);
-        console.log(r);
       })
     }
   },
-  idle: 10000
+  onActive: function(){
+    // console.log('holll');
+  },
+  idle: 5000
 });
 
 $(document).ready(function(){

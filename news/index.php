@@ -1,10 +1,12 @@
 <div class="news">
+  <input type="text" class="form-control" id="newsTitle" name="" value="" placeholder="Article Title *">
+  <br>
   <textarea id="wyswyg">
 
   </textarea>
 </div>
 <br>
-<button onclick="uploadNews()" class="btn btn-default pull-right">Submit</button>
+<button type="submit" onclick="uploadNews()" class="btn btn-default pull-right">Submit</button>
 <script type="text/javascript">
 
 tinymce.init({
@@ -23,7 +25,14 @@ tinymce.init({
 });
 
 function uploadNews(){
+
+  if( $('#newsTitle').val() == "" ){
+    $('#newsTitle').css('border','1px solid red');
+    return false;
+  }
+
     var content = tinyMCE.get('wyswyg').getContent();
+    var title = $('#newsTitle').val();
     var data = [];
     if(content.includes('<img')){
       content.match(/<img src="(.*?)"/g).map(function(val){
@@ -35,7 +44,7 @@ function uploadNews(){
 
     $.ajax({
       url: 'spec_func.php',
-      data: 'type=uploadNews&news='+content+'&url='+data
+      data: 'type=uploadNews&news='+content+'&url='+data+'&title='+title,
     }).done(function(r){
       $('#alerts .modal-body').html('Column has been uploaded');
     })

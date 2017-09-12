@@ -180,13 +180,17 @@ ini_set('max_execution_time',0);
 
   if($_GET['type'] == 'uploadNews'){
     // $_GET['content'] $_GET['url']
-    $content = $_GET['news'];
+
     $arrContextOptions=array(
         "ssl"=>array(
             "verify_peer"=>false,
             "verify_peer_name"=>false,
         ),
     );
+
+    $title = '<a href="#" onclick="event.preventDefault()" style="text-decoration:none;color:#258faf;"><h2 class="title">'.$_GET['title'].'</h2></a>';
+    $created = '<span style="color:#6d6d6d">Date Created: '.date('F d, Y').'</span>';
+    $content = $title.$created.$_GET['news'];
     $url = explode(',,',$_GET['url']);
     if(count($url) > 0){
       foreach($url as $key => $value){
@@ -205,37 +209,34 @@ ini_set('max_execution_time',0);
       }
     }
     $operation->insertSingleRow('news',['news'=>urlencode($content), 'date'=>date('Y-m-d')]);
-    $operation->execBatchFile('upload.bat');
+    #$operation->execBatchFile('upload.bat');
   }
 
   if($_GET['type'] == 'getAnnouncements'){
-    $result = $operation->selectData('news',['news']);
-    $count = 0;
-    $li = null; $div = null;
-    $active = ['','fa-circle'];
+    $result = array_reverse( $operation->selectData('news',['news']) );
+    $count = 0; $tr = null;
     foreach($result as $key => $value){
-      $div .= '<div class="item'.$key.' '.$active[0].'">'.urldecode($value['news']).'</div>';
-      $active = ['','fa-circle-o'];
+      $tr .= '<tr><td>'.urldecode($value['news']).'</td></tr>';
     }
     ?>
-      <div class="myOwnCarousel slider">
-        <?=$div?>
-      </div>
-      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" rel="stylesheet" />
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" /> -->
+      <table id="tbl_announcements" class="table">
+        <thead>
+          <tr><td></td></tr>
+        </thead>
+        <tbody>
+          <?= $tr ?>
+        </tbody>
+        <tfoot>
+          <tr><td></td></tr>
+        </tfoot>
+      </table>
       <script type="text/javascript">
-      // $(document).on('ready', function () {
-      //   $(".myOwnCarousel").slick({
-      //       dots: true,
-      //       infinite: true,
-      //       slidesToShow: 1,
-      //       slidesToScroll: 1,
-      //       autoplay:true,
-      //       autoplaySpeed:1000
-      //   });
-      // });
+        $(document).ready(function(){
+          $('#tbl_announcements').DataTable({
+            "aaSorting":[],
+          });
+          $('#announcements .modal-body .dataTables_length').css('display','none');
+        });
       </script>
     <?php
 }

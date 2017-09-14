@@ -4,11 +4,11 @@
     require_once('orgList.php');
     foreach ($positions as $value): ?>
       <a href="#" onclick="event.preventDefault()">
-        <div class="org-block" style="margin-left:<?= $value[0] ?>%;margin-top:<?= $value[1] ?>%;padding:4px;">
+        <div class="org-block" style="margin-left:<?= $value[0] ?>%;margin-top:<?= $value[1] ?>%;padding:4px">
           <p style='margin-top:1px;line-height:1'><?=$value[2]?></p>
           <?php for ($i=0; $i < count($value[3]); $i++) {
             $notClick = ( !isset($value[5]) ? '' : 'true' );
-            echo "<span type='hidden'>".$value[3][$i].'//'.$value[4][$i].'//'.$notClick."</span>";
+            echo "<span type='hidden'>".$value[3][$i].'//'.strtoupper($value[4][$i]).'//'.$notClick."</span>";
           } ?>
         </div>
       </a>

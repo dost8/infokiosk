@@ -113,21 +113,29 @@ function getRandomColor() {
 $(document).on('click','.org-block',function(){
   var i = 1;
   var notClick = false;
-  $.each( $(this).children('span'), function(){
+  var whole = '';
+  $.each( $(this).children('span'), function(){console.log(i);i++
     var data = $(this).text().split('//');
+    var image = "images/profile/"+data[1]+".jpg";
+    if(check_file_exist('images/profile/'+data[1]+".jpg")){
+      image = 'images/profile/blank-dp.png';
+      
+    }
     var appendThis = "<div class='block'>"
     appendThis += "<div class='name'>"
     appendThis += "<p>"+data[1]+"</p>"
     appendThis += "<p>"+data[0]+"</p></div>"
     appendThis += "<img class='frame' src='images/frame.png'>"
-    appendThis += "<img src='images/profile/"+data[1]+".jpg' class='pp'>"
+    appendThis += "<img src='"+image+"' class='pp'>"
     appendThis += "</div>"
-
-    $('#orgProfile_modal .modal-body div').html(appendThis)
+    whole += appendThis;
+    
     if(data[2] == 'true'){
       notClick = true;
     }
   });
+  $('#orgProfile_modal .modal-body div').html(whole)
+
   if(!notClick){
     $('#orgProfile_modal').modal('toggle');
   }
@@ -137,6 +145,13 @@ $(document).on('click','.org-block',function(){
 function closeAlert(){
   $('#alerts').modal('toggle');
   toggleMenu();
+}
+
+function check_file_exist(file){
+	var http = new XMLHttpRequest();
+	http.open('HEAD',file,false);
+	http.send();
+	return http.status == 404;
 }
 
 // Sending emails

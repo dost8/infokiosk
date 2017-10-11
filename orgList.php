@@ -6,7 +6,7 @@ $positions = [
   [57.6,3.5,'<br>COA Audit Team',['SA III (ATL)','SA II (ATM)','SA I (ATM)','AAI'],['SONIA M. ALVARINA','EVELINA M. ASEO','MARIA LUZ B. DELIMA','CHARILYN M. MANACPO']],
   // FAS
    [22.3,6.5,'Finance & Administrative Services',['Assistant Regional Director/HRMO'],['RUFINO E. MENGOTE, CESE']],
-   [13.85,9,'Administrative Assistant',['Administrative Aide VI'],['ROSALIE B. MAGCALAS']],
+   [13.85,9.3,'Administrative Assistant',['Administrative Aide VI'],['ROSALIE B. MAGCALAS']],
  //  [34.6,8.85],
    [10.1,12.9, 'Finance & Management Section',[''],[''],false],
 
@@ -33,17 +33,17 @@ $positions = [
    [55.6, 33.7, '<br>Southern Leyte PSTC',['Provincial S&T Director','Science Research Specialist II','Science Research Specialist I','Project Assistant II(TAIS)','Project Assistant I(TAIS)','Administrative Aide I'],['FLORITA M. SANTIAGO','NORMA CECILLE E. BAGARINAO','VANESSA KELLY J. BARIATA','EMEE SHEILA A. PELONA','REDEEMSETH N. GLORIA','PATRICK F. PUTAN']],
 
    [74.5,6,'<br> Technical Operations',['Assistant Regional Director'],['ERNESTO M. GRANADA, CSEE']],
-   [67,11,'<br> Technical Assistant',['Science Aide'],['JESSA MAY C. MERCADO']],
-   [88,8.8,'Planing, M & E, & Mgt. Info System',['Sr. SRS, Planning & MIS Officer','SRA','Science Aide'],['RODERICK B. PACAÑOT','NOLI D. PADAGDAG','JESSA MAY C. MERCADO']],
+   [67.3,11,'<br> Technical Assistant',['Science Aide'],['JESSA MAY C. MERCADO']],
+   [88,9.3,'Planing, M & E, & Mgt. Info System',['Sr. SRS, Planning & MIS Officer','SRA','Science Aide'],['RODERICK B. PACAÑOT','NOLI D. PADAGDAG','JESSA MAY C. MERCADO']],
    [88,13,'<br>ICT Section',['Science Research Specialist II, Web Admin/STARBOOKS','SRA, Alt. Web Admin/ICT Maint.'],['FLORENTINO L. QUIÑONES, JR','NOLI D. PADAGDAG']],
 
    [67.2,17.3,'Regional Standard & Testing Laboratory',['Sr. Science Research Specialist, Quality Manager'],['MARILYN O. RADAM']],
-   [67.2,21.5,'Physico - Chemical Laboratory',['Sr. Science Research Specialist II, Technical Manager','Science Research Specialist II(One Lab)'],['ARISTOTLE A. MAZO','LILANE A. CUTANDA']],
+   [67.2,21.7,'Physico - Chemical Laboratory',['Sr. Science Research Specialist II, Technical Manager','Science Research Specialist II(One Lab)'],['ARISTOTLE A. MAZO','LILANE A. CUTANDA']],
    [67.2, 26.5,'Microbiology Laboratory',['Sr. Science Research Specialist II, Technical Manager','Science Research Specialist II','Science Research Specialist I','Science Research Specialist I(One Lab)'],['MARILYN O. RADAM','EMMANUEL E. LAGDAMEN','ALFRED B. CALIBUSO','DARRIENE MAUREEN BERNABE']],
-   [67.2, 29.5,'Metrology and Calibration Laboratory',['Sr. Science Research Specialist II, Technical Manager','Science Research Specialist II','Science Research Specialist I(RMLs)','Science Research Specialist I(One Lab)','Science Research Aide(RMS)'],['RODERICK B. PACAÑOT','MARCELINO M. NICER','FILIPINAS M. PETILLA','RODEON NIÑO M. MERCADER','MIKE HARVEY G. AMBAIT']],
+   [67.2, 29.9,'Metrology and Calibration Laboratory',['Sr. Science Research Specialist II, Technical Manager','Science Research Specialist II','Science Research Specialist I(RMLs)','Science Research Specialist I(One Lab)','Science Research Aide(RMS)'],['RODERICK B. PACAÑOT','MARCELINO M. NICER','FILIPINAS M. PETILLA','RODEON NIÑO M. MERCADER','MIKE HARVEY G. AMBAIT']],
    [67.2, 34,'<br>Other Services',['Sr. Science Research Specialist, R&D, FIC','Sr. Science Research Specialist, FOC','Science Research Specialist II, FOC','Lab Tech II, EVSU'],['MARILYN O. RADAM','ROSELLA L. GOPO','ISABELITA M. PAMPOSA','KYLA S. ILAGAN']],
 
-   [83., 17.1,'Technical Support Services',['Supervising SRS, Executive Manager'],['MAE ANNE D. REYES']],
+   [83.3, 17.4,'Technical Support Services',['Supervising SRS, Executive Manager'],['MAE ANNE D. REYES']],
    [78.1, 21.6,'Tech Transfer & Commercialization Center',['Supervising SRS, Center Manager'],['MAE ANNE D. REYES']],
    [78.1,26,'<BR>SETUP',['Supervising SRS','Project Assistant III(RPMO)','Project Assistant II(LNU)','Project Assistant II(LNU)','Project Assistant II, RPMO/One Store','Sr. SRS, Technology Trainings/ IDEA Team/TAPI Programs'],['MAE ANNE D. REYES','JOSHUA M. REAMBONANZA','JEMA B. GISULGA','GEOFIL F. AMADOR','LYSANDER P. KING III','RAMIL T. UY']],
    [78.1,30.2,'Technical Consultancy',['SRS II, Consul. Head/MPEX','Science Research Specialist I, One Expert','Science Research Specialist II, CAPE/DATBED','Sr. Science Research Specialist, CPT/Energy Audit','Sr. Science Research Specialist, Food Safety/GMP'],['LUCIA P. DAUZ','NANCY A. MILITANTE','EVELYN B. TABLANTE','RAMIL T. UY','MARILY O. RADAM']],

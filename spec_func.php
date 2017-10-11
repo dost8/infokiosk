@@ -212,7 +212,7 @@ ini_set('max_execution_time',0);
     #$operation->execBatchFile('upload.bat');
   }
 
-  if($_GET['type'] == 'getAnnouncements'){
+  if($_GET['type'] == 'getAnnouncementss'){
     $result = array_reverse( $operation->selectData('news',['news']) );
     $count = 0; $tr = null;
     foreach($result as $key => $value){

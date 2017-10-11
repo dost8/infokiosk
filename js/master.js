@@ -1,17 +1,9 @@
 $(document).idle({
   onIdle: function(){
-    if( !$('#announcements').hasClass('in') ){
-      $('#announcements').modal('show');
-      $.ajax({
-        url : 'spec_func.php',
-        data : 'type=getAnnouncements'
-      }).done(function(r){
-        $('#announcements .modal-body').html(r);
-      })
-    }
+     window.location = "#/announcements/"
   },
   onActive: function(){
-    // console.log('holll');
+
   },
   idle: 600000
 });
@@ -164,6 +156,12 @@ app.config(function($routeProvider){
   $routeProvider
   .when('/laboratory',{
     templateUrl : 'laboratory/index.php'
+  })
+  .when('/',{
+    templateUrl : 'announcements.php'
+  })
+  .when('/announcements',{
+    templateUrl : 'announcements.php'
   })
   .when('/organization',{
     templateUrl : 'organization.php'

@@ -14,7 +14,7 @@ ini_set('max_execution_time',0);
     $operation->sendEmail('PDF File from DOST-8 Information Kiosk','DOST-8 Information Kiosk', $_GET['emailAdd'], $_GET['file'], $arr[2]);
   }
   if($_GET['type'] == 'updateKiosk'){
-    $operation->cloud_backup();die;
+    $operation->cloud_backup();
     $result = $operation->execBatchFile('downloadUpdates.bat');
     if(strpos($result, 'Already up-to-date.'))
       echo '';
@@ -244,7 +244,6 @@ ini_set('max_execution_time',0);
     if($_GET['type'] == 'openLink'){
       $list = ['oneExpert.bat','One Store','One Lab','Tech4ed','STARBOOKS'];
       echo system("cmd /c C:/xampp/htdocs/tech4ed/".$list[$_GET['link']]);
-      die;
       echo $operation->execBatchFile('hol2.bat');
     }
 ?>

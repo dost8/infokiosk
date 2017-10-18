@@ -26,7 +26,6 @@ ini_set('max_execution_time',0);
       $connected = @fsockopen('www.google.com', 80, $error);
       if($connected){
         $last_backup = $this->selectData('backup',['backup_date'],1,true);
-
         if(strcmp($last_backup['backup_date'], date('Y-m-d')) < 0){
           $feedbacks = $this->selectData('feedback',['chartRate','nob','d_services','d_services_text','comment', 'date'], 'date >= "'.$last_backup['backup_date'].'"');
           // Data to be passed to online DB. YEAH !!!!
@@ -55,7 +54,6 @@ ini_set('max_execution_time',0);
       $result = $this->selectData('backup', ['backup_date'], 1, true);
       if(strcmp($result['backup_date'], date('Y-m-d')) <= 1792 ){
         $this->cloud_backup();
-        echo "true";
       }
     }
 

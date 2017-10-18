@@ -21,16 +21,14 @@ $(document).ready(function(){
   }
 
   // check if updates are available
+  console.log('sync starts here');
   $.ajax({
     url:'spec_func.php',
     data:{
       'type':'checkUpdate'
     }
-  }).done(function(res){
-    if(res == 'true'){
-      $('.menu-button6').css('background','rgba(255, 255, 255, 0.31)');
-      $('.menu-button6 p').text('UPDATES ARE AVAILABLE');
-    }
+  }).done(function(){
+    console.log('sync ends here');
   })
 
   $(".myOwnCarousel").slick({

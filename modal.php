@@ -26,7 +26,7 @@
             </a>
           <?php endforeach?>
         </div>
-        <div class="row" style="margin-left:-1.5%;margin-top:5%">
+        <div class="row" style="margin-left:13.5%;margin-top:5%">
           <?php foreach(range(4,6) as $button): ?>
             <a href="#<?=$title[$button]?>" class="menu-button menu-button<?=$button?>">
                 <img src="images/clipart/<?=$title[$button]?>.png">

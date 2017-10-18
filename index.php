@@ -36,13 +36,18 @@
 
   <body ng-app="myApp">
     <div class="row">
-      <div class="menu" onclick="toggleMenu()">
-        <img src="images/clipart/menu.png" alt="" height="50"> Menu </i>
+      <div class="menu menu1" onclick="toggleMenu()" style="margin-left:7%;">
+        <img src="images/clipart/menu.png" alt="" height="50"> Menu
+      </div>
+      <div class="inetCheck">
+        <i class="fa fa-wifi fa-3x"></i>
+        <span class="tooltiptext"></span>
       </div>
       <div class="headName">
         <img src="">
         <span></span>
       </div>
+      
     </div>
 
     <input type="hidden" id="prompt" name="" value="">

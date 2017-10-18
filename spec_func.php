@@ -180,7 +180,8 @@ ini_set('max_execution_time',0);
 
   if($_GET['type'] == 'uploadNews'){
     // $_GET['content'] $_GET['url']
-
+    $content = str_replace('&nbps;','%20',$_GET['news']);
+    die($content);
     $arrContextOptions=array(
         "ssl"=>array(
             "verify_peer"=>false,
@@ -208,8 +209,9 @@ ini_set('max_execution_time',0);
         $content = str_replace($value, $value2, $content);
       }
     }
+    $content = str_replace('&nbps;','%20',$content);
     $operation->insertSingleRow('news',['news'=>urlencode($content), 'date'=>date('Y-m-d')]);
-    #$operation->execBatchFile('upload.bat');
+    $operation->execBatchFile('upload.bat');
   }
 
   if($_GET['type'] == 'getAnnouncementss'){

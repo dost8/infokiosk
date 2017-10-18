@@ -33,6 +33,11 @@ $(document).ready(function(){
     }
   })
 
+  //
+  setInterval(function(){
+    inetCheck();
+  }, 1000);
+
   $(".myOwnCarousel").slick({
       dots: true,
       infinite: true,
@@ -90,6 +95,16 @@ function backLink(){
 
 $.fn.closeModal = function(){
   alert('close this')
+}
+
+function inetCheck(){
+  if(navigator.onLine){
+    $('.inetCheck .fa-wifi').css('color','green');
+    $('.inetCheck span').text('Internet Connection Available');
+  }else{
+    $('.inetCheck .fa-wifi').css('color','red');
+    $('.inetCheck span').text('Internet Connection Unavailable');
+  }
 }
 
 function getRandomColor() {
@@ -184,7 +199,7 @@ app.config(function($routeProvider){
   .when('/status',{
     templateUrl : 'status/index.php'
   })
-  .when('/news',{
+  .when('/uploads',{
     templateUrl : 'news/index.php'
   })
 })

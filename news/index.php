@@ -46,6 +46,9 @@ function uploadNews(){
       });
     }
     data.join(',,');
+    console.log(content);
+    content.replace('&nbsp;',' ');
+    console.log(content);
 
     $.ajax({
       url: 'spec_func.php',

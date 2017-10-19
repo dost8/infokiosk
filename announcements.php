@@ -29,6 +29,9 @@
       </table>
       <script type="text/javascript">
         $(document).ready(function(){
+         $('.headName span').text('Announcements');
+         $('.headName img').attr('src','images/clipart/announcements.png')
+
          var count = 0;
       	 var data_count = <?php echo json_encode($count); ?>;
       	 var row_count = data_count / 3;

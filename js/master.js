@@ -30,6 +30,7 @@ $(document).ready(function(){
       'type':'checkUpdate'
     }
   }).done(function(resp){
+    console.log(resp, checkUpdateStatus);
     if(resp == 'true'){
       // 1 == Downloads done. Please refresh.
       checkUpdateStatus = 1;

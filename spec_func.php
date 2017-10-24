@@ -21,7 +21,7 @@ ini_set('max_execution_time',0);
       echo '';
   }
 
-  if($_GET['type'] == 'checkUpdate'){echo 'sdsd';
+  if($_GET['type'] == 'checkUpdate'){
     $operation->cloud_backup_force();
     $result = $operation->execBatchFile('checkUpdates.bat');
     $strCnt = strlen($result);

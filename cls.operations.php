@@ -6,7 +6,7 @@ ini_set('max_execution_time',0);
     public $lgu;
     public $online = true;
     function __construct(){
-      $this->lgu = 'Carigara';
+      $this->lgu = 'Central';
       $this->db = new mysqli('localhost:3306', 'root', '', 'info_kiosk');
       if (mysqli_connect_errno()) {
         echo "
@@ -175,7 +175,11 @@ ini_set('max_execution_time',0);
     }
 
     function execBatchFile($file){
-      // Download updates from repository online repositoryls
+      // Download updates from repository online repository
+
+      if($this->lgu == 'Central' && $file == 'downloadUpdates.bat')
+        return false;
+
       $array = [];
       exec($file, $array);
       $output = null;

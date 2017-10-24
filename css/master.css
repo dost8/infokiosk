@@ -40,7 +40,7 @@ body.modal-open{
 }
 
 /* Tooltip for internet connection check */
-.inetCheck .tooltiptext{
+.inetCheck .tooltiptext, .updateCheck .tooltiptext{
   width:230px;
   left:-4px; top:47px;
   background: white;
@@ -53,7 +53,7 @@ body.modal-open{
   position: absolute;
   z-index: 1;
 }
-.inetCheck:hover .tooltiptext{
+.inetCheck:hover .tooltiptext, .updateCheck .tooltiptext{
   visibility: visible;
 }
 

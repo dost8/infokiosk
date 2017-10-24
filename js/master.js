@@ -54,7 +54,7 @@ $(document).ready(function(){
         break;
     }
 
-    $('.inetCheck span').text(response);
+    $('.updateCheck span').text(response);
   }
 
 

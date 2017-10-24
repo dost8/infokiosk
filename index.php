@@ -43,6 +43,9 @@
         <i class="fa fa-wifi fa-3x"></i>
         <span class="tooltiptext"></span>
       </div>
+      <div class="updateCheck">
+        <img src="images/clipart/updateCheck.gif">
+      </div>
       <div class="headName">
         <img src="">
         <span></span>

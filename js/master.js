@@ -48,7 +48,7 @@ $(document).ready(function(){
 
   setInterval(function(){
     inetCheck();
-  }, 5000);
+  }, 3000);
 
   $(".myOwnCarousel").slick({
       dots: true,

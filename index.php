@@ -39,10 +39,10 @@
       <div class="menu menu1" onclick="toggleMenu()" style="margin-left:11%;">
         <img src="images/clipart/menu.png" alt="" height="50"> Menu
       </div>
-      <div class="inetCheck" style="width:3%;">
+<!--       <div class="inetCheck" style="width:3%;">
         <i class="fa fa-wifi fa-3x"></i>
         <span class="tooltiptext"></span>
-      </div>
+      </div> -->
       <div class="updateCheck">
         <img src="images/clipart/updateCheck.gif">
       </div>

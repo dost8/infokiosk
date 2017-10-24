@@ -23,7 +23,7 @@ $(document).ready(function(){
   // check if updates are available
   
   // 0 == currently checking network
-  var checkUpdateStatus = 0;
+  var updateStatus = 0;
   $.ajax({
     url:'spec_func.php',
     data:{
@@ -33,16 +33,28 @@ $(document).ready(function(){
     console.log(resp, checkUpdateStatus);
     if(resp == 'true'){
       // 1 == Downloads done. Please refresh.
-      checkUpdateStatus = 1;
+      updateStatus = 1;
     }else{
       // 2 == Already in latest version.
-      checkUpdateStatus = 2;
+      updateStatus = 2;
     }
     $('.updateCheck > img').attr('src','images/clipart/update-done.png');
   })
 
   $.fn.checkUpdateStatus = function(){
-    console.log(checkUpdateStatus);
+    switch(updateStatus){
+      case 0:
+        var response = "Checking for updates.";
+        break;
+      case 1:
+        var response = "All downloads done. Please refresh page.";
+        break;
+      case 2:
+        var response = "Already in its latest states.";
+        break;
+    }
+
+    $('.inetCheck span').text(response);
   }
 
 

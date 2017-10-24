@@ -21,17 +21,30 @@ $(document).ready(function(){
   }
 
   // check if updates are available
-  console.log('sync starts here');
+  
+  // 0 == currently checking network
+  var checkUpdateStatus = 0;
   $.ajax({
     url:'spec_func.php',
     data:{
       'type':'checkUpdate'
     }
-  }).done(function(){
-    console.log('sync ends here');
+  }).done(function(resp){
+    if(resp == 'true'){
+      // 1 == Downloads done. Please refresh.
+      checkUpdateStatus = 1;
+    }else{
+      // 2 == Already in latest version.
+      checkUpdateStatus = 2;
+    }
+    $('.updateCheck > img').attr('src','images/clipart/update-done.png');
   })
 
-  //
+  $.fn.checkUpdateStatus = function(){
+    console.log(checkUpdateStatus);
+  }
+
+
   setInterval(function(){
     inetCheck();
   }, 5000);

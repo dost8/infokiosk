@@ -28,7 +28,6 @@ ini_set('max_execution_time',0);
     if($strCnt > 250){
       echo 'true';
       $result = $operation->execBatchFile('downloadUpdates.bat');
-      echo $result;
     }else{
       echo 'false';
     }

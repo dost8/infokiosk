@@ -41,7 +41,7 @@
       </div>
       <div class="inetCheck" style="width:3%;">
         <i class="fa fa-wifi fa-3x"></i>
-        <span class="tooltiptext"></span>
+        <span class="tooltiptext">Checking for updates.</span>
       </div>
       <div class="updateCheck" onclick="$.fn.checkUpdateStatus()">
         <img src="images/clipart/load.gif" style="height:50px;margin:44px 105px;">

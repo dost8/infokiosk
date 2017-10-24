@@ -45,7 +45,7 @@
       </div>
       <div class="updateCheck" onclick="$.fn.checkUpdateStatus()">
         <img src="images/clipart/load.gif" style="height:50px;margin:44px 105px;">
-        <span class="tooltiptext" style="margin:50px;"></span>
+        <span class="tooltiptext" style="margin:48px 33px;"></span>
       </div>
       <div class="headName">
         <img src="">

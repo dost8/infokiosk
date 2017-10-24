@@ -43,8 +43,8 @@
         <i class="fa fa-wifi fa-3x"></i>
         <span class="tooltiptext"></span>
       </div>
-      <div class="updateCheck">
-        <img src="images/clipart/load.gif">
+      <div class="updateCheck" onclick="displayUpdateStatus()">
+        <img src="images/clipart/load.gif" style="height:50px;margin:44px 105px;">
       </div>
       <div class="headName">
         <img src="">

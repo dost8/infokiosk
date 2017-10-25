@@ -184,7 +184,6 @@ ini_set('max_execution_time',0);
   if($_GET['type'] == 'uploadNews'){
     // $_GET['content'] $_GET['url']
     $content = str_replace('&nbps;','%20',$_GET['news']);
-    die($content);
     $arrContextOptions=array(
         "ssl"=>array(
             "verify_peer"=>false,
@@ -202,7 +201,7 @@ ini_set('max_execution_time',0);
         $extension = '.'.substr( strrchr($value,'.'),1);
         $check = $operation->selectData('resources',['_id'],"link='".$value."'", true);
         if(empty($check)){
-          $last_id = $operation->insertSingleRow('resources',['link'=>$value]);
+          $last_id = $operation->insertSingleRow('resources',['link'=>$value, 'date'=>date('Y-m-d')]);
           $value2 = 'resources/'.$last_id.$extension;
           $file = file_get_contents($value, false, stream_context_create($arrContextOptions));
           file_put_contents($value2, $file);

@@ -28,11 +28,13 @@ ini_set('max_execution_time',0);
         $last_backup = $this->selectData('backup',['backup_date'],1,true);
         if(strcmp($last_backup['backup_date'], date('Y-m-d')) < 0){
           $feedbacks = $this->selectData('feedback',['chartRate','nob','d_services','d_services_text','comment', 'date'], 'date >= "'.$last_backup['backup_date'].'"');
+          $news = $this->selectData('news',['news', 'date'],'date >= "'.$last_backup['backup_date'].'"');
+          $resources = $this->selectData('resources',['link'],'date >= "'.$last_backup['backup_date'].'"');
           // Data to be passed to online DB. YEAH !!!!
           $values = [];
           $columns = [];
 
-          $i = 1;
+          // convert feedbacks to text
           if(!is_dir('backups/'.$this->lgu))
             mkdir('backups/'.$this->lgu);
 
@@ -43,6 +45,20 @@ ini_set('max_execution_time',0);
             $record = implode('<-->', $record)."\n";
             fwrite($file, $record);
           };
+          fclose($file);
+          // End Here
+
+          foreach($news as $record){
+            $file = fopen('backups/news--'.$record['date'].'--'.date('His').'.txt','w');
+            fwrite($file, $record['news']);
+            echo $record['news'].'<\n>';
+            fclose($file);
+          }
+
+          $file = fopen('backups/resources--'.$record['date'].'.txt','w');
+          foreach($resources as $record){
+            fwrite($file, $record['link'].'<br>');
+          }
           fclose($file);
           $this->insertSingleRow('backup', ['backup_date'=>date('Y-m-d')]);
         }

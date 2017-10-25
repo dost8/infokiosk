@@ -15,8 +15,9 @@ ini_set('max_execution_time',0);
   }
 
   if($_GET['type'] == 'updateKiosk'){
-    $operation->cloud_backup();
-    $result = $operation->execBatchFile('downloadUpdates.bat');
+    #$operation->cloud_backup();
+    #$result = $operation->execBatchFile('downloadUpdates.bat');
+    $operation->textToDirectDB();die;
     if(strpos($result, 'Already up-to-date.'))
       echo '';
   }

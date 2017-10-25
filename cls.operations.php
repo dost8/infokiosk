@@ -95,6 +95,25 @@ ini_set('max_execution_time',0);
       echo $this->db->error;
     }
 
+    // Convert News and Resource to Database records
+    function textToDirectDB(){
+      // $files = scandir('../tech4ed/backups');
+      $files = glob('../tech4ed/backups/*.{txt}', GLOB_BRACE);
+      $lastDate = $this->selectQuery('SELECT date FROM news ORDER BY _id DESC LIMIT 1');
+      foreach ($files as $key => $file) {
+        $file = explode('/', $file);
+
+        $filename = $file[3];
+        $file = explode('--', $file[3]);
+        if(strcmp($lastDate['date'], $file[1]) < 0){
+          if($file[0] == 'news'){
+            $value = file_get_contents('../tech4ed/backups/'.$filename);
+            echo $value;
+          }
+        }
+      }
+    }
+
     /**
     * @param string $table the table that will be used for the query
     * @param arrary $data supply the fields to be used for the query

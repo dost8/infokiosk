@@ -22,6 +22,7 @@ ini_set('max_execution_time',0);
       mysqli_close($this->db);
     }
 
+    // Backup files and turn SQL to text files
     function cloud_backup(){
       $connected = @fsockopen('www.google.com', 80, $error);
       if($connected){
@@ -57,7 +58,7 @@ ini_set('max_execution_time',0);
 
           $file = fopen('backups/resources--'.$record['date'].'.txt','w');
           foreach($resources as $record){
-            fwrite($file, $record['link'].'<br>');
+            fwrite($file, $record['link'].'<--->');
           }
           fclose($file);
           $this->insertSingleRow('backup', ['backup_date'=>date('Y-m-d')]);
@@ -98,17 +99,26 @@ ini_set('max_execution_time',0);
     // Convert News and Resource to Database records
     function textToDirectDB(){
       // $files = scandir('../tech4ed/backups');
-      $files = glob('../tech4ed/backups/*.{txt}', GLOB_BRACE);
+      $files = glob('backups/*.{txt}', GLOB_BRACE);
       $lastDate = $this->selectQuery('SELECT date FROM news ORDER BY _id DESC LIMIT 1');
       foreach ($files as $key => $file) {
         $file = explode('/', $file);
 
-        $filename = $file[3];
-        $file = explode('--', $file[3]);
-        if(strcmp($lastDate['date'], $file[1]) < 0){
+        $filename = $file[1];
+        $file = explode('--', $file[1]);
+        if(strcmp($lastDate[0]['date'], $file[1]) < 0){
+
           if($file[0] == 'news'){
-            $value = file_get_contents('../tech4ed/backups/'.$filename);
-            echo $value;
+            $value = file_get_contents('backups/'.$filename);
+            $this->insertSingleRow('news', ['news'=>$value, 'date'=>$file[1]]);
+          }
+
+          if($file[0] == "resources"){
+            $value = file_get_contents('backups/'.$filename);
+            $value = explode('<--->', $value);
+            foreach($value as $file){
+              $this->insertSingleRow('resources', ['link'=>$file]);
+            }
           }
         }
       }

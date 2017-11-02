@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2017 at 05:10 AM
+-- Generation Time: Nov 02, 2017 at 06:39 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -50,7 +50,15 @@ INSERT INTO `backup` (`id`, `backup_date`) VALUES
 (19, '2017-09-06'),
 (20, '2017-09-07'),
 (21, '2017-09-08'),
-(22, '2017-09-11');
+(22, '2017-09-11'),
+(23, '2017-09-12'),
+(24, '2017-09-15'),
+(25, '2017-10-04'),
+(26, '2017-10-11'),
+(28, '2017-10-18'),
+(29, '2017-10-24'),
+(31, '2017-10-30'),
+(32, '2017-11-02');
 
 -- --------------------------------------------------------
 
@@ -94,7 +102,8 @@ INSERT INTO `feedback` (`_id`, `nob`, `d_services`, `d_services_text`, `chartRat
 (21, 'Plastic/Rubber', 'Packaging & Labelling Services', 'wdaw', '01232', 'awda', '2017-08-23'),
 (22, 'Plastic/Rubber', 'Finance & Administrative Services', 'awdawd', '01201', 'adwwda', '2017-08-23'),
 (23, 'Handicraft/Holiday Decors', 'Packaging & Labelling Services', '', '10244', 'Hello WOlrd', '2017-09-11'),
-(24, 'Food', 'Training/Technical Consultancy Services', '', '03413', 'dfgdg', '2017-09-11');
+(24, 'Food', 'Training/Technical Consultancy Services', '', '03413', 'dfgdg', '2017-09-11'),
+(25, 'Food', 'SET-UP Innovation System Support', 'asd', '01213', 'asdasd', '2017-11-02');
 
 -- --------------------------------------------------------
 
@@ -395,9 +404,15 @@ CREATE TABLE `news` (
 
 INSERT INTO `news` (`_id`, `news`, `date`) VALUES
 (1, '%3Cp%3E%3Cimg+src%3D%22resources%2F6.png%22+alt%3D%22%22+width%3D%22484%22+height%3D%22485%22+%2F%3E%3C%2Fp%3E%3Cp%3EHello', '2017-09-08'),
-(2, '%3Cp%3E%3Cimg+src%3D%22resources%2F6.png%22+alt%3D%22%22+width%3D%22484%22+height%3D%22485%22+%2F%3E%3C%2Fp%3E%3Cp%3EHello', '2017-09-08'),
-(3, '%3Cp%3E%3Cimg+src%3D%22resources%2F6.png%22+alt%3D%22%22+width%3D%22484%22+height%3D%22485%22+%2F%3E%3C%2Fp%3E%3Cp%3EHello', '2017-09-08'),
-(4, '%3Cp+style%3D%22text-align%3A+center%3B%22%3E%3Cem%3E%3Cstrong%3Ezxzx%3C%2Fstrong%3E%3C%2Fem%3E%3C%2Fp%3E', '2017-09-11');
+(14, '%3Ch2+class%3D%22title%22%3EHolalalaa%3C%2Fh2%3E+%2F%2F%2F+%3Cspan+class%3D%22date_created%22+style%3D%22color%3A%236d6d6d%22%3EDate+Created%3A+September+12%2C+2017%3C%2Fspan%3E%3Cp%3Ewdwadwawdwd%3C%2Fp%3E', '2017-09-12'),
+(18, '%3Ca+href%3D%22%23%22+onclick%3D%22event.preventDefault%28%29%22+style%3D%22text-decoration%3Anone%3Bcolor%3A%23258faf%3B%22%3E%3Ch2+class%3D%22title%22%3EMAHAGKOT%3C%2Fh2%3E%3C%2Fa%3E%3Cspan+style%3D%22color%3A%236d6d6d%22%3EDate+Created%3A+September+12%2C+2017%3C%2Fspan%3E%3Cp%3EMahagkot+na+talaga+hin+duro.%3C%2Fp%3E', '2017-09-12'),
+(19, '%3Ca+href%3D%22%23%22+onclick%3D%22event.preventDefault%28%29%22+style%3D%22text-decoration%3Anone%3Bcolor%3A%23258faf%3B%22%3E%3Ch2+class%3D%22title%22%3EEVHRDC+participates+in+the+11th+PNHRS+Week+Celebration+at+PICC+Pasay+City%3C%2Fh2%3E%3C%2Fa%3E%3Cspan+style%3D%22color%3A%236d6d6d%22%3EDate+Created%3A+September+15%2C+2017%3C%2Fspan%3E%3Cp%3EThe+Eastern+Visayas+Health+Research+and+Development+Consortium+%28EVHRDC%29+participated+in+the+11th+Philippine+National+Health+Research+System+%28PNHRS%29+week+celebration+held+on+August+24-25%2C+2017+at+the+Philippines+Internation+Convention+Center+%28PICC%29%2C+Pasay+City.+The+momentous+occasion+was+spearheaded+by+the+Philippine+Council+for+Health+Research+and+Development+%28PCHRD%29+of+the+Department+of+Science+and+Technology+%28DOST%29.+The+celebration+is+a+gathering+of+different+stakeholders+in+health+research+and+development+to+contribute+research-based+solutions+to+health+problems.%3C%2Fp%3E', '2017-09-15'),
+(20, '%3Ca+href%3D%22%23%22+onclick%3D%22event.preventDefault%28%29%22+style%3D%22text-decoration%3Anone%3Bcolor%3A%23258faf%3B%22%3E%3Ch2+class%3D%22title%22%3EEVHRDC+participates+in+the+11th+PNHRS+Week+Celebration+at+PICC+Pasay+City%3C%2Fh2%3E%3C%2Fa%3E%3Cspan+style%3D%22color%3A%236d6d6d%22%3EDate+Created%3A+September+15%2C+2017%3C%2Fspan%3E%3Cp%3EThe+Eastern+Visayas+Health+Research+and+Development+Consortium+%28EVHRDC%29+participated+in+the+11th+Philippine+National+Health+Research+System+%28PNHRS%29+week+celebration+held+on+August+24-25%2C+2017+at+the+Philippines+Internation+Convention+Center+%28PICC%29%2C+Pasay+City.+The+momentous+occasion+was+spearheaded+by+the+Philippine+Council+for+Health+Research+and+Development+%28PCHRD%29+of+the+Department+of+Science+and+Technology+%28DOST%29.+The+celebration+is+a+gathering+of+different+stakeholders+in+health+research+and+development+to+contribute+research-based+solutions+to+health+problems.%3C%2Fp%3E', '2017-09-15'),
+(21, '%3Ca+href%3D%22%23%22+onclick%3D%22event.preventDefault%28%29%22+style%3D%22text-decoration%3Anone%3Bcolor%3A%23258faf%3B%22%3E%3Ch2+class%3D%22title%22%3EEVHRDC+participates+in+the+11th+PNHRS+Week+Celebration+at+PICC+Pasay+City%3C%2Fh2%3E%3C%2Fa%3E%3Cspan+style%3D%22color%3A%236d6d6d%22%3EDate+Created%3A+September+15%2C+2017%3C%2Fspan%3E%3Cp%3EThe+Eastern+Visayas+Health+Research+and+Development+Consortium+%28EVHRDC%29+participated+in+the+11th+Philippine+National+Health+Research+System+%28PNHRS%29+week+celebration+held+on+August+24-25%2C+2017+at+the+Philippines+Internation+Convention+Center+%28PICC%29%2C+Pasay+City.+The+momentous+occasion+was+spearheaded+by+the+Philippine+Council+for+Health+Research+and+Development+%28PCHRD%29+of+the+Department+of+Science+and+Technology+%28DOST%29.+The+celebration+is+a+gathering+of+different+stakeholders+in+health+research+and+development+to+contribute+research-based+solutions+to+health+problems.%3C%2Fp%3E', '2017-09-15'),
+(22, '%3Ca+href%3D%22%23%22+onclick%3D%22event.preventDefault%28%29%22+style%3D%22text-decoration%3Anone%3Bcolor%3A%23258faf%3B%22%3E%3Ch2+class%3D%22title%22%3EEVHRDC+participates+in+the+11th+PNHRS+Week+Celebration+at+PICC+Pasay+City%3C%2Fh2%3E%3C%2Fa%3E%3Cspan+style%3D%22color%3A%236d6d6d%22%3EDate+Created%3A+September+15%2C+2017%3C%2Fspan%3E%3Cp%3EThe+Eastern+Visayas+Health+Research+and+Development+Consortium+%28EVHRDC%29+participated+in+the+11th+Philippine+National+Health+Research+System+%28PNHRS%29+week+celebration+held+on+August+24-25%2C+2017+at+the+Philippines+Internation+Convention+Center+%28PICC%29%2C+Pasay+City.+The+momentous+occasion+was+spearheaded+by+the+Philippine+Council+for+Health+Research+and+Development+%28PCHRD%29+of+the+Department+of+Science+and+Technology+%28DOST%29.+The+celebration+is+a+gathering+of+different+stakeholders+in+health+research+and+development+to+contribute+research-based+solutions+to+health+problems.%3C%2Fp%3E', '2017-09-15'),
+(23, '%3Ca+href%3D%22%23%22+onclick%3D%22event.preventDefault%28%29%22+style%3D%22text-decoration%3Anone%3Bcolor%3A%23258faf%3B%22%3E%3Ch2+class%3D%22title%22%3EEVHRDC+participates+in+the+11th+PNHRS+Week+Celebration+at+PICC+Pasay+City%3C%2Fh2%3E%3C%2Fa%3E%3Cspan+style%3D%22color%3A%236d6d6d%22%3EDate+Created%3A+September+15%2C+2017%3C%2Fspan%3E%3Cp%3EThe+Eastern+Visayas+Health+Research+and+Development+Consortium+%28EVHRDC%29+participated+in+the+11th+Philippine+National+Health+Research+System+%28PNHRS%29+week+celebration+held+on+August+24-25%2C+2017+at+the+Philippines+Internation+Convention+Center+%28PICC%29%2C+Pasay+City.+The+momentous+occasion+was+spearheaded+by+the+Philippine+Council+for+Health+Research+and+Development+%28PCHRD%29+of+the+Department+of+Science+and+Technology+%28DOST%29.+The+celebration+is+a+gathering+of+different+stakeholders+in+health+research+and+development+to+contribute+research-based+solutions+to+health+problems.%3C%2Fp%3E', '2017-09-15'),
+(24, '%3Ca+href%3D%22%23%22+onclick%3D%22event.preventDefault%28%29%22+style%3D%22text-decoration%3Anone%3Bcolor%3A%23258faf%3B%22%3E%3Ch2+class%3D%22title%22%3ESETUP+elevates+MSMEs+to+higher+level%3C%2Fh2%3E%3C%2Fa%3E%3Cspan+style%3D%22color%3A%236d6d6d%22%3EDate+Created%3A+October+25%2C+2017%3C%2Fspan%3E%3Cp%3ECauayan+City%2C+Isabela-based+Agricomponent+Machineries+and+Construction+Corp.+%28AMCC%29%2C+one+of+the+top+suppliers+of+modern+agricultural+machineries+and+equipment+in+the+country%2C+experienced+business+challenges+in+its+operations+during+its+fledgling+days.+It+had+limited+fabrication+equipment%2C+resulting+in+inadequate+production+capacity+and+low+production+due+to+slow+production+processes+from+1993+to+2012.%3C%2Fp%3E%3Cp%3EBetis+Crafts+Inc.+%28BCI%29+in+Concepcion%2C+Tarlac%2C+needed+the+assistance+for+the+introduction+and+adoption+of+cutting-edge+woodworking+technologies%2C+to+upgrade+the+existing+processing+facilities+and+address+quality+issues+to+be+able+to+meet+the+quality+and+quantity+demand+of+current+and+target+markets.%3C%2Fp%3E%3Cp%3EThe+Bohol+Bee+Farm+Resort+and+Franchising+Corp.+needed+upgrading+of+its+homemade+ice+cream%2C+processing+technologies+to+increase+production+capacity+and+to+extend+product+shelf+life.+Furthermore%2C+it+also+aimed+to+upgrade+the+skills+of+its+workers+through+technology.%3C%2Fp%3E%3Cp%3EThese+micro%2C+small+and+medium+enterprises+%28MSMEs%29%2C+and+many+others%2C+turned+to+the+Small+Enterprise+Technology+Upgrading+Program+%28SETUP%29+for+succor.%3C%2Fp%3E%3Cp%3EA+creation+of+the+Department+of+Science+and+Technology+%28DOST%29+in+2002%2C+SETUP+aims+to+support+Filipino+entrepreneurs+in+key+metropolitan+areas+and+economic+hubs+in+the+countryside+and+provide+MSMEs+distinct+competitive+advantage%2C+DOST-Philippine+Council+for+Industry%2C+Energy+and+Emerging+Technology+Research+and+Development+%28PCIEERD%29+said.%3C%2Fp%3E%3Cp%3E%3Cstrong%3EMSMEs%3C%2Fstrong%3E%3C%2Fp%3E%3Cp%3EThe+DOST+recognizes+that+MSMEs+sector+is+a+vital+cog+to+the+economy.+Philippine+Statistics+Authority+%28PSA%29+data+cited+that+MSMEs+compose+99.5+percent+of+the+900%2C914+establishments+in+the+country+as+of+2015.+It+generated+a+total+of+4%2C784%2C870+jobs+in+2015+against+2%2C981%2C819+by+large+enterprises.%3C%2Fp%3E%3Cp%3EMoreover%2C+MSMEs+contributed+almost+61.6+percent+of+the+total+jobs+generated+by+all+types+of+business+establishments.+Of+these%2C+29.5+percent%2C+or+2%2C285%2C634+jobs%2C+were+generated+by+micro+enterprises%3B+25.3+percent%2C+or+1%2C968%2C452%2C+by+small+enterprises%3B+and+6.8+percent%2C+or+530%2C784%2C+by+medium+enterprises.%3C%2Fp%3E%3Cp%3EAware+of+the+impact+of+the+MSMEs+as+growth+driver%2C+the+DOST+assumed+the+role+of+enabling+the+MSMEs+through+the+appropriate+use+of+science%2C+technology+and+innovation+to+move+them+higher+in+the+value+chain.%3C%2Fp%3E%3Cp%3E%3Cstrong%3ESETUP%3C%2Fstrong%3E%3C%2Fp%3E%3Cp%3EThrough+SETUP%2C+the+DOST+is+able+to+respond+to+the+public%27s+demand+to+improve+access+to+technologies+and+breakthroughs+developed+by+the+different+DOST+facilities.+SETUP%27s+objective+is+to+help+MSMEs+utilize+technological+innovations+and+scientific+processes+that+improve+business+productivity+and+efficiency.%3C%2Fp%3E%3Cp%3ESETUP+assisted+MSMEs+to+improve+their+productivity+and+increase+efficiency+through+the+infusion+of+appropriate+DOST+technologies.%3C%2Fp%3E%3Cp%3EMSMEs%2C+especially+those+based+in+the+provinces%2C+are+empowered+by+providing+them+with+technologies+that+offer+stronger+capability+to+become+more+productive%2C+competitive+%28locally+and+globally%29+and+bankable.+Thus%2C+MSMEs+are+given+the+opportunities+to+become+major+players+in+the+international+arena+of+commerce+and+industry%2C+the+DOST+said.%3C%2Fp%3E%3Cp%3ESETUP+focuses+on+facilitating+technology+transfer+and+assessment+but+also+assists+MSMEs+through+different+interventions%3A+1%29+seed+fund+for+technology+acquisition%2C+2%29+equipment+acquisition%2C+3%29+technical+trainings+and+consultancy+services+%28Hazard+Analysis+and+Critical+Control+Points+and+Good+Manufacturing+Practices%2C+Quality+and+Environmental+Management+System%2C+4%29+packaging+and+label+design%3B+5%29+database+information+system%2C+and+6%29+support+in+the+establishment+of+product+standards+including+testing+and+calibration+of+equipment.%3C%2Fp%3E%3Cp%3E%3Cstrong%3EGame+changer%3C%2Fstrong%3E%3C%2Fp%3E%3Cp%3EIn+its+15th+year%2C+there+is+no+doubt+that+SETUP+is+a+game+changer+and+has+invogorated+and+transformed+the+MSMEs+with+technology-based+business+activities+and+strategies.+These+innovations+have+opened+up+a+new+avenue+of+economic+growth+that+will+promote+inclusive+growth%2C+the+DOST-PCIEERD+said.%3C%2Fp%3E', '2017-10-25'),
+(25, 'Holalalala', '2017-10-26');
 
 -- --------------------------------------------------------
 
@@ -409,16 +424,18 @@ CREATE TABLE `resources` (
   `_id` int(11) NOT NULL,
   `name` text NOT NULL,
   `link` text NOT NULL,
-  `type` text NOT NULL
+  `type` text NOT NULL,
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `resources`
 --
 
-INSERT INTO `resources` (`_id`, `name`, `link`, `type`) VALUES
-(6, '', 'https://region8.dost.gov.ph/images/rice2017call_for_entries.png', ''),
-(7, '', '', '');
+INSERT INTO `resources` (`_id`, `name`, `link`, `type`, `date`) VALUES
+(6, '', 'https://region8.dost.gov.ph/images/rice2017call_for_entries.png', '', '2017-09-27'),
+(7, '', '', '', '0000-00-00'),
+(8, '', 'hulalala', '', '0000-00-00');
 
 --
 -- Indexes for dumped tables
@@ -462,12 +479,12 @@ ALTER TABLE `resources`
 -- AUTO_INCREMENT for table `backup`
 --
 ALTER TABLE `backup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `feedbacks`
 --
@@ -477,12 +494,12 @@ ALTER TABLE `feedbacks`
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `resources`
 --
 ALTER TABLE `resources`
-  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

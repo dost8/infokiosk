@@ -56,8 +56,9 @@ ini_set('max_execution_time',0);
             fclose($file);
           }
 
-          $file = fopen('backups/resources--'.$record['date'].'.txt','w');
+
           foreach($resources as $record){
+            $file = fopen('backups/resources--'.$record['date'].'.txt','w');
             fwrite($file, $record['link'].'<--->');
           }
           fclose($file);

@@ -1,12 +1,11 @@
 <?php
+require_once('cls.lgu.php');
 ini_set('max_execution_time',0);
-  class Operations
+  class Operations extends Lgu
   {
     public $db;
-    public $lgu;
     public $online = true;
     function __construct(){
-      $this->lgu = 'Central';
       $this->db = new mysqli('localhost:3306', 'root', '', 'info_kiosk');
       if (mysqli_connect_errno()) {
         echo "

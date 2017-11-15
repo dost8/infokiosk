@@ -222,9 +222,6 @@ ini_set('max_execution_time',0);
     function execBatchFile($file){
       // Download updates from repository online repository
 
-      if($this->lgu == 'Central' && $file == 'downloadUpdates.bat')
-        return false;
-
       $array = [];
       exec($file, $array);
       $output = null;

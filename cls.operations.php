@@ -4,7 +4,6 @@ ini_set('max_execution_time',0);
   class Operations extends Lgu
   {
     public $db;
-    public $online = true;
     function __construct(){
       $this->db = new mysqli('localhost', 'root', '', 'info_kiosk');
       if (mysqli_connect_errno()) {

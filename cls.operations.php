@@ -37,6 +37,7 @@ ini_set('max_execution_time',0);
           if(!is_dir('backups/'.$this->lgu))
             mkdir('backups/'.$this->lgu);
 
+          // Loop per news to files
           $file = fopen('backups/'.$this->lgu.'/'.date('Y-m-d').'.txt', 'w');
           foreach($feedbacks as $record){
             $record['date'] = date('Y-m-d', strtotime($record["date"]));
@@ -54,9 +55,8 @@ ini_set('max_execution_time',0);
             fclose($file);
           }
 
-
+          $file = fopen('backups/resources--'.$record['date'].'.txt','w');
           foreach($resources as $record){
-            $file = fopen('backups/resources--'.$record['date'].'.txt','w');
             fwrite($file, $record['link'].'<--->');
           }
           fclose($file);

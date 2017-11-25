@@ -55,12 +55,13 @@ ini_set('max_execution_time',0);
             fclose($file);
           }
 
-          $file = fopen('backups/resources--'.$record['date'].'.txt','w');
+          $file = fopen('backups/resources--'.date('Y-m-d').'.txt','w');
+          var_dump($last_backup['backup_date']);
           foreach($resources as $record){
             fwrite($file, $record['link'].'<--->');
           }
           fclose($file);
-          $this->insertSingleRow('backup', ['backup_date'=>date('Y-m-d')]);
+        #  $this->insertSingleRow('backup', ['backup_date'=>date('Y-m-d')]);
         }
       }
      return false;
@@ -69,7 +70,7 @@ ini_set('max_execution_time',0);
     function cloud_backup_force(){
       $result = $this->selectData('backup', ['backup_date'], 1, true);
       if(strcmp($result['backup_date'], date('Y-m-d')) <= 1792 ){
-        $this->cloud_backup();
+      #  $this->cloud_backup();
       }
     }
 

@@ -177,9 +177,11 @@
 </div>
 
 <div class="modal fade" id="orgProfile_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Organization view profile">
-  <div class="modal-dialog modal-lg" style="margin-top:10%;width:40%">
+  <div class="modal-dialog modal-lg" style="margin-top:10%;width:45%">
     <div class="modal-content" style="background:rgb(196,196,196);min-height:20%" style="">
+    <div style="background:red;width:100%;height:15px;box-shadow:0 10 15 #888888"></div>
       <div class="modal-body" style="max-height:600px;overflow-y:auto;">
+        
         <button type="button" class="close" data-dismiss="modal" aria-label style="opacity:1">
           <img src="images/clipart/close.png" alt="" id="orgClose">
         </button>

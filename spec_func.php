@@ -26,10 +26,10 @@ ini_set('max_execution_time',0);
   #  $operation->cloud_backup_force();die;
     $result = $operation->execBatchFile('checkUpdates.bat');
     $strCnt = strlen($result);
-    echo $result;
     if($strCnt > 250){
       echo 'true';
       $result = $operation->execBatchFile('downloadUpdates.bat');
+      echo $result;
     }else{
       echo 'false';
     }

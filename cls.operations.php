@@ -1,13 +1,11 @@
 <?php
+require_once('cls.lgu.php');
 ini_set('max_execution_time',0);
-  class Operations
+  class Operations extends Lgu
   {
     public $db;
-    public $lgu;
-    public $online = true;
     function __construct(){
-      $this->lgu = 'Central';
-      $this->db = new mysqli('localhost:3306', 'root', '', 'info_kiosk');
+      $this->db = new mysqli('localhost', 'root', '', 'info_kiosk');
       if (mysqli_connect_errno()) {
         echo "
           <script type='text/javascript'>
@@ -27,7 +25,7 @@ ini_set('max_execution_time',0);
       $connected = @fsockopen('www.google.com', 80, $error);
       if($connected){
         $last_backup = $this->selectData('backup',['backup_date'],1,true);
-        if(strcmp($last_backup['backup_date'], date('Y-m-d')) < 0){
+        if(strcmp($last_backup['backup_date'], date('Y-m-d')) <= 0){
           $feedbacks = $this->selectData('feedback',['chartRate','nob','d_services','d_services_text','comment', 'date'], 'date >= "'.$last_backup['backup_date'].'"');
           $news = $this->selectData('news',['news', 'date'],'date >= "'.$last_backup['backup_date'].'"');
           $resources = $this->selectData('resources',['link'],'date >= "'.$last_backup['backup_date'].'"');
@@ -39,6 +37,7 @@ ini_set('max_execution_time',0);
           if(!is_dir('backups/'.$this->lgu))
             mkdir('backups/'.$this->lgu);
 
+          // Loop per news to files
           $file = fopen('backups/'.$this->lgu.'/'.date('Y-m-d').'.txt', 'w');
           foreach($feedbacks as $record){
             $record['date'] = date('Y-m-d', strtotime($record["date"]));
@@ -56,12 +55,13 @@ ini_set('max_execution_time',0);
             fclose($file);
           }
 
-          $file = fopen('backups/resources--'.$record['date'].'.txt','w');
+          $file = fopen('backups/resources--'.date('Y-m-d').'.txt','w');
+          var_dump($last_backup['backup_date']);
           foreach($resources as $record){
             fwrite($file, $record['link'].'<--->');
           }
           fclose($file);
-          $this->insertSingleRow('backup', ['backup_date'=>date('Y-m-d')]);
+        #  $this->insertSingleRow('backup', ['backup_date'=>date('Y-m-d')]);
         }
       }
      return false;
@@ -70,7 +70,7 @@ ini_set('max_execution_time',0);
     function cloud_backup_force(){
       $result = $this->selectData('backup', ['backup_date'], 1, true);
       if(strcmp($result['backup_date'], date('Y-m-d')) <= 1792 ){
-        $this->cloud_backup();
+      #  $this->cloud_backup();
       }
     }
 
@@ -221,9 +221,6 @@ ini_set('max_execution_time',0);
 
     function execBatchFile($file){
       // Download updates from repository online repository
-
-      if($this->lgu == 'Central' && $file == 'downloadUpdates.bat')
-        return false;
 
       $array = [];
       exec($file, $array);

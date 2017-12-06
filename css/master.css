@@ -109,14 +109,14 @@ body.modal-open{
 }
 
 #orgProfile_modal .frame{
-  width: 104%;  height: 40%;
-  margin-left: -3%;
+  width: 98%;  height: 40%;
+  margin-left: 0%;
 }
 #orgProfile_modal .pp{
   position: absolute;
-  left: 6.9%;
-  top: 61px;
-  height: 115px;
+  left: 9.5%;
+  top: 59px;
+  height: 119px;
 }
 
 #orgProfile_modal .name{

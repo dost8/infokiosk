@@ -1,7 +1,6 @@
 <?php
   require_once 'cls.operations.php';
   $operation = new Operations();
-
   require_once 'modal.php' ;
   ?>
 <!DOCTYPE html>
@@ -19,6 +18,7 @@
 <!--     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="js/orgchart/css/jquery.orgchart.css">
 
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
@@ -29,6 +29,7 @@
     <script type="text/javascript" src="js/slick.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/datatable.min.js"></script>
+    <script type="text/javascript" src="js/orgChart/js/jquery.orgchart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.bundle.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/master.js" ></script>
     <script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>

@@ -219,8 +219,15 @@ ini_set('max_execution_time',0);
   }
 
   if($_GET['type'] == 'getAnnouncements'){
-    for($i = 11; $i <= 20; $i++){
-      echo '<li>'.$i.'</li>';
+    $count = $_GET['count'];
+    $result = $operation->selectQuery("SELECT news,date FROM news ORDER BY '_id' DESC LIMIT $count");
+    if($count > 10)
+      $result = array_slice($result, ($count - 10));
+
+    foreach($result as $key => $value){
+      echo '<li data-count="'.$count.'">'.$value['news'].'</li>';
+      #var_dump($value);
+      #echo '<br>';
     }
   }
 

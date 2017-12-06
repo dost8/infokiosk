@@ -30,18 +30,29 @@
 
 			<div class="div_announcement" style="background:white;width:100%;">
 
-				<ul id="posts">
-					<?php
-						for($i = 1; $i <= 10; $i++){
-							echo '<li>'.$i.'</li>';
-						}
-					?>
-				</ul>
+				<ul id="posts"></ul>
 				<p id="loading">I am loading</p>
 			</div>
 
       <script type="text/javascript">
         $(document).ready(function(){
+
+        // Get the last 10 announcements
+				var count = 10;
+				appendToAnnouncement(count);
+
+
+        function appendToAnnouncement(count){
+					$('#loading').css('display','block');
+					$.ajax({
+						url:'spec_func.php',
+						data:{'type':'getAnnouncements','count':count},
+					}).done(function(html){
+						$('.div_announcement #posts').append(html);
+						$('.div_announcement #loading').css('display','none');
+					})
+				}
+
          $('.headName span').text('Announcements');
          $('.headName img').attr('src','images/clipart/announcements.png')
 

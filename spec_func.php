@@ -26,6 +26,7 @@ ini_set('max_execution_time',0);
   #  $operation->cloud_backup_force();die;
     $result = $operation->execBatchFile('checkUpdates.bat');
     $strCnt = strlen($result);
+    echo $result;
     if($strCnt > 250){
       echo 'true';
       $result = $operation->execBatchFile('downloadUpdates.bat');
@@ -215,6 +216,12 @@ ini_set('max_execution_time',0);
     $content = str_replace('&nbps;','%20',$content);
     $operation->insertSingleRow('news',['news'=>urlencode($content), 'date'=>date('Y-m-d')]);
     $operation->execBatchFile('upload.bat');
+  }
+
+  if($_GET['type'] == 'getAnnouncements'){
+    for($i = 11; $i <= 20; $i++){
+      echo '<li>'.$i.'</li>';
+    }
   }
 
   if($_GET['type'] == 'getAnnouncementss'){

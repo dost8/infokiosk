@@ -1,5 +1,4 @@
 <?php
-  die;
   require_once 'cls.operations.php';
   $operation = new Operations();
   require_once 'modal.php' ;

@@ -21,7 +21,7 @@ $(document).ready(function(){
   }
 
   // check if updates are available
-  
+
   // 0 == currently checking network
   var updateStatus = 0;
   $.ajax({
@@ -150,7 +150,7 @@ $(document).on('click','.org-block',function(){
     var image = "images/profile/"+data[1]+".jpg";
     if(check_file_exist('images/profile/'+data[1]+".jpg")){
       image = 'images/profile/blank-dp.png';
-      
+
     }
     var appendThis = "<div class='block'>"
     appendThis += "<div class='name'>"
@@ -160,7 +160,7 @@ $(document).on('click','.org-block',function(){
     appendThis += "<img src='"+image+"' class='pp'>"
     appendThis += "</div>"
     whole += appendThis;
-    
+
     if(data[2] == 'true'){
       notClick = true;
     }
@@ -197,10 +197,10 @@ app.config(function($routeProvider){
     templateUrl : 'laboratory/index.php'
   })
   .when('/',{
-    templateUrl : 'announcements.php'
+    templateUrl : 'announcements/index.php'
   })
   .when('/announcements',{
-    templateUrl : 'announcements.php'
+    templateUrl : 'announcements/index.php'
   })
   .when('/organization',{
     templateUrl : 'organization.php'

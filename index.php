@@ -35,7 +35,7 @@
     <script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
   </head>
 
-  <body ng-app="myApp">
+  <body ng-app="myApp" style="width:99%;">
     <div class="row">
       <div class="menu menu1" onclick="toggleMenu()" style="margin-left:11%;">
         <img src="images/clipart/menu.png" alt="" height="50"> Menu

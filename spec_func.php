@@ -225,9 +225,7 @@ ini_set('max_execution_time',0);
       $result = array_slice($result, ($count - 10));
 
     foreach($result as $key => $value){
-      echo '<li data-count="'.$count.'">'.$value['news'].'</li>';
-      #var_dump($value);
-      #echo '<br>';
+      echo '<li data-count="'.$count.'" style="border-bottom:2px solid #ccc;bprder-top:1px solid #ccc;text-align:justify;padding:0 15 0 10;">'.urldecode($value['news']).'</li>';
     }
   }
 

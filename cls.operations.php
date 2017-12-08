@@ -143,7 +143,6 @@ ini_set('max_execution_time',0);
       return $this->db->insert_id;
     }
 
-
     function selectData($table, array $data, $where = 1, $limit = false){
       $db_conn = $this->db;
 

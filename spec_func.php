@@ -24,6 +24,7 @@ ini_set('max_execution_time',0);
 
   if($_GET['type'] == 'checkUpdate'){
   #  $operation->cloud_backup_force();die;
+
     $result = $operation->execBatchFile('checkUpdates.bat');
     $strCnt = strlen($result);
     if($strCnt > 250){
@@ -220,14 +221,15 @@ ini_set('max_execution_time',0);
 
   if($_GET['type'] == 'getAnnouncements'){
     $count = $_GET['count'];
-    $result = $operation->selectQuery("SELECT news,date FROM news ORDER BY '_id' DESC LIMIT $count");
-    if($count > 10)
-      $result = array_slice($result, ($count - 10));
-
+    $id = $_GET['id'];
+    $WHERE = '';
+    if($id != 0){
+      $WHERE = "WHERE '_id' > ".$id;
+    }
+    $result = $operation->selectQuery("SELECT _id,news,date FROM news $WHERE ORDER BY _id DESC LIMIT $count");
+    
     foreach($result as $key => $value){
-      echo '<li data-count="'.$count.'">'.$value['news'].'</li>';
-      #var_dump($value);
-      #echo '<br>';
+      echo '<li data-count="'.$count.'" style="height:30px;">'.$value['news'].'</li>';
     }
   }
 

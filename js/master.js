@@ -30,7 +30,7 @@ $(document).ready(function(){
       'type':'checkUpdate'
     }
   }).done(function(resp){
-    console.log(resp, updateStatus);
+    // console.log(resp, updateStatus);
     if(resp == 'true'){
       // 1 == Downloads done. Please refresh.
       updateStatus = 1;
@@ -140,6 +140,15 @@ function getRandomColor() {
   return color;
 }
 
+function anonymousSqlAjax(query){
+  $.ajax({
+    url:spec_func.php,
+    data:{'type':'anonymousSqlAjax','query':query},
+  }).done(function(res){
+    return res;
+  })
+}
+
 // Display profile in the organization
 $(document).on('click','.org-block',function(){
   var i = 1;
@@ -197,10 +206,10 @@ app.config(function($routeProvider){
     templateUrl : 'laboratory/index.php'
   })
   .when('/',{
-    templateUrl : 'announcements/index.php'
+    templateUrl : 'announcements.php'
   })
   .when('/announcements',{
-    templateUrl : 'announcements/index.php'
+    templateUrl : 'announcements\.php'
   })
   .when('/organization',{
     templateUrl : 'organization.php'

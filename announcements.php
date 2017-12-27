@@ -16,22 +16,11 @@
 	//}
   ?> -->
 
-      <!-- <table id="tbl_announcement" class="table" style="background:white">
-        <thead>
-          <tr><td></td></tr>
-        </thead>
-        <tbody>
 
-        </tbody>
-        <tfoot>
-          <tr><td></td></tr>
-        </tfoot>
-      </table> -->
+			<div class="div_announcement" id="scroll-content" style="background:white;width:100%;height:100%;overflow:scroll  ;position:relative">
+				<ul class="posts">
 
-			<div class="div_announcement" style="background:white;width:100%;">
-
-				<ul id="posts"></ul>
-				<p id="loading">I am loading</p>
+        </ul>
 			</div>
 
       <script type="text/javascript">
@@ -39,47 +28,33 @@
 
         // Get the last 10 announcements
 				var count = 10;
-				appendToAnnouncement(count);
-
+        var id = 0;
+			  appendToAnnouncement(count);
 
         function appendToAnnouncement(count){
 					$('#loading').css('display','block');
 					$.ajax({
 						url:'spec_func.php',
-						data:{'type':'getAnnouncements','count':count},
+						data:{'type':'getAnnouncements','count':count,'id':id},
 					}).done(function(html){
-						$('.div_announcement #posts').append(html);
+						$('.div_announcement .posts').append(html);
 						$('.div_announcement #loading').css('display','none');
 					})
 				}
 
-         $('.headName span').text('Announcements');
-         $('.headName img').attr('src','images/clipart/announcements.png')
+        var div = $('.div_announcement');
+        div.scroll(function(){
+          if( (div.height() - div.scrollTop()) <= 200){
+            appendToAnnouncement(count);
+          }
+        })
 
-				 var win = $('#div_announcement');
-
-				 var checkForNewDiv = function(){
-					 var lastDiv = $("#posts > li:last-child");
-				 }
-
-				 //Each time the user scrolls
-				 win.scroll(function(){
-           // End of the document reached?
-					 if($(document).height() - win.height() == win.scrollTop()){
-						 $('#loading').show();
-
-						 $.ajax({
-							 url:'spec_func.php?announcements',
-							 dataType:'html',
-						 }).done(function(html){
-							 $('#posts').append(html);
-							 $('#loading').hide();
-						 })
-					 }
-				 })
+        //  $('.headName span').text('Announcements');
+        //  $('.headName img').attr('src','images/clipart/announcements.png')
+});
 
          // var count = 0;
-      	 // var data_count = <?php #echo json_encode($count); ?>;
+      	 // var data_count = 
       	 // var row_count = data_count / 3;
          //
          // var table = $('#tbl_announcement').DataTable({
@@ -101,5 +76,5 @@
          //  $('#tbl_announcement_filter input').addClass('form-control');
          //  $('#tbl_announcement_info').css('display','none');
          // $('#announcements .modal-body .dataTables_length').css('display','none');
-        });
+        // });
       </script>

@@ -22,10 +22,14 @@
 		$firstId = $operations->selectQuery("SELECT _id FROM news ORDER BY _id ASC LIMIT 1");
 	?>
 
-			<div class="div_announcement" id="scroll-content" style="background:white;width:100%;height:100%;overflow:scroll;position:relative">
-				<ul class="posts">
+			<div class="div_announcement" id="scroll-content" style="background:white;width:100%;height:100%;padding-top:50px;position:relative;background:#e7e7e7;box-radius:20px;">
+				<input type="text" name="" value="" class="form-control" style="position:fixed;right:60px;margin-top:-41px;width:25%;" placeholder="Search">
+				<div class="" style="overflow:scroll;height:695px;background:white;">
+					<ul class="posts" style="">
 
-        </ul>
+					</ul>
+				</div>
+
 				<p id="loading">WAIT!!!</p>
 			</div>
 
@@ -35,6 +39,7 @@
         // Get the last 10 announcements
 				var counter = 10;
         var id = 0;
+				var lastId = -1;
 				var firstId = "<?php echo $firstId[0]['_id']; ?>";
 			  appendToAnnouncement(counter, id);
 
@@ -59,12 +64,28 @@
           // If less greater than 50, run appendToAnnouncement function with 'Counter' as parameter
           if( ( (div.height() + div.scrollTop() ) - (lastChild.height() + lastChildOffset.top) ) >= 5){
 						id = lastChild.data('id');
-						if(id > firstId){
-							$('.div_announcement #loading').css('display','block');
-							appendToAnnouncement(counter, id);
+						if(lastId != id){
+							if(id > firstId){
+								lastId = id;
+								$('.div_announcement #loading').css('display','block');
+								appendToAnnouncement(counter, id);
+							}
 						}
           }
         })
+
+				$(document).on('keydown','.div_announcement input', function(){
+					$('.div_announcement #loading').css('display','block');
+					var keyword = $(this).val();
+
+					$.ajax({
+						url:'spec_func.php',
+						data:{'type':'getSpecificAnnouncements','keyword':keyword}
+					}).done(function(html){
+						$('.div_announcement #loading').css('display','none');
+						$('.div_announcement .posts').append(html);
+					});
+				});
 
         //  $('.headName span').text('Announcements');
         //  $('.headName img').attr('src','images/clipart/announcements.png')

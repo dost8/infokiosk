@@ -232,6 +232,13 @@ ini_set('max_execution_time',0);
     }
   }
 
+// Function for getting keywords from Search bar in Announcements page
+  if($_GET['type'] == 'getSpecificAnnouncements'){
+    $keyword = $_GET['keyword'];
+    $result = $operation->selectQuery("SELECT _id,news,date FROM news WHERE ")
+
+  }
+
   if($_GET['type'] == 'getAnnouncementss'){
     $result = array_reverse( $operation->selectData('news',['news']) );
     $count = 0; $tr = null;
@@ -268,7 +275,7 @@ ini_set('max_execution_time',0);
     }
 
     if($_GET['type'] == 'anonymousSqlAjax'){
-      
+
     }
 
 ?>

@@ -181,7 +181,7 @@
     <div class="modal-content" style="background:rgb(196,196,196);min-height:20%" style="">
     <div style="background:red;width:100%;height:15px;box-shadow:0 10 15 #888888"></div>
       <div class="modal-body" style="max-height:600px;overflow-y:auto;">
-        
+
         <button type="button" class="close" data-dismiss="modal" aria-label style="opacity:1">
           <img src="images/clipart/close.png" alt="" id="orgClose">
         </button>
@@ -366,17 +366,19 @@
   </div>
 </div>
 
-<div class="modal fade" id="announcements" tabindex="-1" aria-hidden="true" aria-labelledby="For announcements">
+<div class="modal fade" id="announcements-modal" tabindex="-1" aria-hidden="true" aria-labelledby="For announcements">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button class="close" type="button" name="button" data-dismiss="modal" style="position:absolute;right:20px;" aria-label>
           <span aria-hidden="true">&times;</span>
         </button>
-        <h2 class="modal-title">Announcements</h2>
+        <h2 class="modal-title"></h2>
       </div>
       <div class="modal-body" style="height:650px;text-align:center;overflow-y:auto;">
-
+        <h2 class="headline"></h2>
+        <p class="postDate"></p>
+        <span class="news"></span>
       </div>
     </div>
   </div>

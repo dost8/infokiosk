@@ -140,14 +140,6 @@ function getRandomColor() {
   return color;
 }
 
-function anonymousSqlAjax(query){
-  $.ajax({
-    url:spec_func.php,
-    data:{'type':'anonymousSqlAjax','query':query},
-  }).done(function(res){
-    return res;
-  })
-}
 
 // Display profile in the organization
 $(document).on('click','.org-block',function(){

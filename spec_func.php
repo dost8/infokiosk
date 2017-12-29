@@ -228,10 +228,16 @@ ini_set('max_execution_time',0);
     }
     $result = $operation->selectQuery("SELECT _id,headline,news,date FROM news $WHERE ORDER BY _id DESC LIMIT $count");
     foreach($result as $key => $value){
+      $news = urldecode($value['news']);
+      if( strlen($news) >= 500){
+        $news = substr($news, 0, 500). '...';
+      }
+
       echo '<li data-id="'.$value['_id'].'">
       <h2>'.$value['headline'].'</h2>
       <p class="postDate">Date Created: '.$value['date'].'</p>
-      '.urldecode($value['news']).'</li>';
+      <span class="hiddenText">'.$news.'</span>
+      <span class="news">'.$news.'</span></li>';
     }
   }
 
@@ -241,10 +247,16 @@ ini_set('max_execution_time',0);
     $result = $operation->selectQuery("SELECT _id,headline,news,date FROM news WHERE headline LIKE '%$keyword%' ORDER BY _id DESC");
 
     foreach($result as $key => $value){
+      $news = urldecode($value['news']);
+      if( strlen($news) >= 500){
+        $news = substr($news, 0, 500). '...';
+      }
+
       echo '<li data-id="'.$value['_id'].'">
       <h2>'.$value['headline'].'</h2>
       <p class="postDate">Date Created: '.$value['date'].'</p>
-      '.urldecode($value['news']).'</li>';
+      <span class="hiddenText invisible">'.$news.'</span>
+      '.$news.'</li>';
     }
   }
 

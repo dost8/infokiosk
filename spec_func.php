@@ -226,17 +226,26 @@ ini_set('max_execution_time',0);
     if($id != 0){
       $WHERE = "WHERE _id < ".$id;
     }
-    $result = $operation->selectQuery("SELECT _id,news,date FROM news $WHERE ORDER BY _id DESC LIMIT $count");
+    $result = $operation->selectQuery("SELECT _id,headline,news,date FROM news $WHERE ORDER BY _id DESC LIMIT $count");
     foreach($result as $key => $value){
-      echo '<li data-count="'.$count.'" style="border-bottom:2px solid #ccc;border-top:1px solid #ccc;text-align:justify;padding:0 15 0 10;height:100px;" data-id="'.$value['_id'].'">'.urldecode($value['news']).'</li>';
+      echo '<li data-id="'.$value['_id'].'">
+      <h2>'.$value['headline'].'</h2>
+      <p class="postDate">Date Created: '.$value['date'].'</p>
+      '.urldecode($value['news']).'</li>';
     }
   }
 
 // Function for getting keywords from Search bar in Announcements page
   if($_GET['type'] == 'getSpecificAnnouncements'){
     $keyword = $_GET['keyword'];
-    $result = $operation->selectQuery("SELECT _id,news,date FROM news WHERE ")
+    $result = $operation->selectQuery("SELECT _id,headline,news,date FROM news WHERE headline LIKE '%$keyword%' ORDER BY _id DESC");
 
+    foreach($result as $key => $value){
+      echo '<li data-id="'.$value['_id'].'">
+      <h2>'.$value['headline'].'</h2>
+      <p class="postDate">Date Created: '.$value['date'].'</p>
+      '.urldecode($value['news']).'</li>';
+    }
   }
 
   if($_GET['type'] == 'getAnnouncementss'){

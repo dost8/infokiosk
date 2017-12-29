@@ -22,10 +22,27 @@
 		$firstId = $operations->selectQuery("SELECT _id FROM news ORDER BY _id ASC LIMIT 1");
 	?>
 
+			<style media="screen">
+				.div_announcement li{
+					border-top: 2px solid #ccc;
+					border-bottom: 1px solid #ccc;
+					text-align: justify;
+					padding: 0 15 0 10;
+					min-height:100px;
+				}
+				.div_announcement li h2{
+					color: #2ba6cb;
+					font-weight: 400;
+				}
+				.div_announcement li span{
+					color:#ccc;
+				}
+			</style>
+
 			<div class="div_announcement" id="scroll-content" style="background:white;width:100%;height:100%;padding-top:50px;position:relative;background:#e7e7e7;box-radius:20px;">
 				<input type="text" name="" value="" class="form-control" style="position:fixed;right:60px;margin-top:-41px;width:25%;" placeholder="Search">
 				<div class="" style="overflow:scroll;height:695px;background:white;">
-					<ul class="posts" style="">
+					<ul class="posts" style="width:98%;list-style:none">
 
 					</ul>
 				</div>
@@ -55,7 +72,7 @@
 				}
 
         // Get the Height + the offsetTop of .div_announcement DIV and last li child
-        var div = $('.div_announcement');
+        var div = $('.div_announcement div');
         div.scroll(function(){
 					var lastChild = $('.div_announcement li:last-child');
 					var lastChildOffset = lastChild.offset();
@@ -74,17 +91,26 @@
           }
         })
 
-				$(document).on('keydown','.div_announcement input', function(){
+				$('.div_announcement input').keyup(function(){
 					$('.div_announcement #loading').css('display','block');
 					var keyword = $(this).val();
 
-					$.ajax({
-						url:'spec_func.php',
-						data:{'type':'getSpecificAnnouncements','keyword':keyword}
-					}).done(function(html){
-						$('.div_announcement #loading').css('display','none');
-						$('.div_announcement .posts').append(html);
-					});
+					if(keyword == ''){
+						$('.div_announcement .posts').html('');
+
+						counter = 10;
+						id = 0;
+						lastId = -1;
+						appendToAnnouncement(counter, id);
+					}else{
+						$.ajax({
+							url:'spec_func.php',
+							data:{'type':'getSpecificAnnouncements','keyword':keyword}
+						}).done(function(html){
+							$('.div_announcement #loading').css('display','none');
+							$('.div_announcement .posts').html(html);
+						});
+					}
 				});
 
         //  $('.headName span').text('Announcements');

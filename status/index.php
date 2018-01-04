@@ -8,15 +8,17 @@
         $lguList = scandir('../backups/');
         for($i = 2; $i < count($lguList);$i++){
           $result = $op->selectData('feedbacks',['date'],"lgu = '".$lguList[$i]."'", true);
-          $dateList = scandir('../backups/'.$lguList[$i]);
-          for($ii = 2;$ii < count($dateList); $ii++){
-            $dateList[$ii] = str_replace('.txt','',$dateList[$ii]);
+          if(is_dir('../backups/'.$lguList[$i])){
+            $dateList = scandir('../backups/'.$lguList[$i]);
+            for($ii = 2;$ii < count($dateList); $ii++){
+              $dateList[$ii] = str_replace('.txt','',$dateList[$ii]);
 
-            if(strtotime($dateList[$ii]) > strtotime($result['date']))
-              $op->textToSQL('../backups/'.$lguList[$i].'/'.$dateList[$ii].'.txt');
+              if(strtotime($dateList[$ii]) > strtotime($result['date'])){
+                    $op->textToSQL('../backups/'.$lguList[$i].'/'.$dateList[$ii].'.txt');
+              }
+            }
           }
         }
-
         // $lguList = $op->selectQuery("SELECT DISTINCT lgu FROM feedbacks");
         $dates[0] = $op->selectQuery("SELECT date FROM feedbacks ORDER BY _id ASC LIMIT 1");
         $dates[1] = $op->selectQuery("SELECT date FROM feedbacks ORDER BY _id DESC LIMIT 1");

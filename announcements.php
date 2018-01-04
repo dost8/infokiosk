@@ -121,12 +121,12 @@
 				});
 
 				$(document).on('click','.div_announcement li', function(){
-					var modal = '#announcements-modal';
-					$(modal).children('.modal-body .headline').css('background','red	');
-					$(modal).children('.modal-body .postdate').text( $(this).children('.postDate').text );
-					$(modal).children('.modal-body .news').text( $(this).children('.news').text );
+					var modal = '#announcements-modal ';
+					$(modal+ '.modal-body h2').html( $(this).children('h2').html() );
+					$(modal+ '.modal-body .postdate').html( $(this).children('.postDate').html() );
+					$(modal+ '.modal-body .news').html( $(this).children('.news').html() );
 
-					$('#announcements-modal').modal('show');
+					$(modal).modal('show');
 				});
 
         //  $('.headName span').text('Announcements');

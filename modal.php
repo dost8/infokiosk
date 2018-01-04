@@ -376,9 +376,9 @@
         <h2 class="modal-title"></h2>
       </div>
       <div class="modal-body" style="height:650px;text-align:center;overflow-y:auto;">
-        <h2 class="headline"></h2>
+        <h2 class="headline" style="color:#2ba6cb"></h2>
         <p class="postDate"></p>
-        <span class="news"></span>
+        <p class="news" style="text-align:justify"></p>
       </div>
     </div>
   </div>

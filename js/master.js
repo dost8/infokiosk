@@ -102,6 +102,28 @@ function continueTask(check){
   return check;
 }
 
+// Creating node function
+var temp_position = [0,0];
+function addOrgNode(){
+ alert('Select position on where to apply new node.');
+
+ $(document).bind('mousemove', function(e){
+   $('.orgList-block').append('<div class="org-block temp-org-block" style="background:red"></div>');
+   $('.temp-org-block').css({
+     'left':e.pageX-55,
+     'top':e.pageY-110
+   });
+ })
+
+ $(document).bind('click', function(e){
+   temp_position = [e.pageX-55, e.pageY-110];
+
+   $('#createNode').modal('toggle');
+   $('#createNode .modal-body #posX').value( temp_position[0] );
+   $('#createNode .modal-body #posY').value( temp_position[1] );
+ });
+}
+
 // Opening external websites inside iframe
 function openLink(u, f, h = null){
   var frame = $(f+' .div-frame').html('');
@@ -201,7 +223,7 @@ app.config(function($routeProvider){
     templateUrl : 'announcements.php'
   })
   .when('/announcements',{
-    templateUrl : 'announcements\.php'
+    templateUrl : 'announcements.php'
   })
   .when('/organization',{
     templateUrl : 'organization.php'

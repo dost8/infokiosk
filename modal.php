@@ -179,7 +179,7 @@
 <div class="modal fade" id="orgProfile_modal" tabindex="-1" aria-hidden="true" aria-labelledBy="Organization view profile">
   <div class="modal-dialog modal-lg" style="margin-top:10%;width:45%">
     <div class="modal-content" style="background:rgb(196,196,196);min-height:20%" style="">
-    <div style="background:red;width:100%;height:15px;box-shadow:0 10 15 #888888"></div>
+    <div style="width:100%;height:15px;box-shadow:0 10 15 #888888"></div>
       <div class="modal-body" style="max-height:600px;overflow-y:auto;">
 
         <button type="button" class="close" data-dismiss="modal" aria-label style="opacity:1">
@@ -395,6 +395,27 @@
       </div>
       <div class="modal-body" style="padding:0px;">
         <iframe src="" width="" height=""></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="createNode" tabindex="-1" aria-hidden="true" aria-labelledBy="For Creating new nodes in the organization model">
+  <div class="modal-dialog modal-lg" style="width:300px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title"></h2>
+        <button class="close" type="button" name="button" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="nodeNameTxt">Name</label>
+        <input type="text" class="form-control" id="nodeName" name="nodeNameTxt" value="">
+        <label for="nodePosX">Position X:</label>
+        <input type="text" class="form-control" id="posX" name="nodePosX" value="">
+        <label for="nodePosY">Position Y:</label>
+        <input type="text" class="form-control" id="posY" name="nodePosY" value="">
       </div>
     </div>
   </div>

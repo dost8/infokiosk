@@ -7,7 +7,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>DOST 8 Interactive Information Kiosk</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">

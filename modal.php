@@ -416,6 +416,14 @@
         <input type="text" class="form-control" id="posX" name="nodePosX" value="">
         <label for="nodePosY">Position Y:</label>
         <input type="text" class="form-control" id="posY" name="nodePosY" value="">
+        <label for="nodeClickable">Is Clickable:</label>
+        <select class="form-control" id="clickable" name="nodeClickable" style="height:30px;">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" name="button" class="btn btn-primary" onclick="saveOrgNode()">Save Node</button>
       </div>
     </div>
   </div>
@@ -425,7 +433,6 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-body" style="text-align:center">
-
       </div>
       <div class="modal-footer">
         <button class="btn btn-default" type="button" name="button" onclick="closeAlert()">Continue</button>

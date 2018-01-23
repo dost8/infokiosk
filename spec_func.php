@@ -289,14 +289,14 @@ ini_set('max_execution_time',0);
     <?php
     }
 
+    if($_GET['type'] == 'addOrgNode'){
+      $operation->insertSingleRow('organization_head',['name'=>$_GET['name'], 'position'=>$_GET['posX'].','.$_GET['posY'], 'date'=>date('Y-m-d'), 'clickable'=>$_GE['clickable']]);
+    }
+
     if($_GET['type'] == 'openLink'){
       $list = ['oneExpert.bat','One Store','One Lab','Tech4ed','STARBOOKS'];
       echo system("cmd /c C:/xampp/htdocs/tech4ed/".$list[$_GET['link']]);
       echo $operation->execBatchFile('hol2.bat');
-    }
-
-    if($_GET['type'] == 'anonymousSqlAjax'){
-
     }
 
 ?>

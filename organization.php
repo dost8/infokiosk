@@ -37,7 +37,55 @@ $result = $operation->selectData('organization_head',['_id','name','date','posit
     $('.headName span').text('Organization')
     $('.headName img').attr('src','images/clipart/organization.png')
 
-    // Getting the position of the cursor
 
   })
+  // Creating node function
+var temp_position = [0,0];
+var temp_org_block = '<div class="org-block temp_org_block" style="background:red"></div>';
+function addOrgNode(){
+ alert('Select position on where to apply new node.');
+ $('.orgList-block').append(temp_org_block);
+
+ $(document).bind('mousemove', function(e){
+
+   $('.temp_org_block').css({
+     'left':e.pageX-55,
+     'top':e.pageY-110
+   });
+ })
+
+ $(document).on('click', '.orgList-block', function(e){
+   temp_position = [e.pageX-55, e.pageY-110];
+
+   $('#createNode').modal('show');
+   $('#createNode .modal-body #posX').val( temp_position[0] );
+   $('#createNode .modal-body #posY').val( temp_position[1] );
+   $('.temp_org_block').remove();
+ });
+}
+
+function saveOrgNode(){
+  var modal = '#createNode';
+
+  $.ajax({
+    url:'spec_func.php',
+    data:{
+      'type':'addOrgNode',
+      'name':$(modal+' .modal-body #nodeName').val(),
+      'posX':$(modal+' .modal-body #posX').val(),
+      'posY':$(modal+' .modal-body #posY').val(),
+      'clickable':$(modal+' .modal-body #clickable').val(),
+    }
+  }).done(function(){
+    $(modal).modal('hide');
+
+    var respNode = '<a href="#" onclick="event.preventDefault()">';
+    respNode += '<div class="org-block" style="left:'+temp_position[0]+';top:'+temp_position[1]+'" >';
+    respNode += '<p class="org-titles">'+$(modal+' .modal-body #nodeName').val()+'</p>';
+    respNode += '</div></a>';
+
+    $('.orgList-block').append(respNode);
+    alert('Creation of organization node success');
+  });
+}
 </script>

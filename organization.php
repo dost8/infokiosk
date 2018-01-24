@@ -41,20 +41,43 @@ $result = $operation->selectData('organization_head',['_id','name','date','posit
   })
   // Creating node function
 var temp_position = [0,0];
-var temp_org_block = '<div class="org-block temp_org_block" style="background:red"></div>';
+var temp_org_block = '<div class="org-block temp_org_block" style="background:red"><p style="color:white"></p></div>';
 function addOrgNode(){
- alert('Select position on where to apply new node.');
+ alert('Select position on where to apply new node. Press escape to cancel.');
+ $('.orgList-block').append('<div class="temp_node_platform" style="position:absolute;width:100%;height:100%;"></div>');
  $('.orgList-block').append(temp_org_block);
 
  $(document).bind('mousemove', function(e){
+   // If cursor is over the organization box then display the temporary node div
+   if($('.temp_node_platform:hover').length > 0){
+     $('.temp_org_block').css('display','block');
+   }else{
+     $('.temp_org_block').css('display','none');
+   }
+   // !Important; If cursor is over on an already created node, then creation is disabled
+   if( $('.org-block:hover').length != 0 ){
+     console.log( $('.org-block:hover').length );
+     $('.temp_org_block p').text('Node already created');
+   }else{
+     console.log( $('.org-block:hover').length );
+     $('.temp_org_block p').text( $('#createNode .modal-body #nodeName').val() );
+   }
 
+   // Set css properties of div using the offset from mousemove event
    $('.temp_org_block').css({
      'left':e.pageX-55,
      'top':e.pageY-110
    });
+ });
+
+// Cancel of Creation or Update of nodes
+ $(document).keyup(function(e){0
+   if(e.keyCode == 27){
+     $('.temp_org_block, .temp_node_platform').remove();
+   }
  })
 
- $(document).on('click', '.orgList-block', function(e){
+ $(document).on('click', '.temp_node_platform', function(e){
    temp_position = [e.pageX-55, e.pageY-110];
 
    $('#createNode').modal('show');

@@ -16,7 +16,7 @@ body.modal-open{
   border-radius: 5px;
 }
 .menu:hover{
-  background: rgba(255, 255, 255, 0.31)   
+  background: rgba(255, 255, 255, 0.31)
 }
 .menu:link,.menu-visited{
   color:white;
@@ -84,6 +84,7 @@ body.modal-open{
   border-radius: 18px;
   word-wrap: break-word;
   color: white;
+  z-index:1;
 }
 .org-block span{
   display: none;

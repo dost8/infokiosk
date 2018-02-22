@@ -5,15 +5,14 @@ $result = $operation->selectData('organization_head',['_id','name','date','posit
 ?>
 <style media="screen">
   .org-titles{
-    margin-top:1px;
-    line-height:1;
+
   }
 </style>
 <!-- Adding of nodes -->
 
 
-<div class="orgList-block" style="min-width:100%;min-height:100%;background:rgb(52,73,94);border-radius:5px;box-shadow: 10px 8px 50px 10px rgba(9, 5, 3, 0.85);text-align:center">
-  <img src="images/clipart/org-chart.png" width="85%" alt="" style="position:absolute;left:0%;top:-3.5%;width:1480">
+<div class="orgList-block" style="min-width:100%; min-height:100%;background:rgb(52,73,94);border-radius:5px;box-shadow: 10px 8px 50px 10px rgba(9, 5, 3, 0.85);text-align:center">
+
 <?php foreach($result as $key => $node):
   $position=explode(',', $node['position']);
 ?>
@@ -23,9 +22,11 @@ $result = $operation->selectData('organization_head',['_id','name','date','posit
       <!-- generate the list of employees inside the Unit node -->
 
     </div>
+
   </a>
 
 <?php endforeach ?>
+    <img src="images/clipart/org-chart.png" width="85%" alt="" style="position:absolute;left:0%;top:-3.5%;width:1480">
 </div>
 
 <div class="addNodeBtn">
@@ -37,7 +38,15 @@ $result = $operation->selectData('organization_head',['_id','name','date','posit
     $('.headName span').text('Organization')
     $('.headName img').attr('src','images/clipart/organization.png')
 
-
+    // Loop each div then set its line height:
+    // Oh men, this will make the page load slower
+    $('.org-block').each(function(){
+      var spanHeight = $(this).children('.org-titles').height();
+      // (block height / 2) + 5 - span height;
+      var paddingHeight = 35 - spanHeight;
+      $(this).css('padding-top',paddingHeight+'px');
+      console.log(spanHeight, paddingHeight);
+    })
   })
   // Creating node function
 var temp_position = [0,0];
@@ -110,5 +119,7 @@ function saveOrgNode(){
     $('.orgList-block').append(respNode);
     alert('Creation of organization node success');
   });
+
+
 }
 </script>

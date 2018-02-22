@@ -229,4 +229,7 @@ app.config(function($routeProvider){
   .when('/uploads',{
     templateUrl : 'news/index.php'
   })
+  .when('/uploads2',{
+    templateUrl : 'news/index2.php'
+  })
 })
